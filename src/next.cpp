@@ -1,3 +1,6 @@
+#include <string>
+#include <string_view>
+
 #include <next.hpp>
 
 namespace NEXT
