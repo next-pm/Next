@@ -69,36 +69,45 @@ namespace NEXT
 
     void Next::get_all_source()
     {
-        
+
         std::system("ls -R >.next");
+#if defined(_WIN32)
+        std::system("ls -R >.next");
+#elif defined(__linux)
+        std::system("ls -R >.next");
+#endif
 
         std::string line;
         std::string dir;
         std::ifstream source(".next");
         char caracter;
-        if(source.is_open()){
-            while(getline(source, line)){
+        if (source.is_open())
+        {
+            while (getline(source, line))
+            {
                 for (std::size_t i = 0; i < line.size(); i++)
                 {
                     caracter = line[i];
-                    if(caracter == '.'){
-                        if(line[i + 1] == 'c'){
+                    if (caracter == '.')
+                    {
+                        if (line[i + 1] == 'c')
+                        {
                             dir[dir.size() - 1] = '/';
                             //std::cout<<dir + line<<'\n';
-                            
+
                             this->source_files.push_back(dir + line);
                             break;
                         }
                     }
-                    if(caracter == '.'){
-                        if(line[i + 1] == '/'){
+                    if (caracter == '.')
+                    {
+                        if (line[i + 1] == '/')
+                        {
                             dir = line;
                             break;
                         }
                     }
                 }
-                
-                
             }
         }
     }
