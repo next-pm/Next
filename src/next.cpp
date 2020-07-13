@@ -84,7 +84,7 @@ namespace NEXT
                     {
                         if (line[i + 1] == 'c')
                         {
-
+ 
                             this->source_files.push_back(line);
                             break;
                         }
