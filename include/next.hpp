@@ -2,11 +2,9 @@
 #define NEXT_HPP
 
 #include <string>
-#include <string_view>
 #include <fstream>
 #include <picojson.hpp>
 #include <vector>
-#include <filesystem>
 
 namespace NEXT
 {
@@ -39,12 +37,12 @@ namespace NEXT
         Next(/* args */);
         ~Next();
 
-        int init(std::string_view file);
+        int init(std::string file);
 
         template <typename Type>
-        Type find(std::string_view object)
+        Type find(std::string object)
         {
-            auto value = this->root.find(object.data());
+            auto value = this->root.find(object);
             if (value != this->root.end())
             {
                 if (value->second.is<Type>())

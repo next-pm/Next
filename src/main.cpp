@@ -9,6 +9,7 @@ int main(int argc, char const *argv[])
     NEXT::Next next;
     next.init("next.json");
     next.get_all_source();
+    
     std::string instruction = next.compiler_CC + " ";
     for (std::string s : next.cc_flags)
     {

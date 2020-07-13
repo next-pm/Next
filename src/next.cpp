@@ -1,5 +1,4 @@
 #include <string>
-#include <string_view>
 
 #include <next.hpp>
 
@@ -13,9 +12,9 @@ namespace NEXT
     {
     }
 
-    int Next::init(std::string_view file_dir)
+    int Next::init(std::string file_dir)
     {
-        std::ifstream file(file_dir.data());
+        std::ifstream file(file_dir);
         if (!file)
         {
             return -1;
@@ -69,14 +68,32 @@ namespace NEXT
 
     void Next::get_all_source()
     {
-
-        std::system("ls -R >.next");
 #if defined(_WIN32)
-        std::system("ls -R >.next");
+        std::system("dir /s/b >.next");
+        std::string line;
+        std::ifstream source(".next");
+        char caracter;
+        if (source.is_open())
+        {
+            while (getline(source, line))
+            {
+                for (std::size_t i = 0; i < line.size(); i++)
+                {
+                    caracter = line[i];
+                    if (caracter == '.')
+                    {
+                        if (line[i + 1] == 'c')
+                        {
+
+                            this->source_files.push_back(line);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
 #elif defined(__linux)
         std::system("ls -R >.next");
-#endif
-
         std::string line;
         std::string dir;
         std::ifstream source(".next");
@@ -110,5 +127,6 @@ namespace NEXT
                 }
             }
         }
+#endif
     }
 } // namespace NEXT
