@@ -13,6 +13,10 @@
     "object_dir": "obj",
     "binary_dir": "bin",
     "include_dir": "include",
+    "linker_dirs":[
+        "include", 
+        "src"
+    ],
     "libs_dir": "lib",
     "cc_flags": [
         "-Wall",

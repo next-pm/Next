@@ -1,8 +1,9 @@
 #include <string>
+#include <thread>
 
 #include <next.hpp>
 
-namespace NEXT
+namespace NEXT::Linux
 {
     Next::Next(/* args */)
     {
@@ -42,6 +43,13 @@ namespace NEXT
         this->include_dir = this->find<std::string>("include_dir");
         this->libs_dir = this->find<std::string>("libs_dir");
 
+        auto array_linker_dirs{this->find<picojson::array>("linker_dirs")};
+
+        for (size_t i = 0; i < array_linker_dirs.size(); i++)
+        {
+            this->linker_dirs.push_back(array_linker_dirs[i].get<std::string>());
+        }
+
         auto array_cc_flags{this->find<picojson::array>("cc_flags")};
 
         for (size_t i = 0; i < array_cc_flags.size(); i++)
@@ -68,65 +76,49 @@ namespace NEXT
 
     void Next::get_all_source()
     {
-#if defined(_WIN32)
-        std::system("dir /s/b >.next");
-        std::string line;
-        std::ifstream source(".next");
-        char caracter;
-        if (source.is_open())
-        {
-            while (getline(source, line))
-            {
-                for (std::size_t i = 0; i < line.size(); i++)
-                {
-                    caracter = line[i];
-                    if (caracter == '.')
-                    {
-                        if (line[i + 1] == 'c')
-                        {
- 
-                            this->source_files.push_back(line);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-#elif defined(__linux)
-        std::system("ls -R >.next");
-        std::string line;
+        std::system(Next::get_dir.c_str());
+        std::ifstream source_dir(Next::read_files_data.c_str());
         std::string dir;
-        std::ifstream source(".next");
-        char caracter;
+        getline(source_dir, dir);
+
+        std::system(Next::ls_and_write_files.c_str());
+        std::string line;
+        std::ifstream source(Next::read_files_data.c_str());
+
+        std::string dir_relative;
+
         if (source.is_open())
         {
             while (getline(source, line))
             {
-                for (std::size_t i = 0; i < line.size(); i++)
-                {
-                    caracter = line[i];
-                    if (caracter == '.')
-                    {
-                        if (line[i + 1] == 'c')
-                        {
-                            dir[dir.size() - 1] = '/';
-                            //std::cout<<dir + line<<'\n';
-
-                            this->source_files.push_back(dir + line);
-                            break;
-                        }
-                    }
-                    if (caracter == '.')
-                    {
-                        if (line[i + 1] == '/')
-                        {
-                            dir = line;
-                            break;
-                        }
-                    }
+                if (line.find(".cpp") != std::string::npos){
+                    //this->source_files.push_back(dir_relative + "/" + line);
+                    //std::cout<<dir_relative + "/" + line<<'\n';
                 }
+                    
+                if( line.find("./") == std::string::npos && 
+                    line.find("total ") == std::string::npos &&
+                    line.find(".:") == std::string::npos &&
+                    line.size() > 0){
+                    File file;
+                    file.decode(line);
+                    if(file.name.find(".cpp") != std::string::npos){
+                        this->source_files.push_back(dir_relative + "/" + file.name);
+                        //std::cout<<dir_relative + "/" + file.name<<'\n';
+                    }
+                    this->source.push_back(file);
+                }
+
+                if (line.find("./") != std::string::npos)
+                {
+                    //line.copy
+                    Next::removeSubstrs(line, std::string("."));
+                    Next::removeSubstrs(line, std::string(":"));
+                    dir_relative = dir + line;
+                }
+
             }
         }
-#endif
+        remove(Next::read_files_data.c_str());
     }
-} // namespace NEXT
+} // namespace NEXT::Linux

@@ -1,17 +1,21 @@
-#ifndef NEXT_HPP
-#define NEXT_HPP
+#pragma once
 
 #include <string>
 #include <fstream>
 #include <picojson.hpp>
 #include <vector>
+#include <file_next.hpp>
 
-namespace NEXT
+namespace NEXT::Linux
 {
     class Next
     {
     public:
         picojson::value::object root;
+
+        inline static const std::string ls_and_write_files{"ls -Rl >.next/next"};
+        inline static const std::string read_files_data{".next/next"};
+        inline static const std::string get_dir{"pwd >.next/next"};
 
         std::string name_project;
         std::string name_build;
@@ -31,6 +35,9 @@ namespace NEXT
         std::vector<std::string> cc_flags;
         std::vector<std::string> c_flags;
         std::vector<std::string> libs_flags;
+        std::vector<std::string> linker_dirs;
+
+        std::vector<File> source;
         std::vector<std::string> source_files;
 
     public:
@@ -54,8 +61,17 @@ namespace NEXT
         }
 
         void get_all_source();
+
+        static void removeSubstrs(std::string &s,
+                           const std::string &p)
+        {
+            std::size_t n = p.length();
+
+            for ( std::string::size_type i = s.find(p);
+                 i != std::string::npos;
+                 i = s.find(p))
+                s.erase(i, n);
+        }
     };
 
-} // namespace NEXT
-
-#endif
+} // namespace NEXT::Linux

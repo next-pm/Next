@@ -1,0 +1,23 @@
+.:
+total 172
+drwxrwxr-x 2 rafa rafa   4096 jul 15 01:12 bin
+drwxrwxr-x 2 rafa rafa   4096 jul 15 01:54 include
+-rwxrwxr-x 1 rafa rafa 155856 jul 15 02:33 next
+-rw-rw-r-- 1 rafa rafa    755 jul 15 01:47 next.json
+drwxrwxr-x 2 rafa rafa   4096 jul 15 01:55 src
+
+./bin:
+total 568
+-rwxrwxr-x 1 rafa rafa 581304 jul 15 01:12 app
+
+./include:
+total 44
+-rw-rw-r-- 1 rafa rafa   466 jul 15 02:14 file_next.hpp
+-rw-rw-r-- 1 rafa rafa  2037 jul 15 02:32 next.hpp
+-rw-rw-r-- 1 rafa rafa 33333 jul 14 00:47 picojson.hpp
+
+./src:
+total 16
+-rw-rw-r-- 1 rafa rafa 1209 jul 15 02:21 file_next.cpp
+-rw-rw-r-- 1 rafa rafa  808 jul 15 02:33 main.cpp
+-rw-rw-r-- 1 rafa rafa 4111 jul 15 02:32 next.cpp
