@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-namespace NEXT::Linux
+namespace NEXT::CPP::Linux
 {
     class File
     {

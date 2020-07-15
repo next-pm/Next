@@ -1,6 +1,6 @@
 #include <file_next.hpp>
 
-namespace NEXT::Linux
+namespace NEXT::CPP::Linux
 {
     File::File(/* args */)
     {

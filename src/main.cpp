@@ -7,7 +7,7 @@
 int main(int argc, char const *argv[])
 {
 
-    NEXT::Linux::Next next;
+    NEXT::CPP::Linux::Next next;
     next.init("next.json");
     next.get_all_source();
 

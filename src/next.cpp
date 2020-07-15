@@ -3,7 +3,7 @@
 
 #include <next.hpp>
 
-namespace NEXT::Linux
+namespace NEXT::CPP::Linux
 {
     Next::Next(/* args */)
     {

@@ -6,7 +6,7 @@
 #include <vector>
 #include <file_next.hpp>
 
-namespace NEXT::Linux
+namespace NEXT::CPP::Linux
 {
     class Next
     {
