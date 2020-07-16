@@ -1,6 +1,6 @@
 {
     "name_project": "Engine_test",
-    "name_build": "app",
+    "name_build": "app1",
     "version_build": "1.0.0",
     "language": "C++",
     "version_language": "C++20",
@@ -13,8 +13,8 @@
     "object_dir": "obj",
     "binary_dir": "bin",
     "include_dir": "include",
-    "linker_dirs":[
-        "include", 
+    "linker_dirs": [
+        "include",
         "src"
     ],
     "libs_dir": "lib",
@@ -30,9 +30,5 @@
         "-pedantic",
         "-std=c99"
     ],
-    "libs_flags": [
-        "-lGL",
-        "-lglfw",
-        "-pthread"
-    ]
+    "libs_flags": []
 }

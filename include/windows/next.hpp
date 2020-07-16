@@ -4,16 +4,17 @@
 #include <fstream>
 #include <picojson.hpp>
 #include <vector>
-#include <linux/file_next.hpp>
+#include <windows/file_next.hpp>
+#include <windows.h>
 
-namespace NEXT::CPP::Linux
+namespace NEXT::CPP::Windows
 {
     class Next
     {
     public:
         picojson::value::object root;
 
-        const std::string ls_and_write_files{"ls -Rl >.next/next"};
+        const std::string ls_and_write_files{"dir /s/b/w *.cpp >.next/next"};
         const std::string read_files_data{".next/next"};
         const std::string get_dir{"pwd >.next/next"};
 
@@ -39,6 +40,7 @@ namespace NEXT::CPP::Linux
 
         std::vector<File> source;
         std::vector<std::string> source_files;
+        std::vector<std::string> source_obj;
 
     public:
         Next(/* args */);
@@ -81,6 +83,12 @@ namespace NEXT::CPP::Linux
             str.replace(start_pos, from.length(), to);
             return true;
         }
+
+        void compile_file(std::string file,int num);
+
+        void generate_dir(std::string file);
+
+        void linker_files();
     };
 
-} // namespace NEXT::CPP::Linux
+} // namespace NEXT::CPP::Windows
