@@ -39,6 +39,7 @@ namespace NEXT::CPP::Linux
 
         std::vector<File> source;
         std::vector<std::string> source_files;
+        std::vector<std::string> source_obj;
 
     public:
         Next(/* args */);
@@ -81,6 +82,12 @@ namespace NEXT::CPP::Linux
             str.replace(start_pos, from.length(), to);
             return true;
         }
+
+        void compile_file(std::string file, int num);
+
+        void generate_dir(std::string file);
+
+        void linker_files();
     };
 
 } // namespace NEXT::CPP::Linux

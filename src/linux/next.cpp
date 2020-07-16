@@ -91,18 +91,21 @@ namespace NEXT::CPP::Linux
         {
             while (getline(source, line))
             {
-                if (line.find(".cpp") != std::string::npos){
+                if (line.find(".cpp") != std::string::npos)
+                {
                     //this->source_files.push_back(dir_relative + "/" + line);
                     //std::cout<<dir_relative + "/" + line<<'\n';
                 }
-                    
-                if( line.find("./") == std::string::npos && 
+
+                if (line.find("./") == std::string::npos &&
                     line.find("total ") == std::string::npos &&
                     line.find(".:") == std::string::npos &&
-                    line.size() > 0){
+                    line.size() > 0)
+                {
                     File file;
                     file.decode(line);
-                    if(file.name.find(".cpp") != std::string::npos){
+                    if (file.name.find(".cpp") != std::string::npos)
+                    {
                         this->source_files.push_back(dir_relative + "/" + file.name);
                         //std::cout<<dir_relative + "/" + file.name<<'\n';
                     }
@@ -116,9 +119,86 @@ namespace NEXT::CPP::Linux
                     Next::removeSubstrs(line, std::string(":"));
                     dir_relative = dir + line;
                 }
-
             }
         }
         remove(Next::read_files_data.c_str());
     }
-} // namespace NEXT::Linux
+
+    void Next::compile_file(std::string file, int num)
+    {
+        this->generate_dir(file);
+        std::string sourceFile = file;
+        Next::replace(file, "src", "obj");
+        Next::replace(file, ".cpp", ".o");
+
+        this->source_obj.push_back(file);
+
+        std::string lineCompile;
+        lineCompile += this->compiler_CC + " ";
+        lineCompile += "-o ";
+        lineCompile += file + " ";
+        lineCompile += "-c ";
+        lineCompile += sourceFile + " ";
+        for (auto s : this->cc_flags)
+        {
+            lineCompile += s + " ";
+        }
+        for (auto s : this->libs_flags)
+        {
+            lineCompile += s + " ";
+        }
+        for (auto s : this->linker_dirs)
+        {
+            lineCompile += "-I" + s + " ";
+        }
+        std::cout << "[" << 100 / this->source_files.size() * num << "%] " << lineCompile << "\n\n";
+        std::system(lineCompile.c_str());
+    }
+
+    void Next::generate_dir(std::string file)
+    {
+        Next::replace(file, "src", "obj");
+        std::vector<std::string> lines;
+        std::string line;
+        for (size_t i = 0; i < file.size(); i++)
+        {
+            if (file[i] != '/')
+            {
+                line.push_back(file[i]);
+            }
+            else
+            {
+                lines.push_back(line + "/");
+                line.clear();
+            }
+        }
+        line.clear();
+        line += "mkdir -p ";
+        line.push_back(34);
+        for (auto s : lines)
+        {
+            line += s;
+        }
+        line.push_back(34);
+        std::cout<<line<<'\n';
+        std::system(line.c_str());
+    }
+
+    void Next::linker_files()
+    {
+        std::string lineLinker;
+        lineLinker += this->compiler_CC + " ";
+        lineLinker += "-o ";
+        lineLinker += this->binary_dir + "/" + this->name_build + " ";
+        for (auto s : this->source_obj)
+        {
+            lineLinker += s + " ";
+        }
+        for (auto s : this->libs_flags)
+        {
+            lineLinker += s + " ";
+        }
+        std::cout << "[linker] " << lineLinker << '\n';
+        std::system(lineLinker.c_str());
+    }
+} // namespace NEXT::CPP::Linux

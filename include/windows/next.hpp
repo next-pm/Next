@@ -5,7 +5,6 @@
 #include <picojson.hpp>
 #include <vector>
 #include <windows/file_next.hpp>
-#include <windows.h>
 
 namespace NEXT::CPP::Windows
 {

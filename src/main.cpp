@@ -1,15 +1,15 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-//#include <linux/next.hpp>
-//#include <linux/file_next.hpp>
-#include <windows/next.hpp>
-#include <windows/file_next.hpp>
+#include <linux/next.hpp>
+#include <linux/file_next.hpp>
+//#include <windows/next.hpp>
+//#include <windows/file_next.hpp>
 
 int main(int argc, char const *argv[])
 {
 
-    NEXT::CPP::Windows::Next next;
+    NEXT::CPP::Linux::Next next;
     next.init("next.json");
     next.get_all_source();
     int i = 0;
