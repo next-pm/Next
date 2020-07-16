@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <next.hpp>
-#include <file_next.hpp>
+#include <linux/next.hpp>
+#include <linux/file_next.hpp>
 
 int main(int argc, char const *argv[])
 {

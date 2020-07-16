@@ -1,7 +1,7 @@
 #include <string>
 #include <thread>
 
-#include <next.hpp>
+#include <linux/next.hpp>
 
 namespace NEXT::CPP::Linux
 {
