@@ -3,51 +3,42 @@
 #include <string>
 #include <linux/next.hpp>
 #include <linux/file_next.hpp>
-//#include <windows/next.hpp>
-//#include <windows/file_next.hpp>
 
 int main(int argc, char const *argv[])
 {
 
     NEXT::CPP::Linux::Next next;
-    next.init("next.json");
-    next.get_all_source();
-    int i = 0;
-    for (auto s : next.source_files)
+
+    if (argc == 1)
     {
-        next.compile_file(s, i);
-        i++;
+        next.help();
+        return 0;
     }
 
-    next.linker_files();
-
-    /*
-    std::string instruction = next.compiler_CC + " ";
-    for (std::string s : next.cc_flags)
+    for (int i = 1; i < argc; i++)
     {
-        instruction += s + " ";
+        std::string op = argv[i];
+        if (op == "--help" || op == "-h")
+        {
+            next.help();
+        }
+        if (op == "build")
+        {
+            next.build();
+        }
+        if (op == "create")
+        {
+            op = argv[i + 1];
+            if( op != "."){
+                next.create(op);
+            }
+            
+        }
+        if (op == "run")
+        {
+            next.run();
+        }
     }
 
-    instruction += "-o " + next.binary_dir + "/" + next.name_build + " ";
-
-    for (std::string s : next.source_files)
-    {
-        instruction += s + " ";
-    }
-
-    for (std::string s : next.linker_dirs)
-    {
-        instruction += "-I" + s + " ";
-    }
-
-    for (std::string s : next.libs_flags)
-    {
-        instruction += s + " ";
-    }
-
-    std::cout << instruction << '\n';
-
-    std::system(instruction.c_str());
-*/
     return 0;
 }
