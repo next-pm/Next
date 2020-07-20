@@ -33,6 +33,7 @@ namespace NEXT::CPP::Linux
         std::string binary_dir;
         std::string include_dir;
         std::string libs_dir;
+        std::string lib;
         std::vector<std::string> cc_flags;
         std::vector<std::string> c_flags;
         std::vector<std::string> libs_flags;
@@ -92,6 +93,8 @@ namespace NEXT::CPP::Linux
         void linker_files();
 
         void build();
+
+        void generate_lib();
 
         void run();
 

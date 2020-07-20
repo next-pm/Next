@@ -8,7 +8,7 @@ int main(int argc, char const *argv[])
 {
 
     NEXT::CPP::Linux::Next next;
-
+    next.init("next.json");
     if (argc == 1)
     {
         next.help();

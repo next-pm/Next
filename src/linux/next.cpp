@@ -42,6 +42,7 @@ namespace NEXT::CPP::Linux
         this->binary_dir = this->find<std::string>("binary_dir");
         this->include_dir = this->find<std::string>("include_dir");
         this->libs_dir = this->find<std::string>("libs_dir");
+        this->lib = this->find<std::string>("lib");
 
         auto array_linker_dirs{this->find<picojson::array>("linker_dirs")};
 
@@ -98,7 +99,7 @@ namespace NEXT::CPP::Linux
                 {
                     File file;
                     file.decode(line);
-                    if (file.name.find(".cpp") != std::string::npos)
+                    if (file.name.find(".cpp") != std::string::npos && dir_relative.find(this->source_dir) != std::string::npos)
                     {
                         this->source_files.push_back(dir_relative + "/" + file.name);
                     }
@@ -247,7 +248,53 @@ namespace NEXT::CPP::Linux
             i++;
         }
 
-        this->linker_files();
+        if (this->lib == "")
+        {
+            this->linker_files();
+        }
+        else
+        {
+            this->generate_lib();
+        }
+    }
+
+    void Next::generate_lib()
+    {
+        std::string linker("[lib] ");
+        NEXT::Print(linker, NEXT::Colors::boldgreen);
+
+        std::string lineLib;
+
+        lineLib += "ar ";
+        NEXT::Print("ar ", NEXT::Colors::boldred);
+
+        lineLib += "-crs ";
+        NEXT::Print("-crs ", NEXT::Colors::boldgreen);
+
+        lineLib += this->binary_dir + "/" + this->name_build + " ";
+        NEXT::Print(this->binary_dir + "/" + this->name_build + " ", NEXT::Colors::green);
+
+        for (auto s : this->source_obj)
+        {
+            s.push_back(' ');
+            lineLib += s;
+            NEXT::Print(s, NEXT::Colors::white);
+        }
+        for (auto s : this->libs_flags)
+        {
+            s.push_back(' ');
+            lineLib += s;
+            NEXT::Print(s, NEXT::Colors::blue);
+        }
+        std::system(lineLib.c_str());
+        std::cout<<"\n\n";
+        lineLib.clear();
+        lineLib += "ranlib ";
+        NEXT::Print("[ranlib] ", NEXT::Colors::boldgreen);
+        lineLib += this->binary_dir + "/" + this->name_build;
+        NEXT::Print(this->binary_dir + "/" + this->name_build, NEXT::Colors::green);
+        std::cout<<"\n\n";
+        std::system(lineLib.c_str());
     }
 
     void Next::create(std::string name)
@@ -275,9 +322,10 @@ namespace NEXT::CPP::Linux
         std::system(line.c_str());
     }
 
-    void Next::run(){
+    void Next::run()
+    {
         std::string line;
-        line += "cd bin && ./" + this->name_build;
+        line += "./" + this->binary_dir + "/" + this->name_build;
         system(line.c_str());
     }
 } // namespace NEXT::CPP::Linux
