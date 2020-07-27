@@ -1,6 +1,7 @@
 {
     "name_project": "Hello World",
     "name_build": "app",
+    "test_bin": "test",
     "version_build": "0.0.1",
     "language": "C++",
     "version_language": "C++20",
@@ -27,5 +28,9 @@
         "-pedantic",
         "-std=c99"
     ],
-    "libs_flags": []
+    "libs_flags": [],
+    "libs_test": [
+        "-lgtest",
+        "-lpthread"
+    ]
 }

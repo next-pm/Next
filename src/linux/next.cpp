@@ -43,6 +43,7 @@ namespace NEXT::CPP::Linux
         this->include_dir = this->find<std::string>("include_dir");
         this->libs_dir = this->find<std::string>("libs_dir");
         this->lib = this->find<std::string>("lib");
+        this->test_bin = this->find<std::string>("test_bin");
 
         auto array_linker_dirs{this->find<picojson::array>("linker_dirs")};
 
@@ -72,6 +73,13 @@ namespace NEXT::CPP::Linux
             this->libs_flags.push_back(array_libs_flags[i].get<std::string>());
         }
 
+        auto array_libs_test{this->find<picojson::array>("libs_test")};
+
+        for (size_t i = 0; i < array_libs_test.size(); i++)
+        {
+            this->libs_test.push_back(array_libs_test[i].get<std::string>());
+        }
+
         return 0;
     }
 
@@ -98,10 +106,15 @@ namespace NEXT::CPP::Linux
                     line.size() > 0)
                 {
                     File file;
-                    file.decode(line);
+                    file.decode(line, dir_relative);
                     if (file.name.find(".cpp") != std::string::npos && dir_relative.find(this->source_dir) != std::string::npos)
                     {
-                        this->source_files.push_back(dir_relative + "/" + file.name);
+                        std::string dir;
+                        dir += this->name_project + "/" + this->source_dir;
+                        if (dir_relative.find(dir) != std::string::npos)
+                        {
+                            this->source_files.push_back(file.name);
+                        }
                     }
                     this->source.push_back(file);
                 }
@@ -118,19 +131,36 @@ namespace NEXT::CPP::Linux
         remove(Next::read_files_data.c_str());
     }
 
-    void Next::compile_file(std::string file, int num)
+    void Next::compile_file(std::string file, int num, bool test, bool compile)
     {
         this->generate_dir(file);
         std::string sourceFile = file;
         Next::replace(file, this->source_dir, this->object_dir);
+        Next::replace(file, this->test_dir, this->object_dir + "/test");
         Next::replace(file, ".cpp", ".o");
 
-        this->source_obj.push_back(file);
+        std::size_t num_files = 1;
+
+        if (test == false)
+        {
+            this->source_obj.push_back(file);
+            num_files = this->source_files.size();
+        }
+        else
+        {
+            this->test_obj.push_back(file);
+            num_files = this->test_files.size();
+        }
+
+        if (!compile)
+        {
+            return;
+        }
 
         std::string lineCompile;
 
         std::string progress;
-        progress += "[" + std::to_string(100 / this->source_files.size() * num) + "%] ";
+        progress += "[" + std::to_string(100 / num_files * num) + "%] ";
         NEXT::Print(progress, NEXT::Colors::boldgreen);
 
         lineCompile += this->compiler_CC + " ";
@@ -155,12 +185,6 @@ namespace NEXT::CPP::Linux
         lineCompile += sourceFile + " ";
         NEXT::Print(sourceFile + " ", NEXT::Colors::white);
 
-        for (auto s : this->libs_flags)
-        {
-            s.push_back(' ');
-            lineCompile += s;
-            NEXT::Print(s, NEXT::Colors::blue);
-        }
         for (auto s : this->linker_dirs)
         {
             s.push_back(' ');
@@ -231,9 +255,40 @@ namespace NEXT::CPP::Linux
         std::system(lineLinker.c_str());
     }
 
-    void Next::build()
+    void Next::linker_files_test()
     {
-        this->init("next.json");
+        std::string linker("[linker] ");
+        NEXT::Print(linker, NEXT::Colors::boldgreen);
+
+        std::string lineLinker;
+
+        lineLinker += this->compiler_CC + " ";
+        NEXT::Print(this->compiler_CC + " ", NEXT::Colors::boldred);
+
+        lineLinker += "-o ";
+        NEXT::Print("-o ", NEXT::Colors::boldgreen);
+
+        lineLinker += this->binary_dir + "/" + this->test_bin + " ";
+        NEXT::Print(this->binary_dir + "/" + this->test_bin + " ", NEXT::Colors::green);
+
+        for (auto s : this->test_obj)
+        {
+            s.push_back(' ');
+            lineLinker += s;
+            NEXT::Print(s, NEXT::Colors::white);
+        }
+        for (auto s : this->libs_test)
+        {
+            s.push_back(' ');
+            lineLinker += s;
+            NEXT::Print(s, NEXT::Colors::blue);
+        }
+        std::cout << "\n\n";
+        std::system(lineLinker.c_str());
+    }
+
+    void Next::build_all()
+    {
 
         std::string mk_bin_dir;
         mk_bin_dir += "mkdir -p ./" + this->binary_dir;
@@ -246,6 +301,43 @@ namespace NEXT::CPP::Linux
         {
             this->compile_file(s, i);
             i++;
+        }
+
+        if (this->lib == "")
+        {
+            this->linker_files();
+        }
+        else
+        {
+            this->generate_lib();
+        }
+    }
+
+    void Next::build() 
+    {
+
+        std::string mk_bin_dir;
+        mk_bin_dir += "mkdir -p ./" + this->binary_dir;
+
+        std::system(mk_bin_dir.c_str());
+
+        this->get_all_source();
+        int i = 0;
+        for (auto f : this->source)
+        {
+            std::string dir;
+            dir += this->name_project + "/" + this->source_dir;
+            if (f.name.find(".cpp") != std::string::npos && f.name.find(dir) != std::string::npos)
+            {
+
+                bool compile = false;
+                if (this->compareFile(f))
+                { 
+                    compile = true; 
+                    i++;
+                }
+                this->compile_file(f.name, i, false ,compile);
+            }
         }
 
         if (this->lib == "")
@@ -287,13 +379,13 @@ namespace NEXT::CPP::Linux
             NEXT::Print(s, NEXT::Colors::blue);
         }
         std::system(lineLib.c_str());
-        std::cout<<"\n\n";
+        std::cout << "\n\n";
         lineLib.clear();
         lineLib += "ranlib ";
         NEXT::Print("[ranlib] ", NEXT::Colors::boldgreen);
         lineLib += this->binary_dir + "/" + this->name_build;
         NEXT::Print(this->binary_dir + "/" + this->name_build, NEXT::Colors::green);
-        std::cout<<"\n\n";
+        std::cout << "\n\n";
         std::system(lineLib.c_str());
     }
 
@@ -327,5 +419,83 @@ namespace NEXT::CPP::Linux
         std::string line;
         line += "./" + this->binary_dir + "/" + this->name_build;
         system(line.c_str());
+    }
+
+    void Next::run_test()
+    {
+        std::string line;
+        line += "./" + this->binary_dir + "/" + this->test_bin;
+        system(line.c_str());
+    }
+
+    void Next::test()
+    {
+        this->get_all_source_test();
+        int i = 0;
+        for (auto s : this->test_files)
+        {
+            this->compile_file(s, i, true);
+            i++;
+        }
+        this->linker_files_test();
+    }
+
+    void Next::get_all_source_test()
+    {
+        std::system(Next::get_dir.c_str());
+        std::ifstream source_dir(Next::read_files_data.c_str());
+        std::string dir;
+        getline(source_dir, dir);
+
+        std::system(Next::ls_and_write_files.c_str());
+        std::string line;
+        std::ifstream source(Next::read_files_data.c_str());
+
+        std::string dir_relative;
+
+        if (source.is_open())
+        {
+            while (getline(source, line))
+            {
+                if (line.find("./") == std::string::npos &&
+                    line.find("total ") == std::string::npos &&
+                    line.find(".:") == std::string::npos &&
+                    line.size() > 0)
+                {
+                    File file;
+                    file.decode(line, dir_relative);
+                    if (file.name.find(".cpp") != std::string::npos)
+                    {
+                        if (dir_relative.find(this->test_dir) != std::string::npos || dir_relative.find(this->source_dir) != std::string::npos)
+                        {
+
+                            std::string dir_source;
+                            std::string dir_test;
+                            dir_source += this->name_project + "/" + this->source_dir;
+                            dir_test += this->name_project + "/" + this->test_dir;
+                            if (dir_relative.find(dir_source) != std::string::npos || dir_relative.find(dir_test) != std::string::npos)
+                            {
+                                std::string file_complete;
+                                file_complete +=  file.name;
+                                if (file_complete.find(this->main_file) == std::string::npos)
+                                {
+                                    this->test_files.push_back(file_complete);
+                                }
+                            }
+                        }
+                    }
+                    this->source.push_back(file);
+                }
+
+                if (line.find("./") != std::string::npos)
+                {
+                    //line.copy
+                    Next::removeSubstrs(line, std::string("."));
+                    Next::removeSubstrs(line, std::string(":"));
+                    dir_relative = dir + line;
+                }
+            }
+        }
+        remove(Next::read_files_data.c_str());
     }
 } // namespace NEXT::CPP::Linux

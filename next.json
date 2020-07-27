@@ -1,6 +1,7 @@
 {
-    "name_project": "Engine_test",
+    "name_project": "Next",
     "name_build": "next",
+    "test_bin": "test",
     "version_build": "1.0.0",
     "language": "C++",
     "version_language": "C++20",
@@ -30,5 +31,9 @@
         "-pedantic",
         "-std=c99"
     ],
-    "libs_flags": []
+    "libs_flags": [],
+    "libs_test": [
+        "-lgtest",
+        "-lpthread"
+    ]
 }

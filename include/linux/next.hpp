@@ -14,12 +14,13 @@ namespace NEXT::CPP::Linux
     public:
         picojson::value::object root;
 
-        const std::string ls_and_write_files{"ls -Rl >.next"};
+        const std::string ls_and_write_files{"ls --full-time -R >.next"};
         const std::string read_files_data{".next"};
         const std::string get_dir{"pwd >.next"};
 
         std::string name_project;
         std::string name_build;
+        std::string test_bin;
         std::string version_build;
         std::string language;
         std::string version_language;
@@ -37,12 +38,16 @@ namespace NEXT::CPP::Linux
         std::vector<std::string> cc_flags;
         std::vector<std::string> c_flags;
         std::vector<std::string> libs_flags;
+        std::vector<std::string> libs_test;
         std::vector<std::string> linker_dirs;
         inline static const std::string file_key{".180088743_7897716735_2294266832"};
 
         std::vector<File> source;
+        std::vector<File> source_last;
         std::vector<std::string> source_files;
+        std::vector<std::string> test_files;
         std::vector<std::string> source_obj;
+        std::vector<std::string> test_obj;
 
     public:
         Next(/* args */);
@@ -66,6 +71,10 @@ namespace NEXT::CPP::Linux
 
         void get_all_source();
 
+        void get_all_source_test();
+
+        void test();
+
         static void removeSubstrs(std::string &s,
                                   const std::string &p)
         {
@@ -86,17 +95,23 @@ namespace NEXT::CPP::Linux
             return true;
         }
 
-        void compile_file(std::string file, int num);
+        void compile_file(std::string file, int num, bool test = false, bool compile = true);
 
         void generate_dir(std::string file);
 
         void linker_files();
+
+        void linker_files_test();
+
+        void build_all();
 
         void build();
 
         void generate_lib();
 
         void run();
+
+        void run_test();
 
         void create(std::string name);
 
@@ -125,8 +140,9 @@ namespace NEXT::CPP::Linux
             return 0;
         }
 
-        std::string getDir(){
-            
+        std::string getDir()
+        {
+
             std::string line;
 
             line += "find /home -name " + Next::file_key;
@@ -138,6 +154,64 @@ namespace NEXT::CPP::Linux
             Next::removeSubstrs(line, Next::file_key);
             remove(Next::read_files_data.c_str());
             return line;
+        }
+
+        void writeFiles()
+        {
+            picojson::array list;
+            for (auto f : this->source)
+            {
+                if (f.name.find(".cpp") != std::string::npos || f.name.find(".c") != std::string::npos)
+                {
+                    list.push_back(f.toJson());
+                }
+            }
+            picojson::value::object write;
+            picojson::value data = picojson::value(list);
+            write["files"] = data;
+
+            std::ofstream file("history.json");
+
+            std::string str = "\\/";
+
+            std::string object = picojson::value(write).serialize();
+            while(this->replace(object, str, "/"));
+            file << object;
+        }
+
+        void readFiles()
+        {
+            std::ifstream file("history.json");
+            if (!file)
+            {
+                return;
+            }
+
+            picojson::value json;
+
+            file >> json;
+
+            file.close();
+            auto root = json.get<picojson::object>();
+            picojson::value list_root = picojson::value(root);
+            auto list = list_root.get("files").get<picojson::array>();
+
+            for (picojson::array::iterator iter = list.begin(); iter != list.end(); ++iter)
+            {
+                auto a = (*iter).get<picojson::object>();
+                this->source_last.push_back(File(a));
+            }
+        }
+
+        bool compareFile(File file){
+            for(auto f : this->source_last){
+                if(f.name == file.name){
+                    if(!file.equal(f)){
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     };
 

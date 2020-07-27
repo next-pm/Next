@@ -74,6 +74,7 @@
         "random": "cpp",
         "sstream": "cpp",
         "thread": "cpp",
-        "cfenv": "cpp"
+        "cfenv": "cpp",
+        "set": "cpp"
     }
 }
