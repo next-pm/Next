@@ -11,7 +11,7 @@ BIN		:= bin
 INCL	:= include
 LIBDIR	:= lib
 LIBS	:= #$(LIBDIR)/picoPNG/libpicopng.a $(LIBDIR)/tinyPTC/libtinyptc.a -L. -lX11 -lXext -pthread `sdl2-config --cflags --libs`
-INCDIRS	:= -I$(SRC) -I$(LIBDIR) -I$(INCL)
+INCDIRS	:= -I$(SRC) -I$(LIBDIR) -I$(INCL) 
 
 ifdef DEBUG
 	CCFLAGS += -g
