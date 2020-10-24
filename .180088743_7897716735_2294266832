@@ -1,0 +1,44 @@
+trait Shape {
+    fn area(&self) -> f32;
+}
+
+struct Circle {
+    radius: f32,
+}
+
+impl Shape for Circle {
+    fn area(&self) -> f32 {
+        self.radius.powi(2) * std::f32::consts::PI
+    }
+}
+
+struct Square {
+    side: f32,
+}
+
+impl Shape for Square {
+    fn area(&self) -> f32 {
+        self.side.powi(2)
+    }
+}
+
+struct Triangle {
+    base: f32,
+    height: f32,
+}
+
+impl Shape for Triangle {
+    fn area(&self) -> f32 {
+        return (self.base * self.height) / 2.0;
+    }
+}
+
+fn display_area(shape: &dyn Shape) {
+    println!("area is {}", shape.area())
+}
+
+fn main() {
+    display_area(&Circle { radius: 1. });
+    display_area(&Square { side: 1. });
+    display_area(&Triangle { base: 3. , height: 1.});
+}
