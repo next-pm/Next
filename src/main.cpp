@@ -1,0 +1,14 @@
+#include <iostream>
+
+#include <command_base.hpp>
+#include <commands/read_help_command.hpp>
+
+#include <manager_command.hpp>
+
+int main(int argc, char const *argv[])
+{
+    ManagerCommand man;
+    man.initialize(argc, argv);
+    man.execute();
+    return 0;
+}
