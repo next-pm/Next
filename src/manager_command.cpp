@@ -23,7 +23,6 @@ void ManagerCommand::initialize(int argc, char const *argv[])
 
     for (int i = 1; i < argc; i++)
     {
-        //std::cout<<argv[i]<<'\n';
         if (this->isFlag(argv[i]))
         {
             this->createFlag(argv[i]);
