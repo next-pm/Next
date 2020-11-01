@@ -12,7 +12,10 @@ int ReadHelpCommand::execute(/* args */)
 {
     
     std::string line;
-    std::ifstream myfile("../assets/help");
+
+    std::string file_dir = NextData::getInstance()->path + "/assets/help";
+
+    std::ifstream myfile(file_dir);
     if (myfile.is_open())
     {
         while (getline(myfile, line))
@@ -24,7 +27,7 @@ int ReadHelpCommand::execute(/* args */)
 
     else
     {
-        std::cout << "Unable to open file";
+        std::cout << "Unable to open file HELP";
         return -1;
     }
 

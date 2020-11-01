@@ -48,6 +48,11 @@ int PathCommand::execute(/* args */)
     for (auto var : list_vars)
     {
         if(var.find("Next") < var.size()){
+            //Esto esta absolutamente mal, es para quitar '/bin' del PATH 
+            std::size_t index = var.size();
+            index -= 4;
+            var.replace(index, 4, "");
+            //Hasta aca
             NextData::getInstance()->path = var;
         }
     }

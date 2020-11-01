@@ -12,6 +12,5 @@ int main(int argc, char const *argv[])
     ManagerCommand man;
     man.initialize(argc, argv);
     man.execute();
-    std::cout<<NextData::getInstance()->path<<'\n';
     return 0;
 }

@@ -32,10 +32,12 @@ public:
     {
         if (std::string(arg) == "--help" || std::string(arg) == "-h")
         {
+            this->stackCommand.append(new PathCommand());
             this->stackCommand.append(new ReadHelpCommand());
         }
         if (std::string(arg) == "--version" || std::string(arg) == "-v")
         {
+            this->stackCommand.append(new PathCommand());
             this->stackCommand.append(new VersionCommand());
         }
 

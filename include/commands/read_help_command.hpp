@@ -6,6 +6,8 @@
 
 #include <command_base.hpp>
 
+#include <next_data.hpp>
+
 class ReadHelpCommand : public CommandBase
 {
 private:

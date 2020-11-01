@@ -12,7 +12,11 @@ int VersionCommand::execute(/* args */)
 {
     
     std::string line;
-    std::ifstream myfile("../assets/version");
+
+    std::string file_dir = NextData::getInstance()->path + "/assets/version";
+
+    std::ifstream myfile(file_dir);
+
     if (myfile.is_open())
     {
         while (getline(myfile, line))
@@ -24,7 +28,7 @@ int VersionCommand::execute(/* args */)
 
     else
     {
-        std::cout << "Unable to open file";
+        std::cout << "Unable to open file VERSION";
         return -1;
     }
 
