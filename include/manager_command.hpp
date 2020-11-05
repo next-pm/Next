@@ -10,6 +10,8 @@
 #include <commands/version_command.hpp>
 #include <commands/path_command.hpp>
 #include <commands/create_project_command.hpp>
+#include <commands/build_command.hpp>
+#include <commands/run_command.hpp>
 
 class ManagerCommand
 {
@@ -50,7 +52,7 @@ public:
 
     bool isCommand(char const *arg)
     {
-        if (std::string(arg) == "create")
+        if (std::string(arg) == "create" || std::string(arg) == "run" || std::string(arg) == "build")
         {
             return true;
         }

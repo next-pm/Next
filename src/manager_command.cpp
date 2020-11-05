@@ -31,9 +31,23 @@ void ManagerCommand::initialize(int argc, char const *argv[])
 
         if (this->isCommand(argv[i]))
         {
-            this->stackCommand.append(new PathCommand());
-            this->stackCommand.append(new CreateProjectCommand(argv[i+1]));
-            this->stackCommand.append(new ReadHelpCommand());
+            std::string line = argv[i];
+            if (line == "create")
+            {
+                this->stackCommand.append(new PathCommand());
+                this->stackCommand.append(new CreateProjectCommand(argv[i + 1]));
+                this->stackCommand.append(new ReadHelpCommand());
+            }
+            if (line == "run")
+            {
+                this->stackCommand.append(new PathCommand());
+                this->stackCommand.append(new RunCommand());
+            }
+            if (line == "build")
+            {
+                this->stackCommand.append(new PathCommand());
+                this->stackCommand.append(new BuildCommand());
+            }
         }
     }
 }
