@@ -9,6 +9,7 @@
 #include <commands/read_help_command.hpp>
 #include <commands/version_command.hpp>
 #include <commands/path_command.hpp>
+#include <commands/create_project_command.hpp>
 
 class ManagerCommand
 {

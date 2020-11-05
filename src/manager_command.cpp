@@ -31,7 +31,9 @@ void ManagerCommand::initialize(int argc, char const *argv[])
 
         if (this->isCommand(argv[i]))
         {
-            std::cout<<"Command -> " << argv[i] << '\n';
+            this->stackCommand.append(new PathCommand());
+            this->stackCommand.append(new CreateProjectCommand(argv[i+1]));
+            this->stackCommand.append(new ReadHelpCommand());
         }
     }
 }
