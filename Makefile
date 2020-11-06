@@ -206,9 +206,14 @@ run_test: clean_test $(APP) $(TESTAPP)
 	@echo "\n ---RUN-TEST---	\n"
 	cd bin && ./$(TESTAPP)
 
-run: $(APP)
+run: build
 	@echo "\n ---RUN---	\n"
 	@$() cd bin && ./$(APP)
+
+build: build_Print $(APP)
+
+build_Print:
+	@echo "\n ---BUILD---	\n"
 
 info:
 	$(info $(ALLCSOBJ))

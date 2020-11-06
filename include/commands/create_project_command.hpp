@@ -10,7 +10,7 @@
 class CreateProjectCommand : public CommandBase
 {
 private:
-    std::string name_project;
+    std::string name_project = "";
 public:
     CreateProjectCommand(/* args */);
     CreateProjectCommand(std::string name_project);

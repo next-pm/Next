@@ -11,12 +11,13 @@ RunCommand::~RunCommand()
 
 int RunCommand::execute()
 {
+    int status;
     std::string line;
 
     line += "make run";
 
     //std::cout<<exec(line)<<'\n';
 
-    std::system(line.c_str());
-    return 0;
+    status = std::system(line.c_str());
+    return status;
 }

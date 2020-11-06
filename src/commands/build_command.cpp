@@ -15,6 +15,5 @@ int BuildCommand::execute()
 
     line += "make build";
 
-    std::system(line.c_str());
-    return 0;
+    return std::system(line.c_str());
 }
