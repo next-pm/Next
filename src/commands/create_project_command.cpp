@@ -30,7 +30,8 @@ int CreateProjectCommand::execute()
             this->name_project + "/bin " +
             this->name_project + "/include " +
             this->name_project + "/test " +
-            this->name_project + "/obj ";
+            this->name_project + "/obj " +
+            this->name_project + "/.next ";
     
     std::cout<<line<<'\n';
 
@@ -47,6 +48,14 @@ int CreateProjectCommand::execute()
     line.clear();
 
     line += "cp " + NextData::getInstance()->path + "/assets/main " + this->name_project + "/src";
+
+    std::cout<<line<<'\n';
+
+    status = std::system(line.c_str());
+
+    line.clear();
+
+    line += "cp " + NextData::getInstance()->path + "/assets/.next/* " + this->name_project + "/.next";
 
     std::cout<<line<<'\n';
 
