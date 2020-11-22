@@ -16,6 +16,7 @@ PathCommand::~PathCommand()
 
 int PathCommand::execute(/* args */)
 {
+    int status;
     std::string path_command = exec("echo $PATH");
 
     std::vector<std::string> list_vars;
@@ -57,5 +58,5 @@ int PathCommand::execute(/* args */)
         }
     }
 
-    return 0;
+    return status;
 }

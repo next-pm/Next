@@ -10,7 +10,7 @@ ReadHelpCommand::~ReadHelpCommand()
 
 int ReadHelpCommand::execute(/* args */)
 {
-    
+    int status;
     std::string line;
 
     std::string file_dir = NextData::getInstance()->path + "/assets/help";
@@ -31,5 +31,5 @@ int ReadHelpCommand::execute(/* args */)
         return -1;
     }
 
-    return 0;
+    return status;
 }

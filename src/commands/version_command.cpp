@@ -10,7 +10,7 @@ VersionCommand::~VersionCommand()
 
 int VersionCommand::execute(/* args */)
 {
-    
+    int status;
     std::string line;
 
     std::string file_dir = NextData::getInstance()->path + "/assets/version";
@@ -32,5 +32,5 @@ int VersionCommand::execute(/* args */)
         return -1;
     }
 
-    return 0;
+    return status;
 }

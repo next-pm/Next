@@ -18,10 +18,11 @@ int CreateProjectCommand::execute()
 {
 
     std::string line;
+    int status;
     line += "mkdir ";
     line += this->name_project;
 
-    std::system(line.c_str());
+    status = std::system(line.c_str());
 
     line.clear();
 
@@ -33,7 +34,7 @@ int CreateProjectCommand::execute()
     
     std::cout<<line<<'\n';
 
-    std::system(line.c_str());
+    status = std::system(line.c_str());
 
     line.clear();
 
@@ -41,7 +42,7 @@ int CreateProjectCommand::execute()
 
     std::cout<<line<<'\n';
 
-    std::system(line.c_str());
+    status = std::system(line.c_str());
 
     line.clear();
 
@@ -49,7 +50,7 @@ int CreateProjectCommand::execute()
 
     std::cout<<line<<'\n';
 
-    std::system(line.c_str());
+    status = std::system(line.c_str());
 
     line.clear();
 
@@ -57,7 +58,7 @@ int CreateProjectCommand::execute()
 
     std::cout<<line<<'\n';
 
-    std::system(line.c_str());
+    status = std::system(line.c_str());
 
     std::cout << "\nCreate Proyect >> " << this->name_project << '\n';
     return 0;

@@ -86,7 +86,7 @@ NO_COLOR    	:= \033[m
 
 RESET := $(shell tput -Txterm sgr0)
 
-
+PATH_NEXT	:= git
 APP 	:= app
 TESTAPP	:= test
 MAIN 	:= main.cpp
@@ -216,11 +216,7 @@ build_Print:
 	@echo "\n ---BUILD---	\n"
 
 info:
-	$(info $(ALLCSOBJ))
-	$(info $(ALLCPPSOBJ))
-	$(info $(ALLHPPS))
-	$(info $(ALLHS))
-	$(info $(ALLCPPSTEST))
+	$(info $(PATH_NEXT))
 
 get_dependencies:
 ifdef UBUNTU

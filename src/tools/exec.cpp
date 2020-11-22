@@ -2,8 +2,9 @@
 
 std::string exec(std::string command)
 {
+    int status;
     command += " >file.txt";
-    std::system(command.c_str());
+    status = std::system(command.c_str());
 
     std::string line;
     std::string ret;
@@ -24,7 +25,7 @@ std::string exec(std::string command)
         return "null";
     }
 
-    std::system("rm file.txt");
+    status = std::system("rm file.txt");
 
     return ret;
 }
