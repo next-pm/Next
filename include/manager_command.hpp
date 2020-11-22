@@ -12,6 +12,8 @@
 #include <commands/create_project_command.hpp>
 #include <commands/build_command.hpp>
 #include <commands/run_command.hpp>
+#include <commands/make_command.hpp>
+
 
 class ManagerCommand
 {

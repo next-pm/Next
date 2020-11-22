@@ -86,7 +86,7 @@ NO_COLOR    	:= \033[m
 
 RESET := $(shell tput -Txterm sgr0)
 
-
+NAME_PROJECT := hello_world
 APP 	:= next
 TESTAPP	:= test
 MAIN 	:= main.cpp
@@ -216,11 +216,13 @@ build_Print:
 	@echo "\n ---BUILD---	\n"
 
 info:
-	$(info $(ALLCSOBJ))
-	$(info $(ALLCPPSOBJ))
-	$(info $(ALLHPPS))
-	$(info $(ALLHS))
-	$(info $(ALLCPPSTEST))
+	#$(info $(ALLCSOBJ))
+	#$(info $(ALLCPPSOBJ))
+	#$(info $(ALLHPPS))
+	#$(info $(ALLHS))
+	#$(info $(ALLCPPSTEST))
+	$(NAME_PROJECT)
+	$(PATH)
 
 get_dependencies:
 ifdef UBUNTU
@@ -228,6 +230,7 @@ ifdef UBUNTU
 		sudo apt-get install -y googletest
 		sudo apt install libgtest-dev
 endif
+
 
 $(OBJSUBDIRS) :
 	@@echo "$(MKDIR_COLOR)$(MKDIR) $(OBJSUBDIRS)$(NO_COLOR)"
