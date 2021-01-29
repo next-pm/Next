@@ -14,4 +14,6 @@ std::string exec(std::string command)
 
 std::string exec(std::string command);
 
+void exec_void(std::string command);
+
 #endif

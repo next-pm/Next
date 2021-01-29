@@ -1,21 +1,8 @@
-APP 	:= my_app
-TESTAPP	:= test
-MAIN 	:= main.cpp
-CCFLAGS := -Wall -pedantic -std=c++17
-CFLAGS 	:= -Wall -pedantic -std=c99
-CC 		:= g++
-C 		:= gcc
-SRC 	:= src
-TEST	:= test
-OBJTEST	:= obj_test
-OBJ 	:= obj
-BIN		:= bin
-INCL	:= include
-TEMP	:= template
-LIBS	:= 
-LIBSTEST:= -lgtest -lpthread
-INCDIRS	:= -I$(SRC) -I$(INCL) -I$(TEMP)
+app_windows:
+	cd build/cmake && cmake ../.. && msbuild HELLO.sln /p:Configuration=Release
 
-include ./.next/*.mk
+app_linux:
+	cd build/cmake && cmake ../.. && make VERBOSE=1
 
-#Yours Rules
+make_dir:
+	mkdir build && cd build && mkdir cmake

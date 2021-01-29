@@ -170,50 +170,30 @@ endef
 
 #Make Test
 $(TESTAPP) : $(OBJSUBDIRS) $(ALLCSOBJ) $(ALLCPPSOBJ) $(OBJSUBDIRSTEST) $(ALLCPPSOBJTEST)
-	@echo "$(PRINT_CXX_COMPILER) -o $(BIN)/$(TESTAPP) $(PRINT_OBJS_TEST_ALL) \
-	$(call PRINT_LIBS,$(LIBS)) $(call PRINT_LIBS,$(LIBSTEST))"
 	@$(CC) -o $(BIN)/$(TESTAPP) $(ALLCPPSOBJ) $(ALLCPPSOBJTEST) $(LIBS) $(LIBSTEST)
 
 $(OBJTEST)/%.o : $(TEST)/%.cpp
-	@echo "$(PRINT_CXX_COMPILER_COMPILER) -o $(call PRINT_OBJ, $(patsubst $(TEST)%,$(OBJTEST)%,$@)) -c $(call PRINT_SRC,$^) \
-	$(call PRINT_FLAGS,$(CCFLAGS)) \
-	$(call PRINT_INCDIRS,$(INCDIRS)) \
-	$(call PRINT_LIBS,$(LIBS)) \
-	$(call PRINT_LIBS,$(LIBSTEST))"
 	@$(CC) -o $(patsubst $(TEST)%,$(OBJTEST)%,$@) -c $^ $(CCFLAGS) $(INCDIRS) $(LIBS) $(LIBSTEST)
 
 #Make a lib
 $(APP) : $(OBJSUBDIRS) $(ALLCSOBJ) $(ALLCPPSOBJ)
-	@echo "$(PRINT_CXX_COMPILER) -o $(BIN)/$(APP) $(PRINT_OBJS_ALL) \
-	$(call PRINT_LIBS,$(LIBS))"
 	@$(CC) -o $(BIN)/$(APP) $(ALLCPPSOBJ) $(ALLCPPSOBJTEST) $(LIBS)
 
 $(OBJ)/%.o : $(SRC)/%.c
-	@echo "$(PRINT_C_COMPILER) -o $(call PRINT_OBJ, $(patsubst $(SRC)%,$(OBJ)%,$@)) -c $(call PRINT_SRC,$^) \
-	$(call PRINT_FLAGS,$(CFLAGS)) \
-	$(call PRINT_INCDIRS,$(INCDIRS)) \
-	$(call PRINT_LIBS,$(LIBS))"
 	@$(C) -o $(patsubst $(SRC)%,$(OBJ)%,$@) -c $^ $(CFLAGS) $(INCDIRS) $(LIBS)
 
 $(OBJ)/%.o : $(SRC)/%.cpp
-	@echo "$(PRINT_CXX_COMPILER) -o $(call PRINT_OBJ, $(patsubst $(SRC)%,$(OBJ)%,$@)) -c $(call PRINT_SRC,$^) \
-	$(call PRINT_FLAGS,$(CCFLAGS)) \
-	$(call PRINT_INCDIRS,$(INCDIRS)) \
-	$(call PRINT_LIBS,$(LIBS))\n"
 	@$(CC) -o $(patsubst $(SRC)%,$(OBJ)%,$@) -c $^ $(CCFLAGS) $(INCDIRS) $(LIBS)
 
 run_test: clean_test $(APP) $(TESTAPP)
-	@echo "\n ---RUN-TEST---	\n"
 	cd bin && ./$(TESTAPP)
 
 run: build
-	@echo "\n ---RUN---	\n"
 	@$() cd bin && ./$(APP)
 
 build: build_Print $(APP)
 
 build_Print:
-	@echo "\n ---BUILD---	\n"
 
 info:
 	#$(info $(ALLCSOBJ))
@@ -233,19 +213,19 @@ endif
 
 
 $(OBJSUBDIRS) :
-	@@echo "$(MKDIR_COLOR)$(MKDIR) $(OBJSUBDIRS)$(NO_COLOR)"
+	#@@echo "$(MKDIR_COLOR)$(MKDIR) $(OBJSUBDIRS)$(NO_COLOR)"
 	@$(MKDIR) $(OBJSUBDIRS) $(BIN)
 
 $(OBJSUBDIRSTEST) :
-	@@echo "$(MKDIR_COLOR)$(MKDIR) $(OBJSUBDIRSTEST)$(NO_COLOR)"
+	#@@echo "$(MKDIR_COLOR)$(MKDIR) $(OBJSUBDIRSTEST)$(NO_COLOR)"
 	@$(MKDIR) $(OBJSUBDIRSTEST) $(BIN)
 
 clean:
-	@echo "$(RM_COLOR)$(RM) -r "./$(OBJ)"$(NO_COLOR)"
+	#@echo "$(RM_COLOR)$(RM) -r "./$(OBJ)"$(NO_COLOR)"
 	@$(RM) -r "./$(OBJ)"
 
 clean_test:
-	@echo "$(RM_COLOR)$(RM) -r "./$(OBJTEST)"$(NO_COLOR)"
+	#@echo "$(RM_COLOR)$(RM) -r "./$(OBJTEST)"$(NO_COLOR)"
 	@$(RM) -r "./$(OBJTEST)"
 
 cleanall:

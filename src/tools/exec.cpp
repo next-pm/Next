@@ -29,3 +29,8 @@ std::string exec(std::string command)
 
     return ret;
 }
+
+void exec_void(std::string command)
+{
+    std::system(command.c_str());
+}
