@@ -62,7 +62,6 @@ int PathCommand::execute(/* args */)
             //Hasta aca
             NextData::getInstance()->path = var;
             std::cout<<"The PATH of Next is: "<<var<<'\n';
-            return status;
         }
         
     }
