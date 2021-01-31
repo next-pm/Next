@@ -47,5 +47,4 @@ void ManagerCommand::initialize(int argc, char const *argv[])
             list_args += " " + line;
         }
     }
-    this->stackCommand.append(new PathCommand());
 }

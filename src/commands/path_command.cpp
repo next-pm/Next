@@ -61,6 +61,8 @@ int PathCommand::execute(/* args */)
             var.replace(index, this->displacement, "");
             //Hasta aca
             NextData::getInstance()->path = var;
+            std::cout<<"The PATH of Next is: "<<var<<'\n';
+            return status;
         }
         
     }
