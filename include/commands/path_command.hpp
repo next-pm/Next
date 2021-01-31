@@ -12,7 +12,9 @@
 class PathCommand : public CommandBase
 {
 private:
-    /* data */
+    std::string path_command;
+    char separator;
+    std::size_t displacement;
 public:
     PathCommand(/* args */);
     ~PathCommand();

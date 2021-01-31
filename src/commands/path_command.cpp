@@ -8,6 +8,15 @@
 
 PathCommand::PathCommand(/* args */) : CommandBase()
 {
+#if defined(_WIN32)
+    this->path_command = exec("PATH");
+    this->separator = ';';
+    this->displacement = 13;
+#elif defined(__linux)
+    this->path_command = exec("echo $PATH");
+    this->separator = ';';
+    this->displacement = 6;
+#endif
 }
 
 PathCommand::~PathCommand()
@@ -17,30 +26,19 @@ PathCommand::~PathCommand()
 int PathCommand::execute(/* args */)
 {
     int status;
-    #if defined(_WIN32)
-    std::string path_command = exec("PATH");
-    #elif defined(__linux)
-    std::string path_command = exec("echo $PATH");
-    #endif
     std::vector<std::string> list_vars;
     list_vars.reserve(NUM_VARS);
 
     std::string line = "";
 
-    if (path_command.find("Next") > path_command.size())
+    if (this->path_command.find("Next") > this->path_command.size())
     {
         std::cout << "No se encontro Next en el Path" << '\n';
         return -1;
     }
-#if defined(_WIN32)
-    const char separator = ';';
-#elif defined(__linux)
-    const char separator = ':';
-#endif
-
-    for (char c : path_command)
+    for (char c : this->path_command)
     {
-        if (c != separator)
+        if (c != this->separator)
         {
             line += c;
         }
@@ -59,13 +57,8 @@ int PathCommand::execute(/* args */)
         if(var.find("Next") < var.size()){
             //Esto esta absolutamente mal, es para quitar '/bin' del PATH 
             std::size_t index = var.size();
-#if defined(_WIN32)
-            index -= 13;
-            var.replace(index, 13, "");
-#elif defined(__linux)
-            index -= 6;
-            var.replace(index, 6, "");
-#endif
+            index -= this->displacement;
+            var.replace(index, this->displacement, "");
             //Hasta aca
             NextData::getInstance()->path = var;
             std::cout<<var<<'\n';
