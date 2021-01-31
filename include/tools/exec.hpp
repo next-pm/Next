@@ -6,9 +6,9 @@
 
 #if defined(_WIN32)
 
-std::string exec(std::string command)
-{
-}
+std::string exec(std::string command);
+
+void exec_void(std::string command);
 
 #elif defined(__linux)
 
