@@ -3,6 +3,11 @@
 BuildCommand::BuildCommand(/* args */)
     : CommandBase()
 {
+#if defined(_WIN32)
+    this->command += "cd build\\cmake && cmake ..\\.. && msbuild HELLO.sln /p:Configuration=Release";
+#elif defined(__linux)
+    this->command += "cd build/cmake && cmake ../.. && make VERBOSE=1";
+#endif
 }
 
 BuildCommand::~BuildCommand()
@@ -11,13 +16,6 @@ BuildCommand::~BuildCommand()
 
 int BuildCommand::execute()
 {
-    std::string line;
-#if defined(_WIN32)
-    line += "cd build/cmake && cmake ../.. && msbuild HELLO.sln /p:Configuration=Release";
-#elif defined(__linux)
-    line += "cd build/cmake && cmake ../.. && make VERBOSE=1";
-#endif
-    exec_void(line);
-
+    exec_void(this->command);
     return 0;
 }

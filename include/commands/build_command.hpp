@@ -10,7 +10,7 @@
 class BuildCommand : public CommandBase
 {
 private:
-    std::string name_project;
+    std::string command;
 public:
     BuildCommand(/* args */);
     ~BuildCommand();
