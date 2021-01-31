@@ -14,7 +14,7 @@ PathCommand::PathCommand(/* args */) : CommandBase()
     this->displacement = 13;
 #elif defined(__linux)
     this->path_command = exec("echo $PATH");
-    this->separator = ';';
+    this->separator = ':';
     this->displacement = 6;
 #endif
 }
