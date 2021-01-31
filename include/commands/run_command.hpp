@@ -10,7 +10,7 @@
 class RunCommand : public CommandBase
 {
 private:
-    std::string name_project;
+    std::string command;
 public:
     RunCommand(/* args */);
     ~RunCommand();

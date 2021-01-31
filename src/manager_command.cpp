@@ -42,6 +42,10 @@ void ManagerCommand::initialize(int argc, char const *argv[])
         {
             this->stackCommand.append(new BuildCommand());
         }
+        else if (line == "run")
+        {
+            this->stackCommand.append(new RunCommand());
+        }
         else
         {
             list_args += " " + line;
