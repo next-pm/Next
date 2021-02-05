@@ -50,6 +50,12 @@ void ManagerCommand::initialize(int argc, char const *argv[])
         {
             this->stackCommand.append(new ImportCommand(argv[i + 1]));
         }
+        else if (line == "upgrade" || line == "u")
+        {
+            this->stackCommand.append(new PathCommand());
+            this->stackCommand.append(new UpgradeCommand());
+            this->stackCommand.append(new VersionCommand());
+        }
         else
         {
             list_args += " " + line;

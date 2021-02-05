@@ -14,6 +14,7 @@
 #include <commands/run_command.hpp>
 #include <commands/make_command.hpp>
 #include <commands/import_command.hpp>
+#include <commands/upgrade_command.hpp>
 
 class ManagerCommand
 {
