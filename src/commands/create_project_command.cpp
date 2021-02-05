@@ -13,14 +13,14 @@ CreateProjectCommand::CreateProjectCommand(std::string name_project)
     : name_project{name_project}, CommandBase()
 {
 #if defined(_WIN32)
-    this->dirs = {"", "\\src", "\\build\\cmake", "\\include", "\\test", "\\obj"};
+    this->dirs = {"", "\\src", "\\build\\cmake", "\\include", "\\test", "\\obj", "\\lib"};
     this->copy_commands.reserve(10);
     this->copy_commands.push_back("\\assets\\main " + this->name_project + this->dirs[1]);
     this->copy_commands.push_back("\\assets\\CMakeLists.txt " + this->name_project);
     this->move_commands.reserve(2);
     this->move_commands.push_back("\\src\\main " + this->name_project + "\\src\\main.cpp");
 #elif defined(__linux)
-    this->dirs = {"", "/src", "/build", "/build/cmake", "/include", "/test", "/obj"};
+    this->dirs = {"", "/src", "/build", "/build/cmake", "/include", "/test", "/obj", "/lib"};
     this->copy_commands.reserve(10);
     this->copy_commands.push_back("/assets/main " + this->name_project + this->dirs[1]);
     this->copy_commands.push_back("/assets/CMakeLists.txt " + this->name_project);

@@ -13,7 +13,7 @@
 #include <commands/build_command.hpp>
 #include <commands/run_command.hpp>
 #include <commands/make_command.hpp>
-
+#include <commands/import_command.hpp>
 
 class ManagerCommand
 {
@@ -50,14 +50,5 @@ public:
         {
             this->stackCommand.append(new PathCommand());
         }
-    }
-
-    bool isCommand(char const *arg)
-    {
-        if (std::string(arg) == "create" || std::string(arg) == "run" || std::string(arg) == "build")
-        {
-            return true;
-        }
-        return false;
     }
 };

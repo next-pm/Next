@@ -46,6 +46,10 @@ void ManagerCommand::initialize(int argc, char const *argv[])
         {
             this->stackCommand.append(new RunCommand());
         }
+        else if (line == "import" || line == "i")
+        {
+            this->stackCommand.append(new ImportCommand(argv[i + 1]));
+        }
         else
         {
             list_args += " " + line;
