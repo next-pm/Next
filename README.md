@@ -5,7 +5,7 @@ Next es un **administrador** de proyectos de **C/C++**, es diseñado como una so
 #### Instalación
 
 - Descargar el Repositio de **Next**.
-- Compilar next usando el comando `make next` en la raiz del repositorio.
+- Compilar next usando el comando `make next` en la raíz del repositorio.
 - Añadir next al PATH del dispositivo
 
 #### Comandos
