@@ -1,0 +1,61 @@
+\hypertarget{class_command_base}{}\doxysection{Referencia de la Clase Command\+Base}
+\label{class_command_base}\index{CommandBase@{CommandBase}}
+
+
+Es la Clase de la que heredantodos los Comandos de Next.  
+
+
+
+
+{\ttfamily \#include $<$command\+\_\+base.\+hpp$>$}
+
+Diagrama de herencias de Command\+Base\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=9.000000cm]{db/db6/class_command_base}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_command_base_af42de9fe79dc64fce99580ee1e2f678f}\label{class_command_base_af42de9fe79dc64fce99580ee1e2f678f}} 
+\mbox{\hyperlink{class_command_base_af42de9fe79dc64fce99580ee1e2f678f}{Command\+Base}} ()
+\begin{DoxyCompactList}\small\item\em Construsctor vacio de un Comando. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_command_base_a5f05517c05848151fbebd74f117e3bb2}\label{class_command_base_a5f05517c05848151fbebd74f117e3bb2}} 
+virtual \mbox{\hyperlink{class_command_base_a5f05517c05848151fbebd74f117e3bb2}{$\sim$\+Command\+Base}} ()=0
+\begin{DoxyCompactList}\small\item\em Destructor de Comando. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_command_base_a76bc08739bfd8e079aa008cfd4e126bd}{execute}} ()=0
+\begin{DoxyCompactList}\small\item\em Metodo en donde se realiza la tarea del comando. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Es la Clase de la que heredantodos los Comandos de Next. 
+
+Definición en la línea 20 del archivo command\+\_\+base.\+hpp.
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_command_base_a76bc08739bfd8e079aa008cfd4e126bd}\label{class_command_base_a76bc08739bfd8e079aa008cfd4e126bd}} 
+\index{CommandBase@{CommandBase}!execute@{execute}}
+\index{execute@{execute}!CommandBase@{CommandBase}}
+\doxysubsubsection{\texorpdfstring{execute()}{execute()}}
+{\footnotesize\ttfamily virtual int Command\+Base\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Metodo en donde se realiza la tarea del comando. 
+
+\begin{DoxyReturn}{Devuelve}
+int Estatus de devolucion del comando 
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{class_version_command_aad03dffd9b534584a627063abf572438}{Version\+Command}}, \mbox{\hyperlink{class_upgrade_command_a1d2db379fcd2d7401acbba8061e9d93e}{Upgrade\+Command}}, \mbox{\hyperlink{class_run_command_a282a59d108faf365fd8feaeeaeddae8f}{Run\+Command}}, \mbox{\hyperlink{class_read_help_command_a6f92e7e37f979060f79c12ead9ac6793}{Read\+Help\+Command}}, \mbox{\hyperlink{class_path_command_a7649309fda27e6717192e12f46a2aa58}{Path\+Command}}, \mbox{\hyperlink{class_import_command_ad13317b19bff9f0f583c56a1e7b209c2}{Import\+Command}}, \mbox{\hyperlink{class_create_project_command_ab7351a2bb3e764bac74cb6b84561fd24}{Create\+Project\+Command}} y \mbox{\hyperlink{class_build_command_a0fb11f0e6dbce871b6580d0525a04e2f}{Build\+Command}}.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{command__base_8hpp}{command\+\_\+base.\+hpp}}\item 
+src/command\+\_\+base.\+cpp\end{DoxyCompactItemize}

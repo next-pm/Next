@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Next: Fichero Fuente /home/rafa/git/Moon_core/include/sys/system.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Next
+   &#160;<span id="projectnumber">2.0.0</span>
+   </div>
+   <div id="projectbrief">Es un administrador de proyectos hechos con C/C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_9bec7083027963d9f9ceae2cc7474de5.html">git</a></li><li class="navelem"><a class="el" href="../../dir_c4b7ae6c42f2d3b97d61311c9aac0ea2.html">Moon_core</a></li><li class="navelem"><a class="el" href="../../dir_586be7b4fb01bbe1abc5920457985044.html">include</a></li><li class="navelem"><a class="el" href="../../dir_d87c2289fa53c2bf5c1f84210205ed92.html">sys</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">system.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../dd/d90/system_8hpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">//Alias</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;alias.hpp&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//SystemBase</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/d9b/system__base_8hpp.html">sys/system_base.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d2/d6d/namespace_moon_1_1_core.html">Moon::Core</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Type&gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html">   31</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html">System_t</a> : <span class="keyword">public</span> <a class="code" href="../../d1/d35/struct_moon_1_1_core_1_1_system_base__t.html">SystemBase_t</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#afc4ba1b03285d5fdc28c077b94809003">   39</a></span>&#160;        <a class="code" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#afc4ba1b03285d5fdc28c077b94809003">System_t</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#ac5c5b646024a6049466247ecced1def4">   45</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#ac5c5b646024a6049466247ecced1def4">~System_t</a>() = 0;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#ae0357142c2082cd77bf418bfc40e407b">   52</a></span>&#160;        <span class="keyword">static</span> Moon::Alias::SystemType <a class="code" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#ae0357142c2082cd77bf418bfc40e407b">getSystemType</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#acbff52921291ab62e5d6ffab76e33ddc">   60</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#acbff52921291ab62e5d6ffab76e33ddc">update</a>(Type *... gameContext) = 0;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#a6b6ec5384dc650b206bca0488e445931">   68</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#a6b6ec5384dc650b206bca0488e445931">alive</a>() = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    };</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;} <span class="comment">// namespace Moon::Core</span></div>
+<div class="ttc" id="anamespace_moon_1_1_core_html"><div class="ttname"><a href="../../d2/d6d/namespace_moon_1_1_core.html">Moon::Core</a></div><div class="ttdoc">Namespace del core del Motor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4b/aplication_8hpp_source.html#l00023">aplication.hpp:24</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_system__t_html"><div class="ttname"><a href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html">Moon::Core::System_t</a></div><div class="ttdoc">Clase de la que heredan todos los Systems del Motor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d90/system_8hpp_source.html#l00031">system.hpp:32</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_system__t_html_a6b6ec5384dc650b206bca0488e445931"><div class="ttname"><a href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#a6b6ec5384dc650b206bca0488e445931">Moon::Core::System_t::alive</a></div><div class="ttdeci">virtual bool alive()=0</div><div class="ttdoc">Metodo que indica si el system sigue alive.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_system__t_html_ac5c5b646024a6049466247ecced1def4"><div class="ttname"><a href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#ac5c5b646024a6049466247ecced1def4">Moon::Core::System_t::~System_t</a></div><div class="ttdeci">virtual ~System_t()=0</div><div class="ttdoc">Destructor de System_t object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_system__t_html_acbff52921291ab62e5d6ffab76e33ddc"><div class="ttname"><a href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#acbff52921291ab62e5d6ffab76e33ddc">Moon::Core::System_t::update</a></div><div class="ttdeci">virtual void update(Type *... gameContext)=0</div><div class="ttdoc">Metodo que actualiza al System.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_system__t_html_ae0357142c2082cd77bf418bfc40e407b"><div class="ttname"><a href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#ae0357142c2082cd77bf418bfc40e407b">Moon::Core::System_t::getSystemType</a></div><div class="ttdeci">static Moon::Alias::SystemType getSystemType()</div><div class="ttdoc">Get the System Type object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_system__t_html_afc4ba1b03285d5fdc28c077b94809003"><div class="ttname"><a href="../../d8/dd8/struct_moon_1_1_core_1_1_system__t.html#afc4ba1b03285d5fdc28c077b94809003">Moon::Core::System_t::System_t</a></div><div class="ttdeci">System_t()</div><div class="ttdoc">Contructor de System_t object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_system_base__t_html"><div class="ttname"><a href="../../d1/d35/struct_moon_1_1_core_1_1_system_base__t.html">Moon::Core::SystemBase_t</a></div><div class="ttdoc">Clase de la que heredan todos los systemas del Motor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d9b/system__base_8hpp_source.html#l00029">system_base.hpp:30</a></div></div>
+<div class="ttc" id="asystem__base_8hpp_html"><div class="ttname"><a href="../../dc/d9b/system__base_8hpp.html">system_base.hpp</a></div><div class="ttdoc">Clase de la que heredan todos los systemas del Motor.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

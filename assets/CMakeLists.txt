@@ -48,7 +48,33 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/libs.cmake)
 endif()
 
 ########################
-#  Dir of the binary   #
+#       Testing        #
 ########################
-set(EXECUTABLE_OUTPUT_PATH ${BUILD_DIR} CACHE PATH "Build directory" FORCE)
-set(CMAKE_BINARY_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/build)
+
+if( test AND test STREQUAL "on" )
+
+  message("Testing enabled")
+
+    ########################
+    #     Test_SOURCE      #
+    ########################
+    file(GLOB TEST_SRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/test/*.cpp)
+    set(TESTING_SOURCE ${LIB_SOURCES} )
+    list(REMOVE_ITEM TESTING_SOURCE ${SOURCE_DIR}/main.cpp)
+
+    ########################
+    #     Init_Testing     #
+    ########################
+    enable_testing()
+    add_executable(runUnitTests ${TEST_SRC_FILES} ${TESTING_SOURCE} )
+
+    ########################
+    #  Library of Testing  #
+    ########################
+    target_link_libraries(runUnitTests gtest gtest_main)
+
+    ########################
+    #   Build of Testing   #
+    ######################## 
+    add_test(UnitTests runUnitTests)
+endif()

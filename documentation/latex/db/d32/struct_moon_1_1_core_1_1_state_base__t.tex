@@ -1,0 +1,83 @@
+\hypertarget{struct_moon_1_1_core_1_1_state_base__t}{}\doxysection{Referencia de la Estructura Moon\+::Core\+::State\+Base\+\_\+t}
+\label{struct_moon_1_1_core_1_1_state_base__t}\index{Moon::Core::StateBase\_t@{Moon::Core::StateBase\_t}}
+
+
+Clase de la que heredan todos los State del Motor.  
+
+
+
+
+{\ttfamily \#include $<$state\+\_\+base.\+hpp$>$}
+
+Diagrama de herencias de Moon\+::Core\+::State\+Base\+\_\+t\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{db/d32/struct_moon_1_1_core_1_1_state_base__t}
+\end{center}
+\end{figure}
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_state_base__t_ae3cbbc53ad39bb0ef256355de107db10}\label{struct_moon_1_1_core_1_1_state_base__t_ae3cbbc53ad39bb0ef256355de107db10}} 
+\mbox{\hyperlink{struct_moon_1_1_core_1_1_state_base__t_ae3cbbc53ad39bb0ef256355de107db10}{State\+Base\+\_\+t}} ()
+\begin{DoxyCompactList}\small\item\em Contructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_state_base__t}{State\+Base\+\_\+t}} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_state_base__t_ac5c01f940b75c13e393b8f1b92103298}\label{struct_moon_1_1_core_1_1_state_base__t_ac5c01f940b75c13e393b8f1b92103298}} 
+virtual \mbox{\hyperlink{struct_moon_1_1_core_1_1_state_base__t_ac5c01f940b75c13e393b8f1b92103298}{$\sim$\+State\+Base\+\_\+t}} ()=0
+\begin{DoxyCompactList}\small\item\em Destructor de \mbox{\hyperlink{struct_moon_1_1_core_1_1_state_base__t}{State\+Base\+\_\+t}} object. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{struct_moon_1_1_core_1_1_state_base__t_a89682edd580e5710cb5fa4474525c727}{alive}} ()=0
+\begin{DoxyCompactList}\small\item\em Indica si el State sigue alive. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_state_base__t_a25159941fc04bb19c3f3060c2f1b360e}\label{struct_moon_1_1_core_1_1_state_base__t_a25159941fc04bb19c3f3060c2f1b360e}} 
+virtual void \mbox{\hyperlink{struct_moon_1_1_core_1_1_state_base__t_a25159941fc04bb19c3f3060c2f1b360e}{update}} ()=0
+\begin{DoxyCompactList}\small\item\em Actualiza el State. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Atributos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static Moon\+::\+Alias\+::\+State\+Type \mbox{\hyperlink{struct_moon_1_1_core_1_1_state_base__t_a0e0490777ba43665caf3315b25536e3c}{next\+Type}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase de la que heredan todos los State del Motor. 
+
+Definición en la línea 27 del archivo state\+\_\+base.\+hpp.
+
+
+
+\doxysubsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_state_base__t_a89682edd580e5710cb5fa4474525c727}\label{struct_moon_1_1_core_1_1_state_base__t_a89682edd580e5710cb5fa4474525c727}} 
+\index{Moon::Core::StateBase\_t@{Moon::Core::StateBase\_t}!alive@{alive}}
+\index{alive@{alive}!Moon::Core::StateBase\_t@{Moon::Core::StateBase\_t}}
+\doxysubsubsection{\texorpdfstring{alive()}{alive()}}
+{\footnotesize\ttfamily virtual bool Moon\+::\+Core\+::\+State\+Base\+\_\+t\+::alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Indica si el State sigue alive. 
+
+\begin{DoxyReturn}{Devuelve}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+Implementado en \mbox{\hyperlink{struct_moon_1_1_core_1_1_state__t_addb1611706ba859dff2e36dce6a79b29}{Moon\+::\+Core\+::\+State\+\_\+t$<$ Type $>$}}.
+
+
+
+\doxysubsection{Documentación de los campos}
+\mbox{\Hypertarget{struct_moon_1_1_core_1_1_state_base__t_a0e0490777ba43665caf3315b25536e3c}\label{struct_moon_1_1_core_1_1_state_base__t_a0e0490777ba43665caf3315b25536e3c}} 
+\index{Moon::Core::StateBase\_t@{Moon::Core::StateBase\_t}!nextType@{nextType}}
+\index{nextType@{nextType}!Moon::Core::StateBase\_t@{Moon::Core::StateBase\_t}}
+\doxysubsubsection{\texorpdfstring{nextType}{nextType}}
+{\footnotesize\ttfamily Moon\+::\+Alias\+::\+State\+Type Moon\+::\+Core\+::\+State\+Base\+\_\+t\+::next\+Type = 0\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Identificador del siguiente tipo de State 
+
+Definición en la línea 30 del archivo state\+\_\+base.\+hpp.
+
+
+
+La documentación para esta estructura fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+/home/rafa/git/\+Moon\+\_\+core/include/state/\mbox{\hyperlink{state__base_8hpp}{state\+\_\+base.\+hpp}}\end{DoxyCompactItemize}

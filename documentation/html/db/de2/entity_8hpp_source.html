@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Next: Fichero Fuente /home/rafa/git/Moon_core/include/ent/entity.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Next
+   &#160;<span id="projectnumber">2.0.0</span>
+   </div>
+   <div id="projectbrief">Es un administrador de proyectos hechos con C/C++</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_9bec7083027963d9f9ceae2cc7474de5.html">git</a></li><li class="navelem"><a class="el" href="../../dir_c4b7ae6c42f2d3b97d61311c9aac0ea2.html">Moon_core</a></li><li class="navelem"><a class="el" href="../../dir_586be7b4fb01bbe1abc5920457985044.html">include</a></li><li class="navelem"><a class="el" href="../../dir_a7987eba1c1f2816124004cbde052c6a.html">ent</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">entity.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../db/de2/entity_8hpp.html">Ir a la documentación de este archivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;alias.hpp&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../dc/d73/entity__base_8hpp.html">ent/entity_base.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d2/d6d/namespace_moon_1_1_core.html">Moon::Core</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html">   29</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html">Entity_t</a> : <span class="keyword">public</span> <a class="code" href="../../d6/ddb/struct_moon_1_1_core_1_1_entity_base__t.html">EntityBase_t</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a3b50555358cd4aadf2577d0a0d82034b">   32</a></span>&#160;        <a class="code" href="../../d3/d40/namespace_moon_1_1_alias.html#ae0d30ec96a0be41f324d622beb2b625e">Moon::Alias::EntityId</a> <a class="code" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a3b50555358cd4aadf2577d0a0d82034b">eid</a> = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a80a2eb94057ca6ba5ae736b6ed3d7005">   38</a></span>&#160;        <a class="code" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a80a2eb94057ca6ba5ae736b6ed3d7005">Entity_t</a>();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#ad608d338116d8f452c697d58c98774e5">   45</a></span>&#160;        <a class="code" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#ad608d338116d8f452c697d58c98774e5">Entity_t</a>(<a class="code" href="../../d3/d40/namespace_moon_1_1_alias.html#ae0d30ec96a0be41f324d622beb2b625e">Moon::Alias::EntityId</a> <a class="code" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a3b50555358cd4aadf2577d0a0d82034b">eid</a>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a3c819da92573f9f532935edb63993a87">   51</a></span>&#160;        <span class="keyword">virtual</span> <a class="code" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a3c819da92573f9f532935edb63993a87">~Entity_t</a>() = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a4caae28d306ad615829fe63f159dcc16">   58</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="../../d3/d40/namespace_moon_1_1_alias.html#a87a2dca838f202879e9e357e9acd24a8">Moon::Alias::EntityType</a> <a class="code" href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a4caae28d306ad615829fe63f159dcc16">getEntityType</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// namespace Moon::Core</span></div>
+<div class="ttc" id="aentity__base_8hpp_html"><div class="ttname"><a href="../../dc/d73/entity__base_8hpp.html">entity_base.hpp</a></div><div class="ttdoc">Clase de la que hereda cualquier entity del Motor.</div></div>
+<div class="ttc" id="anamespace_moon_1_1_alias_html_a87a2dca838f202879e9e357e9acd24a8"><div class="ttname"><a href="../../d3/d40/namespace_moon_1_1_alias.html#a87a2dca838f202879e9e357e9acd24a8">Moon::Alias::EntityType</a></div><div class="ttdeci">std::uint16_t EntityType</div><div class="ttdoc">Tipos definidos para identificar cada tipo distinto de Objeto en el Motor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddc/alias_8hpp_source.html#l00022">alias.hpp:22</a></div></div>
+<div class="ttc" id="anamespace_moon_1_1_alias_html_ae0d30ec96a0be41f324d622beb2b625e"><div class="ttname"><a href="../../d3/d40/namespace_moon_1_1_alias.html#ae0d30ec96a0be41f324d622beb2b625e">Moon::Alias::EntityId</a></div><div class="ttdeci">std::size_t EntityId</div><div class="ttdoc">Tipo definido para dar un ID a cada entidad.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/ddc/alias_8hpp_source.html#l00016">alias.hpp:16</a></div></div>
+<div class="ttc" id="anamespace_moon_1_1_core_html"><div class="ttname"><a href="../../d2/d6d/namespace_moon_1_1_core.html">Moon::Core</a></div><div class="ttdoc">Namespace del core del Motor.</div><div class="ttdef"><b>Definition:</b> <a href="../../d5/d4b/aplication_8hpp_source.html#l00023">aplication.hpp:24</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_entity__t_html"><div class="ttname"><a href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html">Moon::Core::Entity_t</a></div><div class="ttdoc">Clase de la que hereda cada entity del Motor.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/de2/entity_8hpp_source.html#l00029">entity.hpp:30</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_entity__t_html_a3b50555358cd4aadf2577d0a0d82034b"><div class="ttname"><a href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a3b50555358cd4aadf2577d0a0d82034b">Moon::Core::Entity_t::eid</a></div><div class="ttdeci">Moon::Alias::EntityId eid</div><div class="ttdef"><b>Definition:</b> <a href="../../db/de2/entity_8hpp_source.html#l00032">entity.hpp:32</a></div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_entity__t_html_a3c819da92573f9f532935edb63993a87"><div class="ttname"><a href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a3c819da92573f9f532935edb63993a87">Moon::Core::Entity_t::~Entity_t</a></div><div class="ttdeci">virtual ~Entity_t()=0</div><div class="ttdoc">Destroy the Entity_t object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_entity__t_html_a4caae28d306ad615829fe63f159dcc16"><div class="ttname"><a href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a4caae28d306ad615829fe63f159dcc16">Moon::Core::Entity_t::getEntityType</a></div><div class="ttdeci">static Moon::Alias::EntityType getEntityType()</div><div class="ttdoc">Get the Entity Type object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_entity__t_html_a80a2eb94057ca6ba5ae736b6ed3d7005"><div class="ttname"><a href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#a80a2eb94057ca6ba5ae736b6ed3d7005">Moon::Core::Entity_t::Entity_t</a></div><div class="ttdeci">Entity_t()</div><div class="ttdoc">Construct a new Entity_t object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_entity__t_html_ad608d338116d8f452c697d58c98774e5"><div class="ttname"><a href="../../d6/d97/struct_moon_1_1_core_1_1_entity__t.html#ad608d338116d8f452c697d58c98774e5">Moon::Core::Entity_t::Entity_t</a></div><div class="ttdeci">Entity_t(Moon::Alias::EntityId eid)</div><div class="ttdoc">Construct a new Entity_t object.</div></div>
+<div class="ttc" id="astruct_moon_1_1_core_1_1_entity_base__t_html"><div class="ttname"><a href="../../d6/ddb/struct_moon_1_1_core_1_1_entity_base__t.html">Moon::Core::EntityBase_t</a></div><div class="ttdoc">Clase de la que hereda cualquier entity del Motor.</div><div class="ttdef"><b>Definition:</b> <a href="../../dc/d73/entity__base_8hpp_source.html#l00035">entity_base.hpp:36</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

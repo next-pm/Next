@@ -1,0 +1,51 @@
+\hypertarget{class_stack_command}{}\doxysection{Referencia de la Clase Stack\+Command}
+\label{class_stack_command}\index{StackCommand@{StackCommand}}
+
+
+Clase que almacena los Comandos a realizar.  
+
+
+
+
+{\ttfamily \#include $<$stack\+\_\+command.\+hpp$>$}
+
+\doxysubsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stack_command_a87ab6f2aa78be97bc26ee0f5dcaf2935}\label{class_stack_command_a87ab6f2aa78be97bc26ee0f5dcaf2935}} 
+\mbox{\hyperlink{class_stack_command_a87ab6f2aa78be97bc26ee0f5dcaf2935}{Stack\+Command}} ()
+\begin{DoxyCompactList}\small\item\em Constructor vacio. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_stack_command_a7ba7930e7d3172dccd97af29251f6dbf}\label{class_stack_command_a7ba7930e7d3172dccd97af29251f6dbf}} 
+\mbox{\hyperlink{class_stack_command_a7ba7930e7d3172dccd97af29251f6dbf}{$\sim$\+Stack\+Command}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_stack_command_aed754e72b95d59f33c2688320a306c32}\label{class_stack_command_aed754e72b95d59f33c2688320a306c32}} 
+void \mbox{\hyperlink{class_stack_command_aed754e72b95d59f33c2688320a306c32}{append}} (\mbox{\hyperlink{class_command_base}{Command\+Base}} $\ast$)
+\begin{DoxyCompactList}\small\item\em Metod para añadir un nuevo Comando. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_stack_command_a133b7e61fa285ce195285920329e8af0}\label{class_stack_command_a133b7e61fa285ce195285920329e8af0}} 
+void \mbox{\hyperlink{class_stack_command_a133b7e61fa285ce195285920329e8af0}{undo}} ()
+\begin{DoxyCompactList}\small\item\em Metodo para eliminar un comando. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_stack_command_aab132239e1f5d2635fa38eb1c8a8b58e}\label{class_stack_command_aab132239e1f5d2635fa38eb1c8a8b58e}} 
+void \mbox{\hyperlink{class_stack_command_aab132239e1f5d2635fa38eb1c8a8b58e}{clear}} ()
+\begin{DoxyCompactList}\small\item\em Metodo para borrar todos los comandos. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_stack_command_a5677bf3521387636fce32e00f051b137}\label{class_stack_command_a5677bf3521387636fce32e00f051b137}} 
+void \mbox{\hyperlink{class_stack_command_a5677bf3521387636fce32e00f051b137}{execute}} ()
+\begin{DoxyCompactList}\small\item\em Metodo para ejecutar los comandos almacenados. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Campos de datos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_stack_command_a7a1b60284a0894eff8ae025f5a81ea19}\label{class_stack_command_a7a1b60284a0894eff8ae025f5a81ea19}} 
+std\+::vector$<$ \mbox{\hyperlink{class_command_base}{Command\+Base}} $\ast$ $>$ \mbox{\hyperlink{class_stack_command_a7a1b60284a0894eff8ae025f5a81ea19}{stack\+\_\+tasks}}
+\begin{DoxyCompactList}\small\item\em Vector de los comandos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descripción detallada}
+Clase que almacena los Comandos a realizar. 
+
+Definición en la línea 20 del archivo stack\+\_\+command.\+hpp.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{stack__command_8hpp}{stack\+\_\+command.\+hpp}}\item 
+src/stack\+\_\+command.\+cpp\end{DoxyCompactItemize}

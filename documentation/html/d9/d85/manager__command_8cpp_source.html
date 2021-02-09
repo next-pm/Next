@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+		<meta name="generator" content="Doxygen 1.9.1"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Next: Fichero Fuente src/manager_command.cpp</title>
+		<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="../../jquery.js"></script>
+		<script type="text/javascript" src="../../dynsections.js"></script>
+		<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+		<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+		<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom_dark_theme.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+	<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+		<div id="titlearea">
+			<table cellspacing="0" cellpadding="0">
+				<tbody>
+					<tr style="height: 56px;">
+						<td id="projectalign" style="padding-left: 0.5em;">
+							<div id="projectname">Next
+								&#160;<span id="projectnumber">2.0.0</span>
+							</div>
+							<div id="projectbrief">Es un administrador de proyectos hechos con C/C++</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- end header part --><!-- Generado por Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Buscar','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Buscar');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">manager_command.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="../../d2/def/manager__command_8hpp.html">manager_command.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="../../d3/d6e/class_manager_command.html#a44379bd44f4d8d8397ed5d6e9c835589">    3</a></span>&#160;<a class="code" href="../../d3/d6e/class_manager_command.html#a44379bd44f4d8d8397ed5d6e9c835589">ManagerCommand::ManagerCommand</a>(<span class="comment">/* args */</span>)</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;{</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="../../d3/d6e/class_manager_command.html#a9bad31a956e2c51bc1105076fce224db">    7</a></span>&#160;<a class="code" href="../../d3/d6e/class_manager_command.html#a9bad31a956e2c51bc1105076fce224db">ManagerCommand::~ManagerCommand</a>()</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aab132239e1f5d2635fa38eb1c8a8b58e">clear</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="../../d3/d6e/class_manager_command.html#ad71b63166dcb3f05ec045139aa87cbe7">   12</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d6e/class_manager_command.html#ad71b63166dcb3f05ec045139aa87cbe7">ManagerCommand::execute</a>()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#a5677bf3521387636fce32e00f051b137">execute</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="../../d3/d6e/class_manager_command.html#a25ff9a62131a06321cc004364fe326a8">   18</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d3/d6e/class_manager_command.html#a25ff9a62131a06321cc004364fe326a8">ManagerCommand::initialize</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> <span class="keyword">const</span> *argv[])</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::string list_args;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    list_args.reserve(100);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">if</span> (argc &lt; 2)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; argc; i++)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::string line = argv[i];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">if</span> (this-&gt;<a class="code" href="../../d3/d6e/class_manager_command.html#ad4392373b40024b57025c5b47e67d243">isFlag</a>(argv[i]))</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            this-&gt;<a class="code" href="../../d3/d6e/class_manager_command.html#a85c3d8e55230a60728f14a6c2c33e117">createFlag</a>(argv[i]);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line == <span class="stringliteral">&quot;create&quot;</span>)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d0/d80/class_path_command.html">PathCommand</a>());</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d9/d73/class_create_project_command.html">CreateProjectCommand</a>(argv[i + 1]));</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d1/d86/class_read_help_command.html">ReadHelpCommand</a>());</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line == <span class="stringliteral">&quot;build&quot;</span>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d4/dff/class_build_command.html">BuildCommand</a>());</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line == <span class="stringliteral">&quot;run&quot;</span>)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d0/de5/class_run_command.html">RunCommand</a>());</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line == <span class="stringliteral">&quot;import&quot;</span> || line == <span class="stringliteral">&quot;i&quot;</span>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d6/db3/class_import_command.html">ImportCommand</a>(argv[i + 1]));</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (line == <span class="stringliteral">&quot;upgrade&quot;</span> || line == <span class="stringliteral">&quot;u&quot;</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d0/d80/class_path_command.html">PathCommand</a>());</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../d9/dfc/class_upgrade_command.html">UpgradeCommand</a>());</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            this-&gt;stackCommand.<a class="code" href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">append</a>(<span class="keyword">new</span> <a class="code" href="../../dc/dbd/class_version_command.html">VersionCommand</a>());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            list_args += <span class="stringliteral">&quot; &quot;</span> + line;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="ttc" id="aclass_build_command_html"><div class="ttname"><a href="../../d4/dff/class_build_command.html">BuildCommand</a></div><div class="ttdoc">Comado para compilar y enlazar un proyecto de Next.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/d6c/build__command_8hpp_source.html#l00023">build_command.hpp:24</a></div></div>
+<div class="ttc" id="aclass_create_project_command_html"><div class="ttname"><a href="../../d9/d73/class_create_project_command.html">CreateProjectCommand</a></div><div class="ttdoc">Comando para la creacion de un nuevo Proyecto de Next.</div><div class="ttdef"><b>Definition:</b> <a href="../../d3/d01/create__project__command_8hpp_source.html#l00023">create_project_command.hpp:24</a></div></div>
+<div class="ttc" id="aclass_import_command_html"><div class="ttname"><a href="../../d6/db3/class_import_command.html">ImportCommand</a></div><div class="ttdoc">Comado para clonar e importar otro proyecto de Next como una biblioteca.</div><div class="ttdef"><b>Definition:</b> <a href="../../da/d5e/import__command_8hpp_source.html#l00022">import_command.hpp:23</a></div></div>
+<div class="ttc" id="aclass_manager_command_html_a25ff9a62131a06321cc004364fe326a8"><div class="ttname"><a href="../../d3/d6e/class_manager_command.html#a25ff9a62131a06321cc004364fe326a8">ManagerCommand::initialize</a></div><div class="ttdeci">void initialize(int argc, char const *argv[])</div><div class="ttdoc">Metodo de inicializacion del Manager, aqui se crean los comandos.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d85/manager__command_8cpp_source.html#l00018">manager_command.cpp:18</a></div></div>
+<div class="ttc" id="aclass_manager_command_html_a44379bd44f4d8d8397ed5d6e9c835589"><div class="ttname"><a href="../../d3/d6e/class_manager_command.html#a44379bd44f4d8d8397ed5d6e9c835589">ManagerCommand::ManagerCommand</a></div><div class="ttdeci">ManagerCommand()</div><div class="ttdoc">Constructor vacio del Manager.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d85/manager__command_8cpp_source.html#l00003">manager_command.cpp:3</a></div></div>
+<div class="ttc" id="aclass_manager_command_html_a85c3d8e55230a60728f14a6c2c33e117"><div class="ttname"><a href="../../d3/d6e/class_manager_command.html#a85c3d8e55230a60728f14a6c2c33e117">ManagerCommand::createFlag</a></div><div class="ttdeci">void createFlag(char const *arg)</div><div class="ttdoc">Metodo responsable de la creacion de los comandos correspondientes a las Banderas.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/def/manager__command_8hpp_source.html#l00085">manager_command.hpp:85</a></div></div>
+<div class="ttc" id="aclass_manager_command_html_a9bad31a956e2c51bc1105076fce224db"><div class="ttname"><a href="../../d3/d6e/class_manager_command.html#a9bad31a956e2c51bc1105076fce224db">ManagerCommand::~ManagerCommand</a></div><div class="ttdeci">~ManagerCommand()</div><div class="ttdoc">Destructor de ManagerCommand.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d85/manager__command_8cpp_source.html#l00007">manager_command.cpp:7</a></div></div>
+<div class="ttc" id="aclass_manager_command_html_ad4392373b40024b57025c5b47e67d243"><div class="ttname"><a href="../../d3/d6e/class_manager_command.html#ad4392373b40024b57025c5b47e67d243">ManagerCommand::isFlag</a></div><div class="ttdeci">constexpr bool isFlag(char const *arg)</div><div class="ttdoc">Metodo que evalua si un argumento es una bandera.</div><div class="ttdef"><b>Definition:</b> <a href="../../d2/def/manager__command_8hpp_source.html#l00074">manager_command.hpp:74</a></div></div>
+<div class="ttc" id="aclass_manager_command_html_ad71b63166dcb3f05ec045139aa87cbe7"><div class="ttname"><a href="../../d3/d6e/class_manager_command.html#ad71b63166dcb3f05ec045139aa87cbe7">ManagerCommand::execute</a></div><div class="ttdeci">void execute()</div><div class="ttdoc">Metodo en el que se ejecuta los comandos.</div><div class="ttdef"><b>Definition:</b> <a href="../../d9/d85/manager__command_8cpp_source.html#l00012">manager_command.cpp:12</a></div></div>
+<div class="ttc" id="aclass_path_command_html"><div class="ttname"><a href="../../d0/d80/class_path_command.html">PathCommand</a></div><div class="ttdoc">Comado que localiza la ruta en la que esta instalado Next.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/d9c/path__command_8hpp_source.html#l00025">path_command.hpp:26</a></div></div>
+<div class="ttc" id="aclass_read_help_command_html"><div class="ttname"><a href="../../d1/d86/class_read_help_command.html">ReadHelpCommand</a></div><div class="ttdoc">Comado para leer el archivo de ayuda &quot;help&quot;.</div><div class="ttdef"><b>Definition:</b> <a href="../../de/da4/read__help__command_8hpp_source.html#l00024">read_help_command.hpp:25</a></div></div>
+<div class="ttc" id="aclass_run_command_html"><div class="ttname"><a href="../../d0/de5/class_run_command.html">RunCommand</a></div><div class="ttdoc">COmando para ejecutar el proyecto de Next.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/df0/run__command_8hpp_source.html#l00023">run_command.hpp:24</a></div></div>
+<div class="ttc" id="aclass_stack_command_html_a5677bf3521387636fce32e00f051b137"><div class="ttname"><a href="../../d2/dca/class_stack_command.html#a5677bf3521387636fce32e00f051b137">StackCommand::execute</a></div><div class="ttdeci">void execute()</div><div class="ttdoc">Metodo para ejecutar los comandos almacenados.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de8/stack__command_8cpp_source.html#l00026">stack_command.cpp:26</a></div></div>
+<div class="ttc" id="aclass_stack_command_html_aab132239e1f5d2635fa38eb1c8a8b58e"><div class="ttname"><a href="../../d2/dca/class_stack_command.html#aab132239e1f5d2635fa38eb1c8a8b58e">StackCommand::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Metodo para borrar todos los comandos.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de8/stack__command_8cpp_source.html#l00021">stack_command.cpp:21</a></div></div>
+<div class="ttc" id="aclass_stack_command_html_aed754e72b95d59f33c2688320a306c32"><div class="ttname"><a href="../../d2/dca/class_stack_command.html#aed754e72b95d59f33c2688320a306c32">StackCommand::append</a></div><div class="ttdeci">void append(CommandBase *)</div><div class="ttdoc">Metod para añadir un nuevo Comando.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/de8/stack__command_8cpp_source.html#l00012">stack_command.cpp:12</a></div></div>
+<div class="ttc" id="aclass_upgrade_command_html"><div class="ttname"><a href="../../d9/dfc/class_upgrade_command.html">UpgradeCommand</a></div><div class="ttdoc">Comando para actualizar Next.</div><div class="ttdef"><b>Definition:</b> <a href="../../d4/d4e/upgrade__command_8hpp_source.html#l00023">upgrade_command.hpp:24</a></div></div>
+<div class="ttc" id="aclass_version_command_html"><div class="ttname"><a href="../../dc/dbd/class_version_command.html">VersionCommand</a></div><div class="ttdoc">COmado para mostrar la version de Next.</div><div class="ttdef"><b>Definition:</b> <a href="../../d1/dc6/version__command_8hpp_source.html#l00024">version_command.hpp:25</a></div></div>
+<div class="ttc" id="amanager__command_8hpp_html"><div class="ttname"><a href="../../d2/def/manager__command_8hpp.html">manager_command.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+		<script src="../../custom.js"></script>
+	</body>
+</html>
