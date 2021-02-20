@@ -70,7 +70,7 @@ build_next(){
 
 add_next_to_path(){
     cat $HOME/.bashrc ; echo 'source $HOME/opt/Next/env' > $HOME/.bashrc
-    cat $HOME/.zshrc ; echo 'source $HOME/opt/Next/env' > $HOME/.bashrc
+    cat $HOME/.zshrc ; echo 'source $HOME/opt/Next/env' > $HOME/.zshrc
 }
 
 main(){

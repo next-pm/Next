@@ -4,9 +4,14 @@ Next es un **administrador** de proyectos de **C/C++**, es diseñado como una so
 
 #### Instalación
 
-- Descargar el Repositio de **Next**.
-- Compilar next usando el comando `make next` en la raíz del repositorio.
-- Añadir next al PATH del dispositivo
+- Linux
+    ```
+    curl -s https://raw.githubusercontent.com/KEGEStudios/Next/master/next-install.sh | bash -s
+    ```
+- Windows
+    - Clona este repositorio
+    - Compila con cmake
+    - Añade al PATH el ejecutable de next
 
 #### Comandos
 
