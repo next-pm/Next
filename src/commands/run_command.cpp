@@ -6,7 +6,7 @@ RunCommand::RunCommand(/* args */)
 #if defined(_WIN32)
     this->command += "cd build\\Release && app.exe";
 #elif defined(__linux)
-    this->command += "cd build && ./app";
+    this->command += "cd build/cmake && ./app";
 #endif
 }
 

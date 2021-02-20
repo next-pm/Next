@@ -6,7 +6,8 @@
 
 #define NUM_VARS 50
 
-PathCommand::PathCommand(/* args */) : CommandBase()
+PathCommand::PathCommand(/* args */)
+  : CommandBase()
 {
 #if defined(_WIN32)
     this->path_command = exec("PATH");
@@ -19,9 +20,7 @@ PathCommand::PathCommand(/* args */) : CommandBase()
 #endif
 }
 
-PathCommand::~PathCommand()
-{
-}
+PathCommand::~PathCommand() {}
 
 int PathCommand::execute(/* args */)
 {
@@ -31,19 +30,14 @@ int PathCommand::execute(/* args */)
 
     std::string line = "";
 
-    if (this->path_command.find("Next") > this->path_command.size())
-    {
+    if (this->path_command.find("Next") > this->path_command.size()) {
         std::cout << "No se encontro Next en el Path" << '\n';
         return -1;
     }
-    for (char c : this->path_command)
-    {
-        if (c != this->separator)
-        {
+    for (char c : this->path_command) {
+        if (c != this->separator) {
             line += c;
-        }
-        else
-        {
+        } else {
             list_vars.push_back(line);
             line.clear();
         }
@@ -52,18 +46,16 @@ int PathCommand::execute(/* args */)
     list_vars.push_back(line);
     line.clear();
 
-    for (auto var : list_vars)
-    {
-        if(var.find("Next") < var.size()){
-            //Esto esta absolutamente mal, es para quitar '/bin' del PATH 
+    for (auto var : list_vars) {
+        if (var.find("Next") < var.size()) {
+            // Esto esta absolutamente mal, es para quitar '/bin' del PATH
             std::size_t index = var.size();
             index -= this->displacement;
             var.replace(index, this->displacement, "");
-            //Hasta aca
+            // Hasta aca
             NextData::getInstance()->path = var;
-            std::cout<<"The PATH of Next is: "<<var<<'\n';
+            // std::cout<<"The PATH of Next is: "<<var<<'\n';
         }
-        
     }
 
     return status;
