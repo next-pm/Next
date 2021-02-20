@@ -57,7 +57,7 @@ check_install_gcc()
 clone_next_rep(){
     mkdir -p $HOME/opt
     cd $HOME/opt
-    git clone https://github.com/reitmas32/Next
+    git clone https://github.com/KEGEStudios/Next
 }
 
 build_next(){
