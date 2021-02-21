@@ -68,11 +68,6 @@ build_next(){
     make
 }
 
-add_next_to_path(){
-    (cat $HOME/.bashrc ; echo 'source $HOME/opt/Next/env') > $HOME/.bashrc
-    (cat $HOME/.zshrc ; echo 'source $HOME/opt/Next/env') > $HOME/.zshrc
-}
-
 main(){
     check_install_git
     check_install_gcc
@@ -80,7 +75,6 @@ main(){
     check_install_cmake
     clone_next_rep
     build_next
-    add_next_to_path
 }
 
 main
