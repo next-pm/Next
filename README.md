@@ -2,12 +2,20 @@
 
 Next es un **administrador** de proyectos de **C/C++**, es diseñado como una solucion a la administracion que requieren este tipo de proyectos.
 
+#### Requisitos
+- [Curl](https://curl.se/)
+- [Git](https://git-scm.com/)
+- Un compilador de C++, recomendado [gcc](https://gcc.gnu.org/) o [clang](https://clang.llvm.org/)
+- [Make](https://www.gnu.org/software/make/)
+- [CMake](https://cmake.org/)
+
 #### Instalación
 
 - Linux
     ```
     curl -s https://raw.githubusercontent.com/KEGEStudios/Next/master/next-install.sh | bash -s
     ```
+    - Añade ```$HOME/opt/Next/build``` a la variable ```$PATH```
 - Windows
     - Clona este repositorio
     - Compila con cmake
