@@ -1,0 +1,10 @@
+digraph "ManagerCommand::createFlag"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ManagerCommand::createFlag",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Metodo responsable de la creacion de los comandos correspondientes a las Banderas."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="StackCommand::append",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_stack_command.html#aed754e72b95d59f33c2688320a306c32",tooltip="Metod para añadir un nuevo Comando."];
+}

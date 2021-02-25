@@ -82,7 +82,7 @@ if( test AND test STREQUAL "on" )
     ########################
     add_subdirectory(test/googletest)
 
-    list(${APP}END LIBS_GTEST gtest gtest_main pthread)
+    list(APPEND LIBS_GTEST gtest gtest_main pthread)
     
     target_link_libraries(runUnitTests_cmake_test PRIVATE
         ${LIBS_PROYECT}

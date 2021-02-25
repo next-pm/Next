@@ -1,0 +1,29 @@
+\doxysection{include/command\+\_\+base.hpp File Reference}
+\label{command__base_8hpp}\index{include/command\_base.hpp@{include/command\_base.hpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+Include dependency graph for command\+\_\+base.\+hpp\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Command\+Base}
+\begin{DoxyCompactList}\small\item\em Es la Clase de la que heredantodos los Comandos de Next. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Oswaldo Rafael Zamora Ramirez {\texttt{ rafa.\+zamora.\+rals@gmail.\+com}} 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+0.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/02-\/08
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}

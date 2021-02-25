@@ -1,0 +1,26 @@
+digraph "CommandBase"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="CommandBase",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Es la Clase de la que heredantodos los Comandos de Next."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="BuildCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_build_command.html",tooltip="Comado para compilar y enlazar un proyecto de Next."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="CreateProjectCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_create_project_command.html",tooltip="Comando para la creacion de un nuevo Proyecto de Next."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="ImportCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_import_command.html",tooltip="Comado para clonar e importar otro proyecto de Next como una biblioteca."];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="MCreateProjectCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_m_create_project_command.html",tooltip="Comando para la creacion de un nuevo Proyecto de Next."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="PathCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_path_command.html",tooltip="Comado que localiza la ruta en la que esta instalado Next."];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="ReadHelpCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_read_help_command.html",tooltip="Comado para leer el archivo de ayuda \"help\"."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="RunCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_run_command.html",tooltip="COmando para ejecutar el proyecto de Next."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="UpgradeCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_upgrade_command.html",tooltip="Comando para actualizar Next."];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="VersionCommand",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_version_command.html",tooltip="COmado para mostrar la version de Next."];
+}

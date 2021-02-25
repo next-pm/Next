@@ -1,0 +1,134 @@
+\doxysection{Create\+Project\+Command Class Reference}
+\label{class_create_project_command}\index{CreateProjectCommand@{CreateProjectCommand}}
+
+
+Comando para la creacion de un nuevo Proyecto de Next.  
+
+
+
+
+{\ttfamily \#include $<$create\+\_\+project\+\_\+command.\+hpp$>$}
+
+
+
+Inheritance diagram for Create\+Project\+Command\+:
+% FIG 0
+
+
+Collaboration diagram for Create\+Project\+Command\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Create\+Project\+Command} ()
+\begin{DoxyCompactList}\small\item\em Constructor vacio. \end{DoxyCompactList}\item 
+\textbf{ Create\+Project\+Command} (std\+::string name\+\_\+project)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Create\+Project\+Command} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \textbf{ execute} ()
+\begin{DoxyCompactList}\small\item\em Ejecucion del comando. \end{DoxyCompactList}\item 
+void \textbf{ create\+Dirs} ()
+\begin{DoxyCompactList}\small\item\em Crea los directorios. \end{DoxyCompactList}\item 
+void \textbf{ copy\+Files} ()
+\begin{DoxyCompactList}\small\item\em Copia los archivos. \end{DoxyCompactList}\item 
+void \textbf{ move\+Files} ()
+\begin{DoxyCompactList}\small\item\em Mueve los archivos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Comando para la creacion de un nuevo Proyecto de Next. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_create_project_command_a632d234d3cb340d936006d5df44b5d24}} 
+\index{CreateProjectCommand@{CreateProjectCommand}!CreateProjectCommand@{CreateProjectCommand}}
+\index{CreateProjectCommand@{CreateProjectCommand}!CreateProjectCommand@{CreateProjectCommand}}
+\doxysubsubsection{CreateProjectCommand()\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Create\+Project\+Command\+::\+Create\+Project\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor vacio. 
+
+\mbox{\label{class_create_project_command_a2512bb2f1ba4d4606a01f12ebae040c7}} 
+\index{CreateProjectCommand@{CreateProjectCommand}!CreateProjectCommand@{CreateProjectCommand}}
+\index{CreateProjectCommand@{CreateProjectCommand}!CreateProjectCommand@{CreateProjectCommand}}
+\doxysubsubsection{CreateProjectCommand()\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Create\+Project\+Command\+::\+Create\+Project\+Command (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+\_\+project }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+\_\+project} & \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_create_project_command_aed4bf315ec03d4a28d5dfff3e9c08457}} 
+\index{CreateProjectCommand@{CreateProjectCommand}!````~CreateProjectCommand@{$\sim$CreateProjectCommand}}
+\index{````~CreateProjectCommand@{$\sim$CreateProjectCommand}!CreateProjectCommand@{CreateProjectCommand}}
+\doxysubsubsection{$\sim$CreateProjectCommand()}
+{\footnotesize\ttfamily Create\+Project\+Command\+::$\sim$\+Create\+Project\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_create_project_command_a538f10526a1cbe670be6abde6472bfce}} 
+\index{CreateProjectCommand@{CreateProjectCommand}!copyFiles@{copyFiles}}
+\index{copyFiles@{copyFiles}!CreateProjectCommand@{CreateProjectCommand}}
+\doxysubsubsection{copyFiles()}
+{\footnotesize\ttfamily void Create\+Project\+Command\+::copy\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Copia los archivos. 
+
+\mbox{\label{class_create_project_command_afb9c8c0e1fbe1a47e1b9f004a8520bb7}} 
+\index{CreateProjectCommand@{CreateProjectCommand}!createDirs@{createDirs}}
+\index{createDirs@{createDirs}!CreateProjectCommand@{CreateProjectCommand}}
+\doxysubsubsection{createDirs()}
+{\footnotesize\ttfamily void Create\+Project\+Command\+::create\+Dirs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Crea los directorios. 
+
+\mbox{\label{class_create_project_command_ab7351a2bb3e764bac74cb6b84561fd24}} 
+\index{CreateProjectCommand@{CreateProjectCommand}!execute@{execute}}
+\index{execute@{execute}!CreateProjectCommand@{CreateProjectCommand}}
+\doxysubsubsection{execute()}
+{\footnotesize\ttfamily int Create\+Project\+Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Ejecucion del comando. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+
+
+Implements \textbf{ Command\+Base} \doxyref{}{p.}{class_command_base_a76bc08739bfd8e079aa008cfd4e126bd}.
+
+\mbox{\label{class_create_project_command_a6175a3b6f8e2fcd2bb8f7d3da08ccacb}} 
+\index{CreateProjectCommand@{CreateProjectCommand}!moveFiles@{moveFiles}}
+\index{moveFiles@{moveFiles}!CreateProjectCommand@{CreateProjectCommand}}
+\doxysubsubsection{moveFiles()}
+{\footnotesize\ttfamily void Create\+Project\+Command\+::move\+Files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mueve los archivos. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/commands/\textbf{ create\+\_\+project\+\_\+command.\+hpp}\end{DoxyCompactItemize}

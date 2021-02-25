@@ -1,0 +1,126 @@
+\doxysection{Manager\+Command Class Reference}
+\label{class_manager_command}\index{ManagerCommand@{ManagerCommand}}
+
+
+Manager que controla la creacion y ejecucion de los comandos.  
+
+
+
+
+{\ttfamily \#include $<$manager\+\_\+command.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Manager\+Command} ()
+\begin{DoxyCompactList}\small\item\em Constructor vacio del Manager. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+Manager\+Command} ()
+\begin{DoxyCompactList}\small\item\em Destructor de \doxyref{Manager\+Command}{p.}{class_manager_command}. \end{DoxyCompactList}\item 
+void \textbf{ execute} ()
+\begin{DoxyCompactList}\small\item\em Metodo en el que se ejecuta los comandos. \end{DoxyCompactList}\item 
+void \textbf{ initialize} (int argc, char const $\ast$argv[$\,$])
+\begin{DoxyCompactList}\small\item\em Metodo de inicializacion del Manager, aqui se crean los comandos. \end{DoxyCompactList}\item 
+constexpr bool \textbf{ is\+Flag} (char const $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Metodo que evalua si un argumento es una bandera. \end{DoxyCompactList}\item 
+void \textbf{ create\+Flag} (char const $\ast$arg)
+\begin{DoxyCompactList}\small\item\em Metodo responsable de la creacion de los comandos correspondientes a las Banderas. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manager que controla la creacion y ejecucion de los comandos. 
+
+Estructura donde se almacenan los comandos a realizar Comandos que se pueden realizar 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_manager_command_a44379bd44f4d8d8397ed5d6e9c835589}} 
+\index{ManagerCommand@{ManagerCommand}!ManagerCommand@{ManagerCommand}}
+\index{ManagerCommand@{ManagerCommand}!ManagerCommand@{ManagerCommand}}
+\doxysubsubsection{ManagerCommand()}
+{\footnotesize\ttfamily Manager\+Command\+::\+Manager\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor vacio del Manager. 
+
+\mbox{\label{class_manager_command_a9bad31a956e2c51bc1105076fce224db}} 
+\index{ManagerCommand@{ManagerCommand}!````~ManagerCommand@{$\sim$ManagerCommand}}
+\index{````~ManagerCommand@{$\sim$ManagerCommand}!ManagerCommand@{ManagerCommand}}
+\doxysubsubsection{$\sim$ManagerCommand()}
+{\footnotesize\ttfamily Manager\+Command\+::$\sim$\+Manager\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor de \doxyref{Manager\+Command}{p.}{class_manager_command}. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_manager_command_a85c3d8e55230a60728f14a6c2c33e117}} 
+\index{ManagerCommand@{ManagerCommand}!createFlag@{createFlag}}
+\index{createFlag@{createFlag}!ManagerCommand@{ManagerCommand}}
+\doxysubsubsection{createFlag()}
+{\footnotesize\ttfamily void Manager\+Command\+::create\+Flag (\begin{DoxyParamCaption}\item[{char const $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metodo responsable de la creacion de los comandos correspondientes a las Banderas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 0
+\mbox{\label{class_manager_command_ad71b63166dcb3f05ec045139aa87cbe7}} 
+\index{ManagerCommand@{ManagerCommand}!execute@{execute}}
+\index{execute@{execute}!ManagerCommand@{ManagerCommand}}
+\doxysubsubsection{execute()}
+{\footnotesize\ttfamily void Manager\+Command\+::execute (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Metodo en el que se ejecuta los comandos. 
+
+\mbox{\label{class_manager_command_a25ff9a62131a06321cc004364fe326a8}} 
+\index{ManagerCommand@{ManagerCommand}!initialize@{initialize}}
+\index{initialize@{initialize}!ManagerCommand@{ManagerCommand}}
+\doxysubsubsection{initialize()}
+{\footnotesize\ttfamily void Manager\+Command\+::initialize (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv[$\,$] }\end{DoxyParamCaption})}
+
+
+
+Metodo de inicializacion del Manager, aqui se crean los comandos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Numero de argumantos de la linea de comandos \\
+\hline
+{\em argv} & Argumentos de la linea de comandos \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_manager_command_ad4392373b40024b57025c5b47e67d243}} 
+\index{ManagerCommand@{ManagerCommand}!isFlag@{isFlag}}
+\index{isFlag@{isFlag}!ManagerCommand@{ManagerCommand}}
+\doxysubsubsection{isFlag()}
+{\footnotesize\ttfamily constexpr bool Manager\+Command\+::is\+Flag (\begin{DoxyParamCaption}\item[{char const $\ast$}]{arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Metodo que evalua si un argumento es una bandera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arg} & Argumento a evaluar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\textbf{ manager\+\_\+command.\+hpp}\end{DoxyCompactItemize}
