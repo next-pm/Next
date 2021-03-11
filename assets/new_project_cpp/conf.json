@@ -1,0 +1,20 @@
+{
+    "name_project": "hola",
+    "description": "Hello World in Moon",
+    "environment": {
+      "moon": "1.0.0",
+      "moon-assitant": "2.0.0"
+    },
+    "local_dependencies": null,
+    "global_dependencies": null,
+    "cmake_flags": [
+      "..",
+      "-G \"Ninja\"",
+      "-DCMAKE_C_COMPILER=gcc",
+      "-DCMAKE_CXX_COMPILER=g++"
+    ],
+    "c_compiler": "gcc",
+    "cxx_compiler": "g++",
+    "build_system": "Ninja",
+    "build_system_args": null
+  }
