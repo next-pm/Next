@@ -2,11 +2,13 @@
     "configurations": [
         {
             "name": "Linux",
-            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/bin/Hostx64/x64/cl.exe",
+            "compilerPath": "/usr/bin/g++",
             "includePath": [
                 "${workspaceFolder}",
                 "${workspaceFolder}/include",
                 "${workspaceFolder}/src",
+                "${workspaceFolder}/vendor/termcolor/include",
+                "${workspaceFolder}/vendor/picoJSON/include",
                 "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.28.29333/include",
                 "/usr/include"
             ],
@@ -15,7 +17,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "intelliSenseMode": "windows-msvc-x64",
+            "intelliSenseMode": "linux-gcc-x64",
             "browse": {
                 "path": [
                     "${workspaceFolder}"
@@ -24,7 +26,7 @@
                 "databaseFilename": ""
             },
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++20"
         },
         {
             "name": "Windows",
