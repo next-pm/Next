@@ -55,6 +55,8 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/libs.cmake)
     include(${CMAKE_CURRENT_SOURCE_DIR}/libs.cmake)
 endif()
 
+include(cmake/vendor.cmake)
+
 target_link_libraries(${APP} ${LIBS_PROYECT})
 
 ########################
