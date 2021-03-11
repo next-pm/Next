@@ -23,6 +23,9 @@
 #include <commands/run_command.hpp>
 #include <commands/import_command.hpp>
 #include <commands/upgrade_command.hpp>
+#include <commands/clear_command.hpp>
+
+#include <tools/read_conf.hpp>
 
 /**
  * @brief Manager que controla la creacion y ejecucion de los comandos
@@ -74,30 +77,5 @@ public:
     constexpr bool isFlag(char const *arg)
     {
         return arg[0] == '-';
-    }
-
-    /**
-     * @brief Metodo responsable de la creacion de los comandos correspondientes a las 
-     *        Banderas
-     * 
-     * @param arg 
-     */
-    void createFlag(char const *arg)
-    {
-        if (std::string(arg) == "--help" || std::string(arg) == "-h")
-        {
-            this->stackCommand.append(new PathCommand());
-            this->stackCommand.append(new ReadHelpCommand());
-        }
-        if (std::string(arg) == "--version" || std::string(arg) == "-v")
-        {
-            this->stackCommand.append(new PathCommand());
-            this->stackCommand.append(new VersionCommand());
-        }
-
-        if (std::string(arg) == "--path" || std::string(arg) == "-p")
-        {
-            this->stackCommand.append(new PathCommand());
-        }
     }
 };
