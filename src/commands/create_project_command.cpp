@@ -1,5 +1,9 @@
 #include <commands/create_project_command.hpp>
 
+#include <termcolor.hpp>
+
+#include <picojson.hpp>
+
 CreateProjectCommand::CreateProjectCommand(/* args */)
   : CommandBase()
 {}
@@ -49,14 +53,10 @@ CreateProjectCommand::execute()
 
     std::string line;
     int status;
+    
+    exec_void("cp -r " + NextData::getInstance()->path + "/assets/new_project_cpp " + this->name_project);
 
-    this->createDirs();
-
-    this->copyFiles();
-
-    this->moveFiles();
-
-    std::cout << "\nCreate Proyect >> " << this->name_project << '\n';
+    std::cout << termcolor::bold << termcolor::green << "\nCreate Proyect >> " << this->name_project << "\n\n" << termcolor::reset;
     return 0;
 }
 
@@ -153,7 +153,7 @@ MCreateProjectCommand::execute()
 
     this->moveFiles();
 
-    std::cout << "\nCreate Proyect >> " << this->name_project << '\n';
+    std::cout << termcolor::bold << termcolor::green <<  "\nCreate Proyect >> " << this->name_project << '\n';
     return 0;
 }
 
