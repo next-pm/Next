@@ -16,6 +16,8 @@
 #include <next_data.hpp>
 #include <tools/exec.hpp>
 
+#include <termcolor.hpp>
+
 /**
  * @brief Comado para compilar y enlazar un proyecto de Next
  * 
@@ -29,12 +31,20 @@ private:
      */
     std::string command;
 
+    std::string typeBuild;
+
 public:
     /**
      * @brief Constructor
      * 
      */
     BuildCommand(/* args */);
+
+    /**
+     * @brief Constructor
+     * 
+     */
+    BuildCommand(std::string typeBuild);
 
     /**
      * @brief Destructor
