@@ -86,6 +86,8 @@ int read_conf()
         return -1;
     if (readString("build_system_exe", NextData::getInstance()->build_system_exe, root) != 0)
         return -1;
+    if (readString("name_build", NextData::getInstance()->name_build, root) != 0)
+        return -1;
     if (readVector("cmake_flags", NextData::getInstance()->cmake_flags, root) != 0)
         return -1;
     if (readVector("build_system_flags", NextData::getInstance()->build_system_flags, root) != 0)

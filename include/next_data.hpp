@@ -33,6 +33,7 @@ public:
 
     std::string path = "";
     std::string name_project;
+    std::string name_build;
     std::string build_system;
     std::string c_compiler;
     std::string cxx_compiler;
@@ -46,6 +47,7 @@ public:
     {
         std::cout << NextData::getInstance()->path << '\n';
         std::cout << NextData::getInstance()->name_project << '\n';
+        std::cout << NextData::getInstance()->name_build << '\n';
         std::cout << NextData::getInstance()->build_system << '\n';
         std::cout << NextData::getInstance()->c_compiler << '\n';
         std::cout << NextData::getInstance()->cxx_compiler << '\n';
