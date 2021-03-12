@@ -6,6 +6,8 @@ cmake_minimum_required (VERSION 3.0.0)
 
 project (main VERSION 1.2.3)
 
+set(APP app)
+
 ########################
 #     Main Dirs of     #
 #       Project        #
@@ -35,7 +37,7 @@ file( GLOB_RECURSE LIB_HEADERS ${INCLUDE_DIR}/*.hpp )
 #       Project        #
 ########################
 add_executable(
-    app 
+    ${APP} 
     ${LIB_SOURCES} 
     ${LIB_HEADERS}
 )
