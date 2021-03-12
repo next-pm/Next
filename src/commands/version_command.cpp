@@ -23,7 +23,7 @@ int VersionCommand::execute(/* args */)
     {
         while (getline(myfile, line))
         {
-            std::cout << termcolor::bold << termcolor::green << line << '\n';
+            std::cout << termcolor::bold << termcolor::green << line << '\n'<<termcolor::reset;
         }
         myfile.close();
     }
