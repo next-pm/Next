@@ -12,7 +12,7 @@ PathCommand::PathCommand(/* args */)
 #if defined(_WIN32)
     this->path_command = exec("PATH");
     this->separator = ';';
-    this->displacement = 13;
+    this->displacement = 6;
 #elif defined(__linux)
     this->path_command = exec("echo $PATH");
     this->separator = ':';
