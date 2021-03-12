@@ -47,9 +47,11 @@ int readVector(std::string key, std::vector<std::string> &data, picojson::object
 
 int read_conf()
 {
-
+#if defined(_WIN32)
+    NextData::getInstance()->pwd = exec("cd");
+#elif defined(__linux)
     NextData::getInstance()->pwd = exec("pwd");
-
+#endif
     std::stringstream stringStream;
     std::ifstream file;
     //std::string name_file = NextData::getInstance()->name_

@@ -3,10 +3,10 @@
 BuildCommand::BuildCommand(/* args */)
     : CommandBase()
 {
-#if defined(_WIN32)
-    this->command += "cd build\\cmake && cmake ..\\.. && msbuild HELLO.sln "
-                     "/p:Configuration=Release";
-#elif defined(__linux)
+//#if defined(_WIN32)
+    //this->command += "cd build\\cmake && cmake ..\\.. && msbuild HELLO.sln "
+    //                 "/p:Configuration=Release";
+//#elif defined(__linux)
 
     this->command += "cd " + NextData::getInstance()->build_dir + " && cmake ";
     for (auto flag : NextData::getInstance()->cmake_flags)
@@ -30,19 +30,21 @@ BuildCommand::BuildCommand(/* args */)
         this->command.clear();
     }
 
-#endif
+//#endif
 }
 
 BuildCommand::BuildCommand(std::string typeBuild)
     : CommandBase(), typeBuild{typeBuild}
 {
 #if defined(_WIN32)
-    this->command += "cd build\\cmake && cmake ..\\.. && msbuild HELLO.sln "
-                     "/p:Configuration=Release";
+    //this->command += "cd build\\cmake && cmake ..\\.. && msbuild HELLO.sln "
+    //                 "/p:Configuration=Release";
+    this->command += "cd " + NextData::getInstance()->build_dir + " && cmake " + NextData::getInstance()->pwd + " -G \""+NextData::getInstance()->build_system+"\"";
 #elif defined(__linux)
     this ->command += "mkdir -p " + NextData::getInstance()->build_dir + " && ";
     this->command += "cd " + NextData::getInstance()->build_dir + " && cmake " + NextData::getInstance()->pwd + " -G \""+NextData::getInstance()->build_system+"\"";
     //Add Compilers
+#endif
     this->command += " -DCMAKE_C_COMPILER=" + NextData::getInstance()->c_compiler + " -DCMAKE_CXX_COMPILER=" + NextData::getInstance()->cxx_compiler;
     for (auto flag : NextData::getInstance()->cmake_flags)
     {
@@ -73,7 +75,6 @@ BuildCommand::BuildCommand(std::string typeBuild)
         this->command.clear();
     }
 
-#endif
 }
 
 BuildCommand::~BuildCommand() {}
@@ -82,6 +83,9 @@ int BuildCommand::execute()
 {
     //std::cout<<this->command<<'\n';
     //NextData::getInstance()->printData();
+#if defined(_WIN32)
+    exec_void("mkdir " + NextData::getInstance()->build_dir);
+#endif
     exec_void(this->command);
     if (typeBuild == "-R" || typeBuild == "Release")
     {
