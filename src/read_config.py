@@ -1,60 +1,64 @@
-def read_config():
-    global config_data_yaml
+######################################################################
+### author = Rafael Zamora 
+### copyright = Copyright 2020-2022, Next Project 
+### date = 07/01/2022
+### license = PSF
+### version = 3.0.0 
+### maintainer = Rafael Zamora 
+### email = rafa.zamora.ram@gmail.com 
+### status = Production
+######################################################################
+
+#System Packages
+import os
+
+# Packages Dependencies
+import yaml
+
+#Local Packages
+import config_t    
+
+def _this_is_a_next_project_dir(dir):
+    done = False
+
+    if os.path.isdir(dir):
+        done = True
+    else:
+        print(dir + " Not is a directory")
+    
+    return done
+
+def _exists_config_file(dir):
+    done = False
     try:
-        this_dir = os.getcwd()
-        config_file_location = this_dir + "/config.yaml"
-        config_data = open(config_file_location)
-        config_data_yaml = yaml.load(config_data, Loader=yaml.FullLoader)
-
-        try:
-            glob_name_project = config_data_yaml["name_project"]
-        except:
-            print(" ERROR Not find value name_project in " + config_file_location)
-
-        try:
-            glob_description = config_data_yaml["description"]
-        except:
-            print(" WARNING Not find value description in " + config_file_location)
-
-        try:
-            glob_build_dir = config_data_yaml["build_dir"]
-        except:
-            print(" ERROR Not find value build_dir in " + config_file_location)
-
-        try:
-            glob_name_build = config_data_yaml["name_build"]
-        except:
-            print(" ERROR Not find value name_build in " + config_file_location)
-
-        try:
-            glob_build_system_exe = config_data_yaml["build_system_exe"]
-        except:
-            print(" ERROR Not find value build_system_exe in " + config_file_location)
-
-        try:
-            glob_c_compiler = config_data_yaml["c_compiler"]
-        except:
-            print(" ERROR Not find value c_compiler in " + config_file_location)
-
-        try:
-            glob_cxx_compiler = config_data_yaml["cxx_compiler"]
-        except:
-            print(" ERROR Not find value cxx_compiler in " + config_file_location)
-
-        try:
-            glob_build_system = config_data_yaml["build_system"]
-        except:
-            print(" ERROR Not find value build_system in " + config_file_location)
-
-        try:
-            glob_cmake_flags = config_data_yaml["cmake_flags"]
-        except:
-            print(" WARNING Not find value cmake_flags in " + config_file_location)
-
-        try:
-            glob_build_system_flags = config_data_yaml["build_system_flags"]
-        except:
-            print(" WARNING Not find value build_system_flags in " + config_file_location)
-
+        config_file = open( dir + "/config.yaml", "r")
+        config_file.close()
+        done = True
     except:
-        print("ERROR This not is a Moon Project")
+        print(dir + " Not is a NextProject")
+    
+    return done
+
+def _get_config_data(dir):
+    config_data = ""
+    try:
+        config_file = open( dir + "/config.yaml", "r")
+        config_data = config_file.read()
+        config_file.close()
+    except:
+        print(dir + "Error when opening " + dir + "/config.yaml")
+    
+    return config_data
+
+def read_config(dir):
+    # pasos 
+    # 1.- identificar si el directorio es un NextPackage o NextProject
+    # 2.- buscar el archivo config.yaml
+    if _this_is_a_next_project_dir(dir) and _exists_config_file(dir):
+        # 3.- abrir y leer el archivo
+        config_data = _get_config_data(dir)
+        config_yaml = yaml.load(config_data, Loader=yaml.FullLoader)
+        # 4.- Crear un objeto Config
+        config_obj = config_t.Config_t(config_yaml, dir)
+        return config_obj
+    return False
