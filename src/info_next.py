@@ -1,3 +1,14 @@
+######################################################################
+### author = Rafael Zamora 
+### copyright = Copyright 2020-2022, Next Project 
+### date = 07/01/2022
+### license = PSF
+### version = 3.0.0 
+### maintainer = Rafael Zamora 
+### email = rafa.zamora.ram@gmail.com 
+### status = Production
+######################################################################
+
 # Next info
 _info_string = """
 Manage your C/C++ Proyect development.
