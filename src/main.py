@@ -1,7 +1,7 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 07/01/2022
+### date = 08/01/2022
 ### license = PSF
 ### version = 3.0.0 
 ### maintainer = Rafael Zamora 
@@ -20,6 +20,7 @@ import build_next
 import run_next
 import clean_next
 import config_env
+import config_get
 
 ### Update 7/01/2022
 ### ✓ create                   Create a new Next project.
@@ -79,6 +80,12 @@ def run():
 @main.command()
 def clean():
     clean_next.clean()
+
+@main.command('get', short_help='Get property of current Next Project')
+@click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
+def get(property):
+    print(property + ": " + config_get.get(property))
+        
 
 #if __name__ == "__main__":
 main()
