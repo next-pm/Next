@@ -1,7 +1,7 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 07/01/2022
+### date = 08/01/2022
 ### license = PSF
 ### version = 3.0.0 
 ### maintainer = Rafael Zamora 
@@ -135,3 +135,5 @@ class Config_t:
 
         elif option == "build_system_flags":
             return self.build_system_flags
+        else:
+            return "null"
