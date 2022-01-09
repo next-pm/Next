@@ -30,6 +30,6 @@ def get(property):
         config_obj = read_config.read_config(dir_project)
 
         #Wrapper for properties
-        value_of_property = config_obj.option(property)
+        value_of_property = config_obj.get(property)
 
     return value_of_property
