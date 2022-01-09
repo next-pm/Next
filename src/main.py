@@ -21,6 +21,7 @@ import run_next
 import clean_next
 import config_env
 import config_get
+import config_set
 
 ### Update 7/01/2022
 ### ✓ create                   Create a new Next project.
@@ -85,6 +86,12 @@ def clean():
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 def get(property):
     print(property + ": " + config_get.get(property))
+
+@main.command('set', short_help='Set property of current Next Project')
+@click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
+@click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
+def set(property, value):
+    config_set.set(property, value)
         
 
 #if __name__ == "__main__":
