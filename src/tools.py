@@ -33,5 +33,6 @@ def remplace_in_file(file_location, old_text, new_text):
 
         #Close output file
         fout.close()
-    except:
+    except BaseException as err:
         print("Not remplace " + old_text + " in " + file_location)
+        print(f"Unexpected {err=}, {type(err)=}")
