@@ -59,26 +59,26 @@ def version(all):
 def check_env():
     config_env.check_env()
 
-@main.command()
-@click.argument('name', required=True, type=str)
-@click.option('--build_dir', required=False, type=str)
-@click.option('--name_build', required=False, type=str)
-@click.option('--build_system_exe', required=False, type=str)
-@click.option('--c_compiler', required=False, type=str)
-@click.option('--cxx_compiler', required=False, type=str)
-@click.option('--build_system', required=False, type=str)
+@main.command('create', short_help='Create a new project of Next', options_metavar='<name> <options>')
+@click.argument('name', required=True, type=str, metavar='')
+@click.option('--build_dir', required=False, type=str, help='Select Build Dir')
+@click.option('--name_build', required=False, type=str, help='Select name of build')
+@click.option('--build_system_exe', required=False, type=str, help='Select Build System executable')
+@click.option('--c_compiler', required=False, type=str, help='Select C Compiler')
+@click.option('--cxx_compiler', required=False, type=str, help='Select C++ Compiler')
+@click.option('--build_system', required=False, type=str, help='Select Build System')
 def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system):
     create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system)
 
-@main.command()
+@main.command('build', short_help='Build a project of Next')
 def build():
     build_next.build()
 
-@main.command()
+@main.command('run', short_help='Run a project of Next')
 def run():
     run_next.run()
 
-@main.command()
+@main.command('clean', short_help='Clean a project of Next')
 def clean():
     clean_next.clean()
 
