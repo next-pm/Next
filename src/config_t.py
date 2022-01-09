@@ -102,7 +102,7 @@ class Config_t:
         print( "cmake_flags: "          + listToString(self.cmake_flags))
         print( "build_system_flags: "   + listToString(self.build_system_flags))
 
-    def option(self, option):
+    def get(self, option):
         if option == "name_project": 
             return self.name_project
 
@@ -137,3 +137,66 @@ class Config_t:
             return self.build_system_flags
         else:
             return "null"
+
+    def set(self, option, value):
+        if option == "name_project": 
+            self.name_project = value
+            return self.name_project
+
+        elif option == "description":
+            self.description = value
+            return self.description
+
+        elif option == "version":
+            self.version = value
+            return self.version
+
+        elif option == "build_dir":
+            self.build_dir = value
+            return self.build_dir
+
+        elif option == "name_build":
+            self.name_build = value
+            return self.name_build
+
+        elif option == "build_system_exe":
+            self.build_system_exe = value
+            return self.build_system_exe
+
+        elif option == "c_compiler":
+            self.c_compiler = value
+            return self.c_compiler
+
+        elif option == "cxx_compiler":
+            self.cxx_compiler = value
+            return self.cxx_compiler
+
+        elif option == "build_system":
+            self.build_system = value
+            return self.build_system
+
+        elif option == "cmake_flags":
+            self.cmake_flags = value
+            return self.cmake_flags
+
+        elif option == "build_system_flags":
+            self.build_system_flags = value
+            return self.build_system_flags
+        else:
+            return "null"
+
+    def to_map(self):
+        object_map = {
+            "name_project":        self.name_project,
+            "description":         self.description,
+            "version":             self.version,
+            "build_dir":           self.build_dir,
+            "name_build":          self.name_build,
+            "build_system_exe":    self.build_system_exe,
+            "c_compiler":          self.c_compiler,
+            "cxx_compiler":        self.cxx_compiler,
+            "build_system":        self.build_system,
+            "cmake_flags":         self.cmake_flags,
+            "build_system_flags":  self.build_system_flags,
+        }
+        return object_map
