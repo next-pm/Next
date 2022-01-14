@@ -10,7 +10,7 @@
 ######################################################################
 
 # Packages Dependencies
-import yaml
+import ruamel.yaml
 
 def listToString(s): 
     
@@ -23,9 +23,19 @@ def listToString(s):
 class Config_t:
 
     _data = {}
+    file = ''
+    yaml = ''
 
-    def __init__(self, config_yaml, dir):
-        self._data = config_yaml
+    def __init__(self, dir):
+        #creamos un Yaml
+        self.yaml = ruamel.yaml.YAML()
+        self.yaml.preserve_quotes = True
+
+        #Leemos el Archivo
+        self.file = open( dir + "/config.yaml", "r")
+
+        #Guardamos los datos
+        self._data = self.yaml.load(self.file)
 
     def print(self):
         print( "name_project: "         + self._data["name_project"])
@@ -41,15 +51,30 @@ class Config_t:
         print( "build_system_flags: "   + listToString(self._data["build_system_flags"]))
 
     def get(self, option):
-        return self._data[option]
+        try:
+            value = self._data[option]
+        except:
+            value = "null"
+        return value
 
     def set(self, option, value):
-        self._data[option] = value
-        return self._data[option]
+        try:
+            current_value = self._data[option]
+            self._data[option] = value
+            new_value = self._data[option]
+        except:
+            print("Property does not exist")
+            new_value = "null"
+        return new_value
 
     def add(self, option, value):
-        self._data[option] += value
-        return self._data[option]
+        try:
+            self._data[option] = value
+            new_value = self._data[option]
+        except:
+            print("Property does not exist")
+            new_value = "null"
+        return new_value
 
     def to_map(self):
         return self._data
