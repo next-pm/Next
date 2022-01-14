@@ -22,7 +22,7 @@ def clean():
         config_obj = read_config.read_config(this_dir)
 
         if config_obj != False:
-            shutil.rmtree(config_obj.build_dir)
+            shutil.rmtree(config_obj.get("build_dir"))
     except OSError as exc:
         print(exc)
         exit()
