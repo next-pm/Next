@@ -49,13 +49,26 @@ def write_config(config_obj, dir):
     # 2.- buscar el archivo config.yaml
     if _this_is_a_dir(dir):
 
-        if _exists_config_file(dir):
-            print("_clear_config_file(dir)")
-
         config_map = config_obj.to_map()
                 
         with open('config.yaml', 'w') as file:
             documents = yaml.dump(config_map, file)
+        
+        tools.remplace_in_file("config.yaml", "'[", "[")
+        tools.remplace_in_file("config.yaml", "]'", "]")
+
+    return False
+
+def write_property(config_obj, dir):
+    # pasos 
+    # 1.- identificar si el directorio es un NextPackage o NextProject
+    # 2.- buscar el archivo config.yaml
+    if _this_is_a_dir(dir):
+
+        config_map = config_obj.to_map()
+                
+        with open('config.yaml', 'w') as file:
+            documents = config_obj.yaml.dump(config_map, file)
         
         tools.remplace_in_file("config.yaml", "'[", "[")
         tools.remplace_in_file("config.yaml", "]'", "]")
