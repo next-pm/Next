@@ -23,8 +23,8 @@ def run():
         config_obj = read_config.read_config(this_dir)
 
         if config_obj != False:
-            os.chdir(config_obj.build_dir)
-            subprocess.run(["./" + config_obj.name_build])
+            os.chdir(config_obj.get("build_dir"))
+            subprocess.run(["./" + config_obj.get("name_build")])
     except OSError as exc:
         print(exc)
         exit()
