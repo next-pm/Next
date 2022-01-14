@@ -22,6 +22,7 @@ import clean_next
 import config_env
 import config_get
 import config_set
+import config_add
 
 ### Update 7/01/2022
 ### ✓ create                   Create a new Next project.
@@ -85,13 +86,32 @@ def clean():
 @main.command('get', short_help='Get property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 def get(property):
-    print(property + ": " + config_get.get(property))
+    value_of_property = config_get.get(property)
+    if isinstance(value_of_property, list):
+        value_in_str = ''
+        value_in_str += '['
+        for x in value_of_property:
+            value_in_str += x + ','
+        len_value = len(value_in_str)
+        value_in_str = value_in_str[:len_value-1]
+        value_in_str += ']' 
+    else:
+        value_in_str = value_of_property
+    
+    print(property + ": " + value_in_str)
 
 @main.command('set', short_help='Set property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def set(property, value):
     config_set.set(property, value)
+
+
+@main.command('add', short_help='Add to property of current Next Project')
+@click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
+@click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
+def add(property, value):
+    config_add.add(property, value)
         
 
 #if __name__ == "__main__":
