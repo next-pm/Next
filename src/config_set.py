@@ -34,6 +34,6 @@ def set(property, value):
         value_of_property = config_obj.set(property, value)
 
         if(value_of_property != "null"):
-            write_config.write_config(config_obj, dir_project)
+            write_config.write_property(config_obj, dir_project)
 
     return value_of_property
