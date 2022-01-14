@@ -24,8 +24,11 @@ def build():
             config_obj = read_config.read_config(this_dir)
 
             if config_obj != False:
-                os.mkdir(config_obj.get("build_dir"))
 
+                try:
+                    os.mkdir(config_obj.get("build_dir"))
+                except:
+                    print("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
                 os.chdir(config_obj.get("build_dir"))
 
                 subprocess.run([
