@@ -56,9 +56,9 @@ def read_config(dir):
     # 2.- buscar el archivo config.yaml
     if _this_is_a_next_project_dir(dir) and _exists_config_file(dir):
         # 3.- abrir y leer el archivo
-        config_data = _get_config_data(dir)
-        config_yaml = yaml.load(config_data, Loader=yaml.FullLoader)
+        #config_data = _get_config_data(dir)
+        #config_yaml = yaml.safe_load(config_data)
         # 4.- Crear un objeto Config
-        config_obj = config_t.Config_t(config_yaml, dir)
+        config_obj = config_t.Config_t(dir)
         return config_obj
     return False
