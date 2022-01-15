@@ -29,13 +29,16 @@ def build():
                     os.mkdir(config_obj.get("build_dir"))
                 except:
                     print("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
+                
+                
                 os.chdir(config_obj.get("build_dir"))
 
                 subprocess.run([
                     "cmake", this_dir + "/.", 
                     "-G" + config_obj.get("build_system"), 
                     "-DCMAKE_CXX_COMPILER=" +  config_obj.get("cxx_compiler"), 
-                    "-DCMAKE_C_COMPILER=" +  config_obj.get("c_compiler")] + config_obj.get("cmake_flags"))
+                    "-DCMAKE_C_COMPILER=" +  config_obj.get("c_compiler"),
+                    "-D" + config_obj.get("type_project") +"=on" ] + config_obj.get("cmake_flags"))
 
                 subprocess.run([config_obj.get("build_system_exe")] + config_obj.get("build_system_flags"))
 
