@@ -80,7 +80,7 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
         if type_project:
             tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", type_project)
         else:
-            tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "g++")
+            tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "executable")
 
     except OSError as exc:
         print(exc)
