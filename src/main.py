@@ -68,8 +68,9 @@ def check_env():
 @click.option('--c_compiler', required=False, type=str, help='Select C Compiler')
 @click.option('--cxx_compiler', required=False, type=str, help='Select C++ Compiler')
 @click.option('--build_system', required=False, type=str, help='Select Build System')
-def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system):
-    create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system)
+@click.option('--type_project', required=False, type=str, help='Select Type Project')
+def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
+    create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project)
 
 @main.command('build', short_help='Build a project of Next')
 def build():

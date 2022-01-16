@@ -16,7 +16,7 @@ import shutil
 #Local Packages
 import tools
 
-def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system):
+def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
 
     next_dir = ""
     try:
@@ -76,6 +76,11 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
             tools.remplace_in_file(dir_new_project + "/config.yaml", "__cxx_compiler__", cxx_compiler)
         else:
             tools.remplace_in_file(dir_new_project + "/config.yaml", "__cxx_compiler__", "g++")
+
+        if type_project:
+            tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", type_project)
+        else:
+            tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "g++")
 
     except OSError as exc:
         print(exc)
