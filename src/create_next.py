@@ -31,7 +31,7 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
 
     print("Create a proyect of next in")
     try:
-        base_project = "empty-executable/"
+        base_project = "empty_executable/"
         if(type_project):
             if(type_project == "static_library" or type_project == "dynamic_library"):
                 base_project = "empty_library/"
