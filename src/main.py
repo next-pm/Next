@@ -23,6 +23,7 @@ import config_env
 import config_get
 import config_set
 import config_add
+import tools
 
 ### Update 7/01/2022
 ### ✓ create                   Create a new Next project.
@@ -37,6 +38,7 @@ import config_add
 
 @click.group()
 def main():
+    tools.load_env()
     pass
 
 @main.command('info', short_help='view info the Next')

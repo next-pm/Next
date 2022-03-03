@@ -9,6 +9,13 @@
 ### status = Production
 ######################################################################
 
+# Packages Systems
+import os
+import platform
+
+# Packages Dependencies
+import ruamel.yaml
+
 def remplace_in_file(file_location, old_text, new_text):
     try:
         #input file
@@ -36,3 +43,44 @@ def remplace_in_file(file_location, old_text, new_text):
     except BaseException as err:
         print("Not remplace " + old_text + " in " + file_location)
         print(f"Unexpected {err=}, {type(err)=}")
+        
+def load_env():
+    """load the environment variables in the current execution
+    """
+    try:
+        env_yaml = ''
+        
+        file = ''
+        
+        _data = {}
+        
+        #Get Home Dir
+        system = platform.system()
+        
+        if system == 'Linux':
+            print('Linux System')
+            home_dir = os.environ['HOME']
+        else:
+            print('Windows System')
+            home_dir = os.environ['LOCALAPPDATA']
+        
+        next_env_file_dir = home_dir + '/.next/env.yaml'
+        
+        env_yaml = ruamel.yaml.YAML()
+        
+        env_yaml.preserve_quotes = True
+
+        #Read the file
+        file = open( next_env_file_dir, "r")
+
+        #Safe the data
+        _data = env_yaml.load(file)
+        
+        #Load the environment variables in the current execution
+        for x in _data:
+            print(x + '= ' + _data[x])
+            os.environ[x] = _data[x]
+        
+    except:
+        
+        print("Error at Load Env")
