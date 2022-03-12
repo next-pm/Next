@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 07/03/2022
+### date = 12/03/2022
 ### license = PSF
-### version = 3.1.0
+### version = 3.2.0
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -69,8 +69,8 @@ def build():
         except OSError as exc:
             
             # Message(Error): OSError generate
-            tools.message_error(str(err))
-    except OSError as exc:
+            tools.message_error(str(exc))
+    except OSError as err:
         
         # Message(Error): OSError generate
         tools.message_error(str(err))
