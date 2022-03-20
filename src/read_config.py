@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 07/01/2022
+### date = 20/03/2022
 ### license = PSF
-### version = 3.0.0 
+### version = 3.2.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -13,49 +13,80 @@
 import os
 
 #Local Packages
-import config_t    
+import config_t
+import tools
 
-def _this_is_a_next_project_dir(dir):
+def _this_is_a_dir(dir):
+    """Identify if this is Dir
+
+    Args:
+        dir (str): Direction of proyect
+
+    Returns:
+        bool: Flag
+    """
     done = False
 
     if os.path.isdir(dir):
         done = True
+        
+        # Message(Successful): Is a directory
+        tools.message_successful(dir + " Is a directory")
     else:
-        print(dir + " Not is a directory")
+        
+        # Message(Error): Not ss a directory
+        tools.message_error(dir + " Not is a directory")
     
     return done
 
 def _exists_config_file(dir):
+    """Identify if it exists config.yaml
+
+    Args:
+        dir (str): Direction of project
+
+    Returns:
+        bool: Flag
+    """
     done = False
     try:
+        
+        #Try open config.yaml
         config_file = open( dir + "/config.yaml", "r")
         config_file.close()
+        
+        # Message(Successful): Is a directory
+        tools.message_successful("Exists config.yaml in :" + dir)
+        
         done = True
     except:
-        print(dir + " Not is a NextProject")
+        # Message(Error): Not is a directory
+        tools.message_error("Not exists config.yaml in :" + dir)
     
     return done
 
-def _get_config_data(dir):
-    config_data = ""
-    try:
-        config_file = open( dir + "/config.yaml", "r")
-        config_data = config_file.read()
-        config_file.close()
-    except:
-        print(dir + "Error when opening " + dir + "/config.yaml")
-    
-    return config_data
-
 def read_config(dir):
-    # pasos 
-    # 1.- identificar si el directorio es un NextPackage o NextProject
-    # 2.- buscar el archivo config.yaml
-    if _this_is_a_next_project_dir(dir) and _exists_config_file(dir):
-        # 3.- abrir y leer el archivo
-        #config_data = _get_config_data(dir)
-        #config_yaml = yaml.safe_load(config_data)
-        # 4.- Crear un objeto Config
+    """Read Config of Project
+
+    Args:
+        dir (str): Dir of Project
+
+    Returns:
+        [Config_t, bool]: Data or Flag
+    """
+    
+    # Identify if this is a Proyect of Next
+    if _this_is_a_dir(dir) and _exists_config_file(dir):
+        
+        # Create Config_t object
         config_obj = config_t.Config_t(dir)
+        
+        # Message(Successful): Is a directory
+        tools.message_successful(dir + " Is a project of Next")
+                
+        # Return Config_t object
         return config_obj
+    
+    # Message(Error): Not is a project Next
+    tools.message_error(dir + " Not is a project of Next")
     return False
