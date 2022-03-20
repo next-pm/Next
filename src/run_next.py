@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 07/01/2022
+### date = 20/03/2022
 ### license = PSF
-### version = 3.0.0 
+### version = 3.2.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -15,16 +15,35 @@ import subprocess
 
 #Local Packages
 import read_config
+import tools
 
 def run():
+    """Run executable of project
+    """
 
+    # Get current directory
     this_dir = os.getcwd()
+    
     try:
+        
+        #Read Config of Project
         config_obj = read_config.read_config(this_dir)
 
+        # If this is a project of Next
         if config_obj != False:
+            
+            # Enter the directory bulid_dir
             os.chdir(config_obj.get("build_dir"))
+            
+            # Message(Waiting): Run executable
+            tools.message_waiting('Run executable')
+            
+            # Run executable
             subprocess.run(["./" + config_obj.get("name_build")])
     except OSError as exc:
-        print(exc)
+        
+        # Message(Error): OSError generate
+        tools.message_error(str(exc))
+        
+        # Exit to program
         exit()
