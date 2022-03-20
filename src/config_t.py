@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 08/01/2022
+### date = 20/03/2022
 ### license = PSF
-### version = 3.0.0 
+### version = 3.2.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -12,13 +12,24 @@
 # Packages Dependencies
 import ruamel.yaml
 
-def listToString(s): 
+# Packges Local
+import tools
+
+def listToString(l):
+    """Convert a list to a string
+
+    Args:
+        l (list): List to convert
+
+    Returns:
+        str: string
+    """
     
     # initialize an empty string
     str1 = " " 
     
     # return string  
-    return (str1.join(s))
+    return (str1.join(l))
 
 class Config_t:
 
@@ -27,17 +38,24 @@ class Config_t:
     yaml = ''
 
     def __init__(self, dir):
-        #creamos un Yaml
+        """Initialize a Config_t
+
+        Args:
+            dir (str): Direction of project
+        """
+        # Create a Yaml
         self.yaml = ruamel.yaml.YAML()
         self.yaml.preserve_quotes = True
 
-        #Leemos el Archivo
+        #Read file
         self.file = open( dir + "/config.yaml", "r")
 
-        #Guardamos los datos
+        #Write Data
         self._data = self.yaml.load(self.file)
 
     def print(self):
+        """Print the Config_t
+        """
         print( "name_project: "         + self._data["name_project"])
         print( "description: "          + self._data["description"])
         print( "version: "              + self._data["version"])
@@ -50,31 +68,62 @@ class Config_t:
         print( "cmake_flags: "          + listToString(self._data["cmake_flags"]))
         print( "build_system_flags: "   + listToString(self._data["build_system_flags"]))
 
-    def get(self, option):
+    def get(self, property):
+        """Get the property
+
+        Args:
+            property (_type_): Name of Property
+
+        Returns:
+            str: Value of property
+        """
         try:
-            value = self._data[option]
+            value = self._data[property]
         except:
             value = "null"
         return value
 
-    def set(self, option, value):
+    def set(self, property, value):
+        """Set the property
+
+        Args:
+            property (str): Name of property
+            value (obj_yaml): Value of property
+
+        Returns:
+            obj_yaml: Value of property
+        """
         try:
-            current_value = self._data[option]
-            self._data[option] = value
-            new_value = self._data[option]
+            current_value = self._data[property]
+            self._data[property] = value
+            new_value = self._data[property]
         except:
-            print("Property does not exist")
+            tools.message_error("Property does not exist")
             new_value = "null"
         return new_value
 
-    def add(self, option, value):
+    def add(self, property, value):
+        """Set the property
+
+        Args:
+            property (str): Name of property
+            value (obj_yaml): Value of property
+
+        Returns:
+            obj_yaml: Value of property
+        """
         try:
-            self._data[option] = value
-            new_value = self._data[option]
+            self._data[property] = value
+            new_value = self._data[property]
         except:
-            print("Property does not exist")
+            tools.message_error("Property does not exist")
             new_value = "null"
         return new_value
 
     def to_map(self):
+        """Convert Config_t to Map
+
+        Returns:
+            Map: Map of Data
+        """
         return self._data
