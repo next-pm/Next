@@ -12,12 +12,21 @@
 #System Packages
 import os
 
-#Local Packages>
+#Local Packages
 import read_config
 import write_config
 import tools
 
 def add(property, value):
+    """Adds a new property to the current project
+
+    Args:
+        property (str): name of new property
+        value (str): value of new property
+
+    Returns:
+        value_of_property([str, null]): value of new property
+    """
 
     # default value of property
     value_of_property = "null"
@@ -47,4 +56,5 @@ def add(property, value):
             # Message(Error): Could not add
             tools.message_error('Could not add ' + property + ': ' + value)
 
+    #Value of new property ([str, null])
     return value_of_property
