@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 08/01/2022
+### date = 20/03/2022
 ### license = PSF
-### version = 3.0.0 
+### version = 3.2.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -14,8 +14,17 @@ import os
 
 #Local Packages
 import read_config
+import tools
 
 def get(property):
+    """Get a property to the current project
+
+    Args:
+        property (str): name of property
+
+    Returns:
+        value_of_property([str, null]): value of property
+    """
 
     # default value of property
     value_of_property = "null"
@@ -31,5 +40,16 @@ def get(property):
 
         #Wrapper for properties
         value_of_property = config_obj.get(property)
+        
+        #If it was added correctly
+        if(value_of_property != "null"):
+            
+            # Message(Successful): Getting property
+            tools.message_successful('Getting property ' + property + ': ' + value_of_property)
+            
+        else:
+            # Message(Error): Could not add
+            tools.message_error('Could not get ' + property)
 
+    #Value of new property ([str, null])
     return value_of_property
