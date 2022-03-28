@@ -1,7 +1,7 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 20/03/2022
+### date = 28/03/2022
 ### license = PSF
 ### version = 3.2.0 
 ### maintainer = Rafael Zamora 
@@ -25,8 +25,11 @@ def _this_is_a_dir(dir):
     Returns:
         bool: Flag
     """
+    
+    # Flag 
     done = False
 
+    # Is a Directory
     if os.path.isdir(dir):
         done = True
         
@@ -48,6 +51,8 @@ def _exists_config_file(dir):
     Returns:
         bool: Flag
     """
+    
+    # Flag
     done = False
     try:
         
