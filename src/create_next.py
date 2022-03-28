@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 07/01/2022
+### date = 28/03/2022
 ### license = PSF
-### version = 3.0.0 
+### version = 3.2.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -18,21 +18,30 @@ import tools
 
 def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
 
+    # Get current Directory
+    this_dir = os.getcwd()
+
     next_dir = ""
     try:
         #Search NEXT_PACKAGES_DIR
         next_dir = os.environ['NEXT_DIR']
-        print("NEXT_DIR in:", next_dir)
+        
+        # Message(Info): NEXT_DIR find in 
+        tools.message_info('NEXT_DIR in: ' + next_dir)
 
     except:
-        #Not Find NEXT_PACKAGES_DIR
-        print("It was not found ENV NEXT_PACKAGES_DIR in func --version_next.version_all()--")
+        # Message(Error): Not Find NEXT_DIR
+        tools.message_error('It was not found ENV NEXT_DIR')  
         exit()
 
-    print("Create a proyect of next in")
+    # Message(Waiting): Create a proyect of next in
+    tools.message_waiting('Create a proyect of next in: ' + this_dir + '/' + name)
     try:
+        # Default Type Proyect
         base_project = "empty_executable/"
         if(type_project):
+            
+            # If type is a Library
             if(type_project == "static_library" or type_project == "dynamic_library"):
                 base_project = "empty_library/"
 
@@ -47,8 +56,6 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
 
         # View the dir of new project {name}
         dir_new_project = os.getcwd() + "/" + name
-
-        print(os.getcwd() + "/" + name)
 
         tools.remplace_in_file(dir_new_project + "/config.yaml", "__name_project__", name)
         tools.remplace_in_file(dir_new_project + "/CMakeLists.txt", "__name_project__", name)
@@ -89,11 +96,17 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
                 setup_library(dir_new_project, name, name_build, type_project)
             elif(type_project == "dynamic_library"):
                 setup_library(dir_new_project, name, name_build)
+                
         else:
             tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "executable")
+            
+        # Message(Successful): Create a proyect of next in
+        tools.message_successful('Create a proyect of next in: ' + this_dir + '/' + name)
 
     except OSError as exc:
-        print(exc)
+        
+        # Message(Error): OSError generate
+        tools.message_error(str(exc))
 
 def setup_library(dir_new_project, name, name_build, type_project):
     tools.remplace_in_file(dir_new_project + "/export/export_library.cmake", "__LIB_NAME__", name.upper())
