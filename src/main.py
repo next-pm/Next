@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 08/01/2022
+### date = 29/01/2022
 ### license = PSF
-### version = 3.0.0 
+### version = 3.2.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -24,17 +24,25 @@ import config_get
 import config_set
 import config_add
 import tools
+import exce_next
 
-### Update 7/01/2022
+### Update 29/03/2022
 ### ✓ create                   Create a new Next project.
 ### ✓ build                    Build this project
 ### ✓ run                      Run your app
 ### ✓ clean                    Remove the binaries
-### × doctor                   Show information about the installed tooling.
 ### ✓ version                  List Next and plugins version.
+### ✓ info                     Print Info verbose of Next
+### ✓ add                      Add to property of current Next Project
+### ✓ get                      Get to property of current Next Project
+### ✓ set                      Set to property of current Next Project
+### ✓ exce                     Excecute a command perzonalized
+
+### × use                      Use a new library
+### × remove                   Remove a library
+### × doctor                   Show information about the installed tooling.
 ### × install                  Install a Plugin
 ### × upgrade                  Upgrade a Plugin or Next
-### ✓ info                    Print Info verbose of Next
 
 @click.group()
 def main():
@@ -115,6 +123,11 @@ def set(property, value):
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def add(property, value):
     config_add.add(property, value)
+    
+@main.command('exce', short_help='Add to property of current Next Project')
+@click.argument('command')
+def exce(command):
+    exce_next.exce(command)
         
 
 #if __name__ == "__main__":
