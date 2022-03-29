@@ -10,3 +10,7 @@ cxx_compiler: __cxx_compiler__
 build_system: __build_system__
 cmake_flags: []
 build_system_flags: []
+commands:
+  src: cd src
+#  test: g++ test/test.cpp -o build/test
+#  run-test: ./build/test
