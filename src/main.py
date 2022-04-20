@@ -25,6 +25,7 @@ import config_set
 import config_add
 import tools
 import exce_next
+import use_next
 
 ### Update 29/03/2022
 ### ✓ create                   Create a new Next project.
@@ -40,9 +41,9 @@ import exce_next
 
 ### × use                      Use a new library
 ### × remove                   Remove a library
-### × doctor                   Show information about the installed tooling.
 ### × install                  Install a Plugin
 ### × upgrade                  Upgrade a Plugin or Next
+### × doctor                   Show information about the installed tooling.
 
 @click.group()
 def main():
@@ -128,7 +129,11 @@ def add(property, value):
 @click.argument('command')
 def exce(command):
     exce_next.exce(command)
-        
+    
+@main.command('use', short_help='Add new library in current project')
+@click.argument('library')
+def use(library):
+    use_next.use_path(library)
 
 #if __name__ == "__main__":
 main()
