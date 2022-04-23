@@ -88,6 +88,12 @@ def load_env():
 from colorama  import Fore
 from colorama import Style
 from colorama import Back
+from colorama import init
+
+# For colorama in Windows load ANSI
+system = platform.system()
+if system != 'Linux':
+    init(convert = True)
 
 def message_error(str):
     print(f'{Fore.RED}{Style.BRIGHT} <<ERROR>> {Style.RESET_ALL}' + str)
