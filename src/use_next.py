@@ -13,6 +13,7 @@
 import shutil
 import os
 import datetime
+import platform
 
 #Local Packages
 import read_config
@@ -164,6 +165,11 @@ def use_path(library_dir):
                 tools.remplace_in_file(file_import_lib, '__DIR_LIB__', library_dir)
                 
                 tools.remplace_in_file(file_import_lib, '__FILE_BUILD_ABS__', name_build_lib_abs)
+
+                # Remplace \ route for /
+                system = platform.system()
+                if system != 'Linux':
+                    tools.remplace_in_file(file_import_lib, '\\', '/')
                 
                 
                 # Write in cmake/vendor.cmake
