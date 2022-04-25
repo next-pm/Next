@@ -1,43 +1,76 @@
-# Next
+## **Next**
+```
+Manage your Next app development.
 
-Next es un **administrador** de proyectos de **C/C++**, es diseñado como una solucion a la administracion que requieren este tipo de proyectos.
+Common commands:
 
-#### Requisitos
-- [Curl](https://curl.se/)
-- [Git](https://git-scm.com/)
-- Un compilador de C++, recomendado [gcc](https://gcc.gnu.org/) o [clang](https://clang.llvm.org/)
-- [Make](https://www.gnu.org/software/make/)
-- [CMake](https://cmake.org/)
+  next create <output directory>
+    Create a new next project in the specified directory.
 
-#### Instalación
+  next run [options]
+    Run your Next application.
 
-- Linux
-    ```
-    curl -s https://raw.githubusercontent.com/KEGEStudios/Next/master/next-install.sh | bash -s
-    ```
-    - Añade ```$HOME/opt/Next/build``` a la variable ```$PATH```
-- Windows
-    - Clona este repositorio
-    - Compila con cmake
-    - Añade al PATH el ejecutable de next
+Usage: next <command> [arguments]
 
-#### Comandos
+Global options:
+-h, --help                  Print this usage information.
 
-- **next create < nombre >** *Crea un nuevo proyecto con el nombre selecionado*
-- **next build** *Compila el proyecto*
-- **next run** *Ejecuta y compila si es e caso el peroyecto*
-- **next --help** o **next -h** Muestra una guia de ayuda para el uso de **Next**
-- **next --version** o **next -v** Muestra la version de next que se tiene instalado
+Available commands:
+  add        Add to property of current Next Project
+  build      Build a project of Next
+  check_env  check env the NextPackages
+  clean      Clean a project of Next
+  create     Create a new project of Next
+  exce       Add to property of current Next Project
+  get        Get property of current Next Project
+  info       view info the Next
+  run        Run a project of Next
+  set        Set property of current Next Project
+  use        Add new library in current project
+  version    view version the Nex
 
-#### Contribuidores
+Run "next <command> --help" for more information about a command.
 
-**Next** es prencipalmente apollado por el equipo de desarrollo del **Game Engine MOON** creado por **EGE Studios** ademas este esde codigo abierto por lo que cualquier persona que desee puede aportar a el.
+```
+### **Install with PyPi**
 
-#### Futuras verisiones
+``` bash
+pip install next-pm
+```
+    
+### **Install code stable**
+``` bash
+git clone https://github.com/reitmas32/Next.git
+```
 
-La version actual de Next es la v3.0.0 pero el desarrollo de Next esta en constante evolucion y se planea tener para las peroximas versiones:
-- **next upgrade** Actualización sencilla de **Next**
-- **next test** Intregracion de **Next** y Unit Testing
-- **next doctor** Una forma facil de visualizar el estado de los compiladores de C/C++
-- **next import** Conectar de forma sencilla librerias de C/C++ desde un servidor de unico de **Next** 
+### **Install code development**
+``` bash
+git clone https://github.com/reitmas32/Next.git
+git checkout dev
+```
 
+### Setup
+``` bash
+cd $HOME # if your System is Windows use $LOCALAPPDATA
+mkdir .next
+cd .next/
+echo 'NEXT_DIR:<DIR_OF_NEXT_INSTALATION>
+NEXT_PACKAGES_DIR:<DIR_OF_NEXT_PACKAGES> > env.yaml
+```
+
+### Contributors
+
+**Next** is mainly supported by the development team of **Game Engine MOON** create by **EGE Studios** and currently managed by **Next.Project**
+
+### Future versions
+
+The current version of Next is **v3.3.0** but the development of Next is in constant evolution and it is planned to have for the next versions:
+- **next upgrade** Easy update of **Next**
+- **next test** Integration of **Next** and Unit Testing
+- **next doctor** An easy way to view the status of C/C++ compilers
+- **next pbuild** build custom programmer in python
+- **next prun** run custom programmer in python
+- **next ptest** test custom programmer in python
+- **next pclean** clean custom programmer in python
+- **next install** install package from [next.packages.com](www.next.packages.com)
+- **next uninstall** uninstall package from [next.packages.com](www.next.packages.com)
