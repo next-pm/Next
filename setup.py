@@ -61,7 +61,7 @@ setup(
     license="PSF",
     
     # Link of GitHub repository
-    url="https://github.com/reitmas32/Next/tree/v3.2.0.pipy",
+    url="https://github.com/reitmas32/Next",
     
     # Classifiers of PyPi
     classifiers = ["Programming Language :: Python :: 3",\
