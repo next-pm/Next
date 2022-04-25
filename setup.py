@@ -18,19 +18,9 @@ import src.version_next
 #Dependencies Packages
 from setuptools import setup
 
-def long_description_file():
-    """Genrete long descriptions
-
-    Returns:
-        str: long description
-    """
-    # Get current Directory
-    this_dir = os.getcwd()
-    
-    # Read file README.md
-    with open(this_dir + '/README.md', encoding='utf-8') as f:
-        long_description = f.read()
-    return long_description
+from pathlib import Path
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     # Name to find the package in PyPi
@@ -49,7 +39,8 @@ setup(
     description = 'Next es un administrador de proyectos de C/C++, es diseñado como una solucion a la administracion que requieren este tipo de proyectos.)',
     
     # long description
-    long_description=long_description_file(),
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     
     # Name of Author
     author='Rafael Zamora',
