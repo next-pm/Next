@@ -72,5 +72,5 @@ The current version of Next is **v3.3.0** but the development of Next is in cons
 - **next prun** run custom programmer in python
 - **next ptest** test custom programmer in python
 - **next pclean** clean custom programmer in python
-- **next install** install package from [next.packages.com](www.next.packages.com)
-- **next uninstall** uninstall package from [next.packages.com](www.next.packages.com)
+- **next install** install package from [next.packages.com](https://www.next-packages.com)
+- **next uninstall** uninstall package from [next.packages.com](https://www.next-packages.com)
