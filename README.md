@@ -65,6 +65,7 @@ NEXT_PACKAGES_DIR:<DIR_OF_NEXT_PACKAGES> > env.yaml
 ### Future versions
 
 The current version of Next is **v3.3.0** but the development of Next is in constant evolution and it is planned to have for the next versions:
+#### Commands
 - **next upgrade** Easy update of **Next**
 - **next test** Integration of **Next** and Unit Testing
 - **next doctor** An easy way to view the status of C/C++ compilers
@@ -74,3 +75,12 @@ The current version of Next is **v3.3.0** but the development of Next is in cons
 - **next pclean** clean custom programmer in python
 - **next install** install package from [next.packages.com](https://www.next-packages.com)
 - **next uninstall** uninstall package from [next.packages.com](https://www.next-packages.com)
+
+
+#### Backend
+- Dependency tree 
+- Separate cmake logic from next to implement more construction systems
+- MacOS support
+
+#### Frotend
+- Create a GUI
