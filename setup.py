@@ -3,17 +3,12 @@
 ### copyright = Copyright 2020-2022, Next Project 
 ### date = 25/04/2022
 ### license = PSF
-### version = 3.3.0
+### version = 3.3.1
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
 ######################################################################
 
-#System Packages
-import os
-
-#Local Packages
-import src.version_next
 
 #Dependencies Packages
 from setuptools import setup
@@ -33,7 +28,7 @@ setup(
     include_package_data=True,
     
     # Version Current of Next
-    version = src.version_next.VERSION,
+    version = '3.3.1',
     
     # Short description
     description = 'Next es un administrador de proyectos de C/C++, es diseñado como una solucion a la administracion que requieren este tipo de proyectos.)',
