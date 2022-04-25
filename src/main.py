@@ -13,19 +13,19 @@
 import click
 
 #Local Packages
-import info_next
-import version_next
-import create_next
-import build_next
-import run_next
-import clean_next
-import config_env
-import config_get
-import config_set
-import config_add
-import tools
-import exce_next
-import use_next
+import src.info_next
+import src.version_next
+import src.create_next
+import src.build_next
+import src.run_next
+import src.clean_next
+import src.config_env
+import src.config_get
+import src.config_set
+import src.config_add
+import src.tools
+import src.exce_next
+import src.use_next
 
 ### Update 29/03/2022
 ### ✓ create                   Create a new Next project.
@@ -47,29 +47,29 @@ import use_next
 
 @click.group()
 def main():
-    tools.load_env()
+    src.tools.load_env()
     pass
 
 @main.command('info', short_help='view info the Next')
 def info():
-    info_next.info()
+    src.info_next.info()
 
 @main.command('version', short_help='view version the Next')
 @click.option('--all',default=0, required=False, help='view version of all NextPackages installed <default=0>')
 def version(all):
     # alone Next version
     if(all == 0):
-        version_next.version()
+        src.version_next.version()
     # all NextPackages
     elif(all == 1):
-        version_next.version_all()
+        src.version_next.version_all()
     # Error Not show any version
     else:
         exit()
 
 @main.command('check_env', short_help='check env the NextPackages')
 def check_env():
-    config_env.check_env()
+    src.config_env.check_env()
 
 @main.command('create', short_help='Create a new project of Next', options_metavar='<name> <options>')
 @click.argument('name', required=True, type=str, metavar='')
@@ -81,24 +81,24 @@ def check_env():
 @click.option('--build_system', required=False, type=str, help='Select Build System')
 @click.option('--type_project', required=False, type=str, help='Select Type Project')
 def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
-    create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project)
+    src.create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project)
 
 @main.command('build', short_help='Build a project of Next')
 def build():
-    build_next.build()
+    src.build_next.build()
 
 @main.command('run', short_help='Run a project of Next')
 def run():
-    run_next.run()
+    src.run_next.run()
 
 @main.command('clean', short_help='Clean a project of Next')
 def clean():
-    clean_next.clean()
+    src.clean_next.clean()
 
 @main.command('get', short_help='Get property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 def get(property):
-    value_of_property = config_get.get(property)
+    value_of_property = src.config_get.get(property)
     if isinstance(value_of_property, list):
         value_in_str = ''
         value_in_str += '['
@@ -116,24 +116,24 @@ def get(property):
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def set(property, value):
-    config_set.set(property, value)
+    src.config_set.set(property, value)
 
 
 @main.command('add', short_help='Add to property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def add(property, value):
-    config_add.add(property, value)
+    src.config_add.add(property, value)
     
 @main.command('exce', short_help='Add to property of current Next Project')
 @click.argument('command')
 def exce(command):
-    exce_next.exce(command)
+    src.exce_next.exce(command)
     
 @main.command('use', short_help='Add new library in current project')
 @click.argument('library')
 def use(library):
-    use_next.use_path(library)
+    src.use_next.use_path(library)
 
 #if __name__ == "__main__":
-main()
+#main()

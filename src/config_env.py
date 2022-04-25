@@ -13,7 +13,7 @@
 import os
 
 #Local Packages
-import tools
+import src.tools
 
 def check_env():
     """Check if it exists NEXT_PACKAGES_DIR
@@ -23,24 +23,24 @@ def check_env():
         next_dir = os.environ['NEXT_PACKAGES_DIR']
         
         # Message(Info): Next_PACKAGES_DIR in
-        tools.message_info('NEXT_PACKAGES_DIR in: ' + next_dir)
+        src.tools.message_info('NEXT_PACKAGES_DIR in: ' + next_dir)
     except:
         # Message(Warning): Not Find NEXT_PACKAGES_DIR
-        tools.message_warning("It was not found ENV NEXT_PACKAGES_DIR")
+        src.tools.message_warning("It was not found ENV NEXT_PACKAGES_DIR")
 
         #Want to create NEXT_PACKAGES_DIR
-        tools.message_info("Create NEXT_PACKAGES_DIR y/n: ")
-        create_next_packages_dir_flag = input()
+        src.tools.message_info("Create NEXT_PACKAGES_DIR y/n: ")
+        src.create_next_packages_dir_flag = input()
 
         #Create or Not NEXT_PACKAGES_DIR
-        if create_next_packages_dir_flag == "y":
+        if src.create_next_packages_dir_flag == "y":
 
             #Select dir for NEXT_PACKAGES_DIR
             select_next_packages_dir()
         else:
 
             # Message(Warning): Is not created NEXT_PACKAGES_DIR
-            tools.message_warning("Warning!!! you must create NEXT_PACKAGES_DIR")
+            src.tools.message_warning("Warning!!! you must create NEXT_PACKAGES_DIR")
         exit()
 
 def select_next_packages_dir():
@@ -54,21 +54,21 @@ def select_next_packages_dir():
     next_packages_dir = home_dir + "/NextPackages"
 
     # Message(Info): Acept dir for NEXT_PACKAGES_DIR
-    tools.message_info("NEXT_PACKAGES_DIR will be created in: " + home_dir + " y/n:")
+    src.tools.message_info("NEXT_PACKAGES_DIR will be created in: " + home_dir + " y/n:")
     next_packages_dir_flag = input()
 
     #Use default dor for NEXT_PACKAGES_DIR or not
     if next_packages_dir_flag == "y":
 
         #Create dir for NEXT_PACKAGES_DIR
-        create_next_packages_dir(next_packages_dir)
+        src.create_next_packages_dir(next_packages_dir)
     else:
         #Message(Info): Select dir for NEXT_PACKAGES_DIR
-        tools.message_info("Enter the route where you want NEXT_PACKAGES_DIR: ")
+        src.tools.message_info("Enter the route where you want NEXT_PACKAGES_DIR: ")
         next_packages_dir = input()
 
         #Create dir for NEXT_PACKAGES_DIR
-        create_next_packages_dir(next_packages_dir + "/NextPackages")
+        src.create_next_packages_dir(next_packages_dir + "/NextPackages")
 
 def create_next_packages_dir(dir):
     """Create dir for NEXT_PACKAGES_DIR
@@ -84,4 +84,4 @@ def create_next_packages_dir(dir):
         os.mkdir(dir)
 
     # Message(Successful): Create NEXT_PACKAGES_DIR
-    tools.message_successful('Now add environment variable NEXT_PACKAGES_DIR='+ dir)
+    src.tools.message_successful('Now add environment variable NEXT_PACKAGES_DIR='+ dir)

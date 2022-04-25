@@ -13,7 +13,7 @@
 import os
 
 #Local Packages
-import tools    
+import src.tools    
 
 def _this_is_a_dir(dir):
     """Identify if this is Dir
@@ -33,11 +33,11 @@ def _this_is_a_dir(dir):
         done = True
         
         # Message(Successful): Is a directory
-        tools.message_successful(dir + " Is a directory")
+        src.tools.message_successful(dir + " Is a directory")
     else:
         
         # Message(Error): Not ss a directory
-        tools.message_error(dir + " Not is a directory")
+        src.tools.message_error(dir + " Not is a directory")
     
     return done
 
@@ -45,7 +45,7 @@ def write_property(config_obj, dir):
     """Write a new Property
 
     Args:
-        config_obj (Config_t): Configuration of project
+        config_obj (src.config_t): Configuration of project
         dir (str): Directory
 
     Returns:
@@ -63,8 +63,8 @@ def write_property(config_obj, dir):
             documents = config_obj.yaml.dump(config_map, file)
         
         # Remplace chars '[' and ']'
-        tools.remplace_in_file("config.yaml", "'[", "[")
-        tools.remplace_in_file("config.yaml", "]'", "]")
+        src.tools.remplace_in_file("config.yaml", "'[", "[")
+        src.tools.remplace_in_file("config.yaml", "]'", "]")
         
         return True
 

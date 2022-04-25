@@ -16,13 +16,13 @@ _VERSION = "3.2.0"
 import os
 
 #Local Packages
-import read_config
-import tools
+import src.read_config
+import src.tools
 
 
 def version():
     # Message(Info): Next Version
-    tools.message_info("Next version: " + _VERSION)
+    src.tools.message_info("Next version: " + _VERSION)
 
 def version_all():
     
@@ -33,11 +33,11 @@ def version_all():
         next_packages_dir = os.environ['NEXT_PACKAGES_DIR']
         
         # Message(Info): NEXT_PACKAGES_DIR in:
-        tools.message_info("NEXT_PACKAGES_DIR in: " +  next_packages_dir)
+        src.tools.message_info("NEXT_PACKAGES_DIR in: " +  next_packages_dir)
 
     except:
         # Message(Error): Not Find NEXT_PACKAGES_DIR
-        tools.message_error("It was not found ENV NEXT_PACKAGES_DIR in func --version_next.version_all()--")
+        src.tools.message_error("It was not found ENV NEXT_PACKAGES_DIR in func --src.version_next.version_all()--")
         exit()
 
     # Get Subdirectories 
@@ -46,11 +46,11 @@ def version_all():
     for next_pakage_dir in list_next_packages:
 
         # Read COnfig for DIrectory
-        config_obj = read_config.read_config(next_packages_dir+ "/" + next_pakage_dir)
+        config_obj = src.read_config.read_config(next_packages_dir+ "/" + next_pakage_dir)
 
-        # If exists Config_t
+        # If exists src.config_t
         if config_obj != False:
             
             # Message(Info): Get Version of Proects
-            tools.message_info(config_obj.name_project + " " + config_obj.version + "\n")
+            src.tools.message_info(config_obj.name_project + " " + config_obj.version + "\n")
     

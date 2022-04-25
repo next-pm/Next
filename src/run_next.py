@@ -14,8 +14,8 @@ import os
 import subprocess
 
 #Local Packages
-import read_config
-import tools
+import src.read_config
+import src.tools
 
 def run():
     """Run executable of project
@@ -27,7 +27,7 @@ def run():
     try:
         
         #Read Config of Project
-        config_obj = read_config.read_config(this_dir)
+        config_obj = src.read_config.read_config(this_dir)
 
         # If this is a project of Next
         if config_obj != False:
@@ -36,14 +36,14 @@ def run():
             os.chdir(config_obj.get("build_dir"))
             
             # Message(Waiting): Run executable
-            tools.message_waiting('Run executable')
+            src.tools.message_waiting('Run executable')
             
             # Run executable
             subprocess.run(["./" + config_obj.get("name_build")])
     except OSError as exc:
         
         # Message(Error): OSError generate
-        tools.message_error(str(exc))
+        src.tools.message_error(str(exc))
         
         # Exit to program
         exit()

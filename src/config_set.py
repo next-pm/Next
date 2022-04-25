@@ -13,9 +13,9 @@
 import os
 
 #Local Packages
-import read_config
-import write_config
-import tools
+import src.read_config
+import src.write_config
+import src.tools
 
 def set(property, value):
     """Set a property to the current project
@@ -38,7 +38,7 @@ def set(property, value):
         dir_project = os.getcwd()
 
         #Read config of current project
-        config_obj = read_config.read_config(dir_project)
+        config_obj = src.read_config.read_config(dir_project)
 
         #Wrapper for properties
         value_of_property = config_obj.set(property, value)
@@ -47,14 +47,14 @@ def set(property, value):
         if(value_of_property != "null"):
             
             #Write the new config
-            write_config.write_property(config_obj, dir_project)
+            src.write_config.write_property(config_obj, dir_project)
             
             # Message(Successful): Set property
-            tools.message_successful('Set property ' + property + ': ' + value)
+            src.tools.message_successful('Set property ' + property + ': ' + value)
         
         else:
             # Message(Error): Could not set
-            tools.message_error('Could not set ' + property + ': ' + value)
+            src.tools.message_error('Could not set ' + property + ': ' + value)
 
     #Value of new property ([str, null])
     return value_of_property

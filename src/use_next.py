@@ -16,8 +16,8 @@ import datetime
 import platform
 
 #Local Packages
-import read_config
-import tools
+import src.read_config
+import src.tools
 
 # String for add in cmake/vendor.cmake
 vendor_basic = """
@@ -51,20 +51,20 @@ def use_path(library_dir):
         next_dir = os.environ['NEXT_DIR']
         
         # Message(Info): NEXT_DIR find in 
-        tools.message_info('NEXT_DIR in: ' + next_dir)
+        src.tools.message_info('NEXT_DIR in: ' + next_dir)
 
     except:
         # Message(Error): Not Find NEXT_DIR
-        tools.message_error('It was not found ENV NEXT_DIR')  
+        src.tools.message_error('It was not found ENV NEXT_DIR')  
         exit()
 
     try:
         
         # Read config of proyect
-        config_obj = read_config.read_config(this_dir)
+        config_obj = src.read_config.read_config(this_dir)
         
         # Read config of library
-        config_lib = read_config.read_config(library_dir)
+        config_lib = src.read_config.read_config(library_dir)
 
         # If the configuration is not empty
         if config_obj != False and config_lib != False:
@@ -95,28 +95,28 @@ def use_path(library_dir):
                 if os.path.isfile(name_build_lib_abs):
                     
                     # Message(Info): Library binary file found
-                    tools.message_info('Library binary file found: ' + name_build_lib_abs)
+                    src.tools.message_info('Library binary file found: ' + name_build_lib_abs)
                 else:
                     
                     # Message(Warning): Library binary file not found
-                    tools.message_warning('Library binary not found')
+                    src.tools.message_warning('Library binary not found')
                     
                     # Message(Info): Search file
-                    tools.message_info('Want to search yes/no')
+                    src.tools.message_info('Want to search yes/no')
                     
                     res = input()
                     
                 #### Search likely binaries
                     if res == 'yes':
                         # Message(Waiting): Search file
-                        tools.message_waiting('Search')
+                        src.tools.message_waiting('Search')
                         # Verify that it exists name_build_lib
                         
                         likely_binaries_local = []
                         
                         likely_binaries_abs = []
                         
-                        files_build_abs = tools.absoluteFilePaths(library_dir + '/' + build_dir_lib)
+                        files_build_abs = src.tools.absoluteFilePaths(library_dir + '/' + build_dir_lib)
                         
                         files_build_local = os.listdir(library_dir + '/' + build_dir_lib)
                         
@@ -132,20 +132,20 @@ def use_path(library_dir):
                                     likely_binaries_abs.append(file_abs)
                         
                         # Message(Info): Mathches Found
-                        tools.message_info('Matches found')
+                        src.tools.message_info('Matches found')
                         i = 1
                         for f in likely_binaries_abs:
                             print( str(i) + ') ' + f)
                             i = i + 1
                         
                         # Message(Info): Select the binary
-                        tools.message_info('Select a Binary \'n\' to cancelr')
+                        src.tools.message_info('Select a Binary \'n\' to cancelr')
                         res = input()
                         
                         # Binary not selected
                         if res == 'n':
                             # Message(Warning): Select the binary
-                            tools.message_warning('You will need to add the library binary manually.')
+                            src.tools.message_warning('You will need to add the library binary manually.')
                             
                             name_build_lib_abs = ''
                         else:
@@ -154,22 +154,22 @@ def use_path(library_dir):
                         
                     else:
                         # Message(Warning): Select the binary
-                        tools.message_warning('You will need to add the library binary manually.')
+                        src.tools.message_warning('You will need to add the library binary manually.')
                         
                         # Clean the name_build_lib_abs
                         name_build_lib_abs = ''
                         
                 # Configuration of file_import_lib
-                tools.remplace_in_file(file_import_lib, '__NAME_PROJECT_UPPER_CASE__', name_project_lib.upper())
+                src.tools.remplace_in_file(file_import_lib, '__NAME_PROJECT_UPPER_CASE__', name_project_lib.upper())
                 
-                tools.remplace_in_file(file_import_lib, '__DIR_LIB__', library_dir)
+                src.tools.remplace_in_file(file_import_lib, '__DIR_LIB__', library_dir)
                 
-                tools.remplace_in_file(file_import_lib, '__FILE_BUILD_ABS__', name_build_lib_abs)
+                src.tools.remplace_in_file(file_import_lib, '__FILE_BUILD_ABS__', name_build_lib_abs)
 
                 # Remplace \ route for /
                 system = platform.system()
                 if system != 'Linux':
-                    tools.remplace_in_file(file_import_lib, '\\', '/')
+                    src.tools.remplace_in_file(file_import_lib, '\\', '/')
                 
                 
                 # Write in cmake/vendor.cmake
@@ -180,24 +180,24 @@ def use_path(library_dir):
                 file_vendor.close()
                 
                 # Configuration of cmake/vendor.cmake
-                tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_UPPER__', name_project_lib.upper())
+                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_UPPER__', name_project_lib.upper())
                 
-                tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_LOWER__', name_project_lib.lower())
+                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_LOWER__', name_project_lib.lower())
 
-                tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__FILE_IMPORT_LIB__', file_import_lib)
+                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__FILE_IMPORT_LIB__', file_import_lib)
                 
-                tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__DATE__', str(datetime.datetime.now()))     
+                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__DATE__', str(datetime.datetime.now()))     
                 
                 # Message(Successful): Library added
-                tools.message_successful(library_dir + 'added in: ' + this_dir)
+                src.tools.message_successful(library_dir + 'added in: ' + this_dir)
                 
             except OSError as err:
                 # Message(Error): OSError generate
-                tools.message_error(str(err))
+                src.tools.message_error(str(err))
     except OSError as exc:
         
         # Message(Error): OSError generate
-        tools.message_error(str(exc))
+        src.tools.message_error(str(exc))
         
         # Exit to program
         exit()

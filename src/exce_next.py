@@ -14,8 +14,8 @@ import os
 import subprocess
 
 #Local Packages
-import read_config
-import tools
+import src.read_config
+import src.tools
 
 def exce(command):
     """Execute a command
@@ -26,7 +26,7 @@ def exce(command):
     try:
         
         # Read config of proyect
-        config_obj = read_config.read_config(this_dir)
+        config_obj = src.read_config.read_config(this_dir)
 
         # If the configuration is not empty
         if config_obj != False:
@@ -63,19 +63,19 @@ def exce(command):
                 if( find ):
                     
                     # Message(Waiting): Executing the command
-                    tools.message_waiting('Executing the command: ' + command)
+                    src.tools.message_waiting('Executing the command: ' + command)
                     subprocess.run(list(value_command.split(" ")))
                 else: 
                     # Message(Error): Executing the command
-                    tools.message_error('Command not found: ' + command)
+                    src.tools.message_error('Command not found: ' + command)
                 
             except OSError as err:
                 # Message(Error): OSError generate
-                tools.message_error(str(err))
+                src.tools.message_error(str(err))
     except OSError as exc:
         
         # Message(Error): OSError generate
-        tools.message_error(str(exc))
+        src.tools.message_error(str(exc))
         
         # Exit to program
         exit()

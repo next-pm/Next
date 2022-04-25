@@ -14,8 +14,8 @@ import os
 import subprocess
 
 #Local Packages
-import read_config
-import tools
+import src.read_config
+import src.tools
 
 def build():
     """Build project from current directory
@@ -29,7 +29,7 @@ def build():
         try:
             
             # Read config of proyect
-            config_obj = read_config.read_config(this_dir)
+            config_obj = src.read_config.read_config(this_dir)
 
             # If the configuration is not empty
             if config_obj != False:
@@ -39,17 +39,17 @@ def build():
                     os.mkdir(config_obj.get("build_dir"))
                     
                     # Message(Successful): The build_dir directory was created
-                    tools.message_successful(this_dir + '/' + config_obj.get("build_dir"))
+                    src.tools.message_successful(this_dir + '/' + config_obj.get("build_dir"))
                     
                 except:
                     # Message(Waiting): The build_dir folder already exists
-                    tools.message_warning("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
+                    src.tools.message_warning("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
                 
                 # Entering the directory build_dir
                 os.chdir(config_obj.get("build_dir"))
                 
                 # Message(Waiting): Build Proyect
-                tools.message_waiting("Build Proyect")
+                src.tools.message_waiting("Build Proyect")
 
                 # Command to build the project of Cmake
                 subprocess.run([
@@ -64,16 +64,16 @@ def build():
             # The configuration is empty
             else:
                 # Message(Warning): The configuration is empty
-                tools.message_warning("The configuration is empty")
+                src.tools.message_warning("The configuration is empty")
 
         except OSError as exc:
             
             # Message(Error): OSError generate
-            tools.message_error(str(exc))
+            src.tools.message_error(str(exc))
     except OSError as err:
         
         # Message(Error): OSError generate
-        tools.message_error(str(err))
+        src.tools.message_error(str(err))
         
         # Exit to program
         exit()

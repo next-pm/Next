@@ -13,7 +13,7 @@
 import ruamel.yaml
 
 # Packges Local
-import tools
+import src.tools
 
 def listToString(l):
     """Convert a list to a string
@@ -31,14 +31,14 @@ def listToString(l):
     # return string  
     return (str1.join(l))
 
-class Config_t:
+class config_t:
 
     _data = {}
     file = ''
     yaml = ''
 
     def __init__(self, dir):
-        """Initialize a Config_t
+        """Initialize a src.config_t
 
         Args:
             dir (str): Direction of project
@@ -54,7 +54,7 @@ class Config_t:
         self._data = self.yaml.load(self.file)
 
     def print(self):
-        """Print the Config_t
+        """Print the src.config_t
         """
         print( "name_project: "         + self._data["name_project"])
         print( "description: "          + self._data["description"])
@@ -98,7 +98,7 @@ class Config_t:
             self._data[property] = value
             new_value = self._data[property]
         except:
-            tools.message_error("Property does not exist")
+            src.tools.message_error("Property does not exist")
             new_value = "null"
         return new_value
 
@@ -116,12 +116,12 @@ class Config_t:
             self._data[property] = value
             new_value = self._data[property]
         except:
-            tools.message_error("Property does not exist")
+            src.tools.message_error("Property does not exist")
             new_value = "null"
         return new_value
 
     def to_map(self):
-        """Convert Config_t to Map
+        """Convert src.config_t to Map
 
         Returns:
             Map: Map of Data

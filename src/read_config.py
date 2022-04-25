@@ -13,8 +13,8 @@
 import os
 
 #Local Packages
-import config_t
-import tools
+import src.config_t
+import src.tools
 
 def _this_is_a_dir(dir):
     """Identify if this is Dir
@@ -34,11 +34,11 @@ def _this_is_a_dir(dir):
         done = True
         
         # Message(Successful): Is a directory
-        tools.message_successful(dir + " Is a directory")
+        src.tools.message_successful(dir + " Is a directory")
     else:
         
         # Message(Error): Not ss a directory
-        tools.message_error(dir + " Not is a directory")
+        src.tools.message_error(dir + " Not is a directory")
     
     return done
 
@@ -61,12 +61,12 @@ def _exists_config_file(dir):
         config_file.close()
         
         # Message(Successful): Is a directory
-        tools.message_successful("Exists config.yaml in :" + dir)
+        src.tools.message_successful("Exists config.yaml in :" + dir)
         
         done = True
     except:
         # Message(Error): Not is a directory
-        tools.message_error("Not exists config.yaml in :" + dir)
+        src.tools.message_error("Not exists config.yaml in :" + dir)
     
     return done
 
@@ -77,21 +77,21 @@ def read_config(dir):
         dir (str): Dir of Project
 
     Returns:
-        [Config_t, bool]: Data or Flag
+        [src.config_t, bool]: Data or Flag
     """
     
     # Identify if this is a Proyect of Next
     if _this_is_a_dir(dir) and _exists_config_file(dir):
         
-        # Create Config_t object
-        config_obj = config_t.Config_t(dir)
+        # Create src.config_t object
+        config_obj = src.config_t.config_t(dir)
         
         # Message(Successful): Is a directory
-        tools.message_successful(dir + " Is a project of Next")
+        src.tools.message_successful(dir + " Is a project of Next")
                 
-        # Return Config_t object
+        # Return src.config_t object
         return config_obj
     
     # Message(Error): Not is a project Next
-    tools.message_error(dir + " Not is a project of Next")
+    src.tools.message_error(dir + " Not is a project of Next")
     return False

@@ -14,8 +14,8 @@ import shutil
 import os
 
 #Local Packages
-import read_config
-import tools
+import src.read_config
+import src.tools
 
 def clean():
     """Clean Build of current Project
@@ -26,7 +26,7 @@ def clean():
     try:
         
         # Read config of proyect
-        config_obj = read_config.read_config(this_dir)
+        config_obj = src.read_config.read_config(this_dir)
 
         # If the configuration is not empty
         if config_obj != False:
@@ -36,14 +36,14 @@ def clean():
                 shutil.rmtree(config_obj.get("build_dir"))
                 
                 # Message(Successful): The build_dir delete
-                tools.message_successful('Clean ' + this_dir + '/' + config_obj.get("build_dir"))
+                src.tools.message_successful('Clean ' + this_dir + '/' + config_obj.get("build_dir"))
             except OSError as err:
                 # Message(Error): OSError generate
-                tools.message_error(str(err))
+                src.tools.message_error(str(err))
     except OSError as exc:
         
         # Message(Error): OSError generate
-        tools.message_error(str(exc))
+        src.tools.message_error(str(exc))
         
         # Exit to program
         exit()
