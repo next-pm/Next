@@ -16,7 +16,7 @@ import shutil
 #Local Packages
 import tools
 
-def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system):
+def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
 
     next_dir = ""
     try:
@@ -31,11 +31,16 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
 
     print("Create a proyect of next in")
     try:
+        base_project = "empty_executable/"
+        if(type_project):
+            if(type_project == "static_library" or type_project == "dynamic_library"):
+                base_project = "empty_library/"
+
         # Create the dir
         os.mkdir(name)
 
         # Get nextEmptyProjectDir
-        next_empty_project_dir = next_dir + "/assets/empty-project/"
+        next_empty_project_dir = next_dir + "/assets/" + base_project
 
         # Copy the nextEmptyProjectDir in new project {name}
         shutil.copytree(next_empty_project_dir, name, dirs_exist_ok=True)
@@ -77,5 +82,29 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
         else:
             tools.remplace_in_file(dir_new_project + "/config.yaml", "__cxx_compiler__", "g++")
 
+        if type_project:
+            tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", type_project)
+
+            if(type_project == "static_library"):
+                setup_library(dir_new_project, name, name_build, type_project)
+            elif(type_project == "dynamic_library"):
+                setup_library(dir_new_project, name, name_build)
+        else:
+            tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "executable")
+
     except OSError as exc:
         print(exc)
+
+def setup_library(dir_new_project, name, name_build, type_project):
+    tools.remplace_in_file(dir_new_project + "/export/export_library.cmake", "__LIB_NAME__", name.upper())
+
+    if name_build:
+        if(type_project == "static_library"):
+            tools.remplace_in_file(dir_new_project + "/export/export_library.cmake", "__LIB_BINARY__", name_build + ".a")
+        elif(type_project == "dynamic_library"):
+            tools.remplace_in_file(dir_new_project + "/export/export_library.cmake", "__LIB_BINARY__", name_build + ".so")
+    else:
+        if(type_project == "static_library"):
+            tools.remplace_in_file(dir_new_project + "/export/export_library.cmake", "__LIB_BINARY__", "app_static" + ".a")
+        elif(type_project == "dynamic_library"):
+            tools.remplace_in_file(dir_new_project + "/export/export_library.cmake", "__LIB_BINARY__", "app_dynamic" + ".so")

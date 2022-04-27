@@ -1,4 +1,5 @@
 name_project: __name_project__
+type_project: __type_project__
 description: Hello World in Moon
 version: v0.0.1
 build_dir: __build_dir__
