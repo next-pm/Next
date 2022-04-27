@@ -1,44 +1,16 @@
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <linux/next.hpp>
-#include <linux/file_next.hpp>
+
+#include <command_base.hpp>
+#include <commands/read_help_command.hpp>
+
+#include <manager_command.hpp>
+
+#include <next_data.hpp>
 
 int main(int argc, char const *argv[])
 {
-
-    NEXT::CPP::Linux::Next next;
-
-    if (argc == 1)
-    {
-        next.help();
-        return 0;
-    }
-
-    for (int i = 1; i < argc; i++)
-    {
-        std::string op = argv[i];
-        if (op == "--help" || op == "-h")
-        {
-            next.help();
-        }
-        if (op == "build")
-        {
-            next.build();
-        }
-        if (op == "create")
-        {
-            op = argv[i + 1];
-            if( op != "."){
-                next.create(op);
-            }
-            
-        }
-        if (op == "run")
-        {
-            next.run();
-        }
-    }
-
+    ManagerCommand man;
+    man.initialize(argc, argv);
+    man.execute();
     return 0;
 }
