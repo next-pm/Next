@@ -3,14 +3,14 @@
 ### copyright = Copyright 2020-2022, Next Project 
 ### date = 28/03/2022
 ### license = PSF
-### version = 3.2.0 
+### version = 3.3.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
 ######################################################################
 
 # Update 28/03/2022
-_VERSION = "3.2.0"
+VERSION = "3.3.0"
 
 #System Packages
 import os
@@ -22,7 +22,7 @@ import src.tools
 
 def version():
     # Message(Info): Next Version
-    src.tools.message_info("Next version: " + _VERSION)
+    src.tools.message_info("Next version: " + VERSION)
 
 def version_all():
     
