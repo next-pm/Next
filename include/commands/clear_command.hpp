@@ -1,6 +1,6 @@
 #pragma once
 /**
- * @file version_command.hpp
+ * @file run_command.hpp
  * @author Oswaldo Rafael Zamora Ramirez rafa.zamora.rals@gmail.com
  * @brief 
  * @version 2.0.0
@@ -10,33 +10,35 @@
  * 
  */
 #include <iostream>
-#include <fstream>
 #include <string>
 
 #include <command_base.hpp>
-
 #include <next_data.hpp>
+#include <tools/exec.hpp>
+
+#include <termcolor.hpp>
 
 /**
- * @brief COmado para mostrar la version de Next
+ * @brief COmando para ejecutar el proyecto de Next
  * 
  */
-class VersionCommand : public CommandBase
+class ClearCommand : public CommandBase
 {
 private:
-    /* data */
+    std::string command;
+
 public:
     /**
      * @brief Constructor
      * 
      */
-    VersionCommand(/* args */);
+    ClearCommand(/* args */);
 
     /**
-     * @brief Destuctor
+     * @brief Destructor
      * 
      */
-    ~VersionCommand();
+    ~ClearCommand();
 
     /**
      * @brief Ejecucion del comando

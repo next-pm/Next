@@ -1,6 +1,6 @@
 #pragma once
 /**
- * @file version_command.hpp
+ * @file upgrade_command.hpp
  * @author Oswaldo Rafael Zamora Ramirez rafa.zamora.rals@gmail.com
  * @brief 
  * @version 2.0.0
@@ -10,36 +10,37 @@
  * 
  */
 #include <iostream>
-#include <fstream>
 #include <string>
 
 #include <command_base.hpp>
-
 #include <next_data.hpp>
+#include <tools/exec.hpp>
 
 /**
- * @brief COmado para mostrar la version de Next
+ * @brief Comando para actualizar Next
  * 
  */
-class VersionCommand : public CommandBase
+class UpgradeCommand : public CommandBase
 {
 private:
-    /* data */
+    /**Comando para realizar la actualizacion de Next*/
+    std::string command;
+
 public:
     /**
      * @brief Constructor
      * 
      */
-    VersionCommand(/* args */);
+    UpgradeCommand();
 
     /**
-     * @brief Destuctor
+     * @brief Destructor
      * 
      */
-    ~VersionCommand();
+    ~UpgradeCommand();
 
     /**
-     * @brief Ejecucion del comando
+     * @brief Ejeucion del comando
      * 
      * @return int 
      */

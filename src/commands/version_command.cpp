@@ -1,5 +1,7 @@
 #include <commands/version_command.hpp>
 
+#include <termcolor.hpp>
+
 VersionCommand::VersionCommand(/* args */) : CommandBase()
 {
 }
@@ -21,7 +23,7 @@ int VersionCommand::execute(/* args */)
     {
         while (getline(myfile, line))
         {
-            std::cout << line << '\n';
+            std::cout << termcolor::bold << termcolor::green << line << '\n'<<termcolor::reset;
         }
         myfile.close();
     }

@@ -1,0 +1,11 @@
+#!/bin/sh
+# Next shell setup
+# affix colons on either side of $PATH to simplify matching
+case ":${PATH}:" in
+    *:"$HOME/opt/MoonStudio/Next/build":*)
+        ;;
+    *)
+        # Prepending path in case a system-installed next needs to be overridden
+        export PATH="$PATH:$HOME/opt/MoonStudio/Next/build"
+        ;;
+esac

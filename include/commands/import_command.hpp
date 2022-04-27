@@ -1,6 +1,6 @@
 #pragma once
 /**
- * @file version_command.hpp
+ * @file import_command.hpp
  * @author Oswaldo Rafael Zamora Ramirez rafa.zamora.rals@gmail.com
  * @brief 
  * @version 2.0.0
@@ -10,33 +10,34 @@
  * 
  */
 #include <iostream>
-#include <fstream>
 #include <string>
 
 #include <command_base.hpp>
-
 #include <next_data.hpp>
-
+#include <tools/exec.hpp>
 /**
- * @brief COmado para mostrar la version de Next
+ * @brief Comado para clonar e importar otro proyecto de Next como una biblioteca
  * 
  */
-class VersionCommand : public CommandBase
+class ImportCommand : public CommandBase
 {
 private:
-    /* data */
+    /**Comado a realizar para clonar el repositorio de Git*/
+    std::string command;
+
 public:
     /**
      * @brief Constructor
      * 
+     * @param url_repo link del repositorio a clonar
      */
-    VersionCommand(/* args */);
+    ImportCommand(std::string url_repo);
 
     /**
-     * @brief Destuctor
+     * @brief Destructor
      * 
      */
-    ~VersionCommand();
+    ~ImportCommand();
 
     /**
      * @brief Ejecucion del comando

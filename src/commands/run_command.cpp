@@ -4,9 +4,11 @@ RunCommand::RunCommand(/* args */)
     : CommandBase()
 {
 #if defined(_WIN32)
-    this->command += "cd build\\Release && app.exe";
+    this->command += "cd " + NextData::getInstance()->build_dir + " && " +
+                     NextData::getInstance()->name_build;
 #elif defined(__linux)
-    this->command += "cd build && ./app";
+    this->command += "cd " + NextData::getInstance()->build_dir + " && ./" +
+                     NextData::getInstance()->name_build;
 #endif
 }
 
