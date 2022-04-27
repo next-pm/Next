@@ -18,6 +18,7 @@ include(cmake/vendor.cmake)
 include_directories(
     .
     ${INCLUDE_DIR}
+    ${INCLUDE_LIBS}
     #Includes of libraries
 )
 
@@ -40,4 +41,5 @@ add_executable(
 )
 target_link_libraries(${APP}
     #ibraries
+    ${LIBS}
 )

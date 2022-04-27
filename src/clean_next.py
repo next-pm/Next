@@ -1,9 +1,9 @@
 ######################################################################
 ### author = Rafael Zamora 
 ### copyright = Copyright 2020-2022, Next Project 
-### date = 07/01/2022
+### date = 12/03/2022
 ### license = PSF
-### version = 3.0.0 
+### version = 3.2.0 
 ### maintainer = Rafael Zamora 
 ### email = rafa.zamora.ram@gmail.com 
 ### status = Production
@@ -14,15 +14,36 @@ import shutil
 import os
 
 #Local Packages
-import read_config
+import src.read_config
+import src.tools
 
 def clean():
+    """Clean Build of current Project
+    """
+    
+    # Get current Directory
     this_dir = os.getcwd()
     try:
-        config_obj = read_config.read_config(this_dir)
+        
+        # Read config of proyect
+        config_obj = src.read_config.read_config(this_dir)
 
+        # If the configuration is not empty
         if config_obj != False:
-            shutil.rmtree(config_obj.get("build_dir"))
+            
+            try:
+                # Remove the directory "build_dir"
+                shutil.rmtree(config_obj.get("build_dir"))
+                
+                # Message(Successful): The build_dir delete
+                src.tools.message_successful('Clean ' + this_dir + '/' + config_obj.get("build_dir"))
+            except OSError as err:
+                # Message(Error): OSError generate
+                src.tools.message_error(str(err))
     except OSError as exc:
-        print(exc)
+        
+        # Message(Error): OSError generate
+        src.tools.message_error(str(exc))
+        
+        # Exit to program
         exit()
