@@ -45,7 +45,7 @@ def get(property):
         if(value_of_property != "null"):
             
             # Message(Successful): Getting property
-            src.tools.message_successful('Getting property ' + property + ': ' + value_of_property)
+            src.tools.message_successful('Getting property ' + property + ': ' + str(value_of_property))
             
         else:
             # Message(Error): Could not add
