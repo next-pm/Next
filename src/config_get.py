@@ -16,7 +16,7 @@ import os
 import src.read_config
 import src.tools
 
-def get(property):
+def get(property, comments = True):
     """Get a property to the current project
 
     Args:
@@ -44,8 +44,12 @@ def get(property):
         #If it was added correctly
         if(value_of_property != "null"):
             
+            value_of_property_str = src.tools.object_to_yaml_str(value_of_property).replace("...", "")
+            
+            if comments == False:
+                value_of_property_str = src.tools.stripComments(value_of_property_str)
             # Message(Successful): Getting property
-            src.tools.message_successful('Getting property ' + property + ': ' + str(value_of_property))
+            src.tools.message_successful('Getting property \n' + property + ': ' +  value_of_property_str)
             
         else:
             # Message(Error): Could not add

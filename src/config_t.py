@@ -48,10 +48,11 @@ class config_t:
         self.yaml.preserve_quotes = True
 
         #Read file
-        self.file = open( dir + "/config.yaml", "r")
+        self.file = dir + "/config.yaml"
 
         #Write Data
-        self._data = self.yaml.load(self.file)
+        #self._data = self.yaml.load(self.file)
+        self._data = src.tools.yaml_file_to_object(self.file)
 
     def print(self):
         """Print the src.config_t
