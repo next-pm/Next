@@ -97,20 +97,12 @@ def clean():
 
 @main.command('get', short_help='Get property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
-def get(property):
-    value_of_property = src.config_get.get(property)
-    if isinstance(value_of_property, list):
-        value_in_str = ''
-        value_in_str += '['
-        for x in value_of_property:
-            value_in_str += x + ','
-        len_value = len(value_in_str)
-        value_in_str = value_in_str[:len_value-1]
-        value_in_str += ']' 
-    else:
-        value_in_str = value_of_property
+@click.option('--comments',default=True, required=False, type=bool, help='Select name of build')
+def get(property, comments):
+    value_of_property = src.config_get.get(property, comments)
+
     
-    print(property + ": " + value_in_str)
+    #print(property + ": " + value_in_str)
 
 @main.command('set', short_help='Set property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
