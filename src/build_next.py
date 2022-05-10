@@ -16,8 +16,9 @@ import subprocess
 #Local Packages
 import src.read_config
 import src.tools
+import src.models.build_t
 
-def build():
+def build(build_name=None):
     """Build project from current directory
     """
     
@@ -50,17 +51,13 @@ def build():
                 
                 # Message(Waiting): Build Proyect
                 src.tools.message_waiting("Build Proyect")
-
-                # Command to build the project of Cmake
-                subprocess.run([
-                    "cmake", this_dir + "/.", 
-                    "-G" + config_obj.get("build_system"), 
-                    "-DCMAKE_CXX_COMPILER=" +  config_obj.get("cxx_compiler"), 
-                    "-DCMAKE_C_COMPILER=" +  config_obj.get("c_compiler"),
-                    "-D" + config_obj.get("type_project") +"=on" ] + config_obj.get("cmake_flags"))
-
-                # Command to build the project of build_system
-                subprocess.run([config_obj.get("build_system_exe")] + config_obj.get("build_system_flags"))
+                
+                # Create a buider
+                build_obj = src.models.build_t.Build_t(build_name, config_obj)
+                
+                #Build the Builder
+                build_obj.build()
+                
             # The configuration is empty
             else:
                 # Message(Warning): The configuration is empty
