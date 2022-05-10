@@ -84,8 +84,9 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
     src.create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project)
 
 @main.command('build', short_help='Build a project of Next')
-def build():
-    src.build_next.build()
+@click.argument('build_name', default=None, required=False, type=str, metavar='')
+def build(build_name):
+    src.build_next.build(build_name)
 
 @main.command('run', short_help='Run a project of Next')
 def run():
