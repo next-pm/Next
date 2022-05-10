@@ -59,11 +59,16 @@ class Build_t:
         
         # Get a Builds
         builds = self.config_obj.get('builds')
-
-        # Get a first builder
-        for builder in builds:
-            self._select_builder(builder, builds)
-            break
+        
+        if builds != None:
+            
+            # Get a first builder
+            for builder in builds:
+                self._select_builder(builder, builds)
+                break
+        else:
+            # Message(Error): OSError generate
+            src.tools.message_error('There are no builds to be able to build the project')
                 
     def build(self):
         
