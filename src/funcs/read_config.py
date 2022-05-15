@@ -13,7 +13,7 @@
 import os
 
 #Local Packages
-import src.config_t
+import src.funcs.config_t
 import src.tools
 
 def _this_is_a_dir(dir):
@@ -77,19 +77,19 @@ def read_config(dir):
         dir (str): Dir of Project
 
     Returns:
-        [src.config_t, bool]: Data or Flag
+        [src.funcs.config_t, bool]: Data or Flag
     """
     
     # Identify if this is a Proyect of Next
     if _this_is_a_dir(dir) and _exists_config_file(dir):
         
-        # Create src.config_t object
-        config_obj = src.config_t.config_t(dir)
+        # Create src.funcs.config_t object
+        config_obj = src.funcs.config_t.config_t(dir)
         
         # Message(Successful): Is a directory
         src.tools.message_successful(dir + " Is a project of Next")
                 
-        # Return src.config_t object
+        # Return src.funcs.config_t object
         return config_obj
     
     # Message(Error): Not is a project Next

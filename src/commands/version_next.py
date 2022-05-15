@@ -48,7 +48,7 @@ def version_all():
         # Read COnfig for DIrectory
         config_obj = src.funcs.read_config.read_config(next_packages_dir+ "/" + next_pakage_dir)
 
-        # If exists src.config_t
+        # If exists src.funcs.config_t
         if config_obj != False:
             
             # Message(Info): Get Version of Proects
