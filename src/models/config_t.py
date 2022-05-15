@@ -38,7 +38,7 @@ class config_t:
     yaml = ''
 
     def __init__(self, dir):
-        """Initialize a src.funcs.config_t
+        """Initialize a src.models.config_t
 
         Args:
             dir (str): Direction of project
@@ -55,7 +55,7 @@ class config_t:
         self._data = src.tools.yaml_file_to_object(self.file)
 
     def print(self):
-        """Print the src.funcs.config_t
+        """Print the src.models.config_t
         """
         print( "name_project: "         + self._data["name_project"])
         print( "description: "          + self._data["description"])
@@ -122,7 +122,7 @@ class config_t:
         return new_value
 
     def to_map(self):
-        """Convert src.funcs.config_t to Map
+        """Convert src.models.config_t to Map
 
         Returns:
             Map: Map of Data

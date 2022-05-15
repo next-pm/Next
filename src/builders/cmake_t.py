@@ -1,6 +1,6 @@
 import os
 
-from src.funcs.config_t import config_t as Config_t
+from src.models.config_t import config_t as Config_t
 
 import src.funcs.includes
 import src.funcs.dependencies

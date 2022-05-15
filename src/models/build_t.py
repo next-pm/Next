@@ -1,5 +1,5 @@
 from distutils.command import config
-import src.funcs.config_t
+import src.models.config_t
 import src.builders.cmake_t
 
 class Build_t:
@@ -9,7 +9,7 @@ class Build_t:
     config_obj = None
     this_dir = ""
 
-    def __init__(self, build_name, config_obj: src.funcs.config_t.config_t, this_dir):
+    def __init__(self, build_name, config_obj: src.models.config_t.config_t, this_dir):
         """Initialize a src.models.Build_t
 
         Args:

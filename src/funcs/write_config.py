@@ -45,7 +45,7 @@ def write_property(config_obj, dir):
     """Write a new Property
 
     Args:
-        config_obj (src.funcs.config_t): Configuration of project
+        config_obj (src.models.config_t): Configuration of project
         dir (str): Directory
 
     Returns:
