@@ -14,7 +14,7 @@ import click
 
 #Local Packages
 import src.commands.info_next
-import src.version_next
+import src.commands.version_next
 import src.commands.create_next
 import src.commands.build_next
 import src.commands.run_next
@@ -59,10 +59,10 @@ def info():
 def version(all):
     # alone Next version
     if(all == 0):
-        src.version_next.version()
+        src.commands.version_next.version()
     # all NextPackages
     elif(all == 1):
-        src.version_next.version_all()
+        src.commands.version_next.version_all()
     # Error Not show any version
     else:
         exit()

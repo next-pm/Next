@@ -37,7 +37,7 @@ def version_all():
 
     except:
         # Message(Error): Not Find NEXT_PACKAGES_DIR
-        src.tools.message_error("It was not found ENV NEXT_PACKAGES_DIR in func --src.version_next.version_all()--")
+        src.tools.message_error("It was not found ENV NEXT_PACKAGES_DIR in func --src.commands.version_next.version_all()--")
         exit()
 
     # Get Subdirectories 
