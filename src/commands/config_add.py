@@ -14,7 +14,7 @@ import os
 
 #Local Packages
 import src.funcs.read_config
-import src.write_config
+import src.funcs.write_config
 import src.tools
 
 def add(property, value):
@@ -47,7 +47,7 @@ def add(property, value):
         if(value_of_property != "null"):
             
             #Write the new config
-            src.write_config.write_property(config_obj, dir_project)
+            src.funcs.write_config.write_property(config_obj, dir_project)
             
             # Message(Successful): Added property
             src.tools.message_successful('Added property ' + property + ': ' + value)
