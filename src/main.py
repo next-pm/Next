@@ -19,7 +19,7 @@ import src.create_next
 import src.commands.build_next
 import src.run_next
 import src.commands.clean_next
-import src.config_env
+import src.commands.config_env
 import src.config_get
 import src.config_set
 import src.commands.config_add
@@ -69,7 +69,7 @@ def version(all):
 
 @main.command('check_env', short_help='check env the NextPackages')
 def check_env():
-    src.config_env.check_env()
+    src.commands.config_env.check_env()
 
 @main.command('create', short_help='Create a new project of Next', options_metavar='<name> <options>')
 @click.argument('name', required=True, type=str, metavar='')
