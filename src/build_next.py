@@ -53,7 +53,7 @@ def build(build_name=None):
                 src.tools.message_waiting("Build Proyect")
                 
                 # Create a buider
-                build_obj = src.models.build_t.Build_t(build_name, config_obj)
+                build_obj = src.models.build_t.Build_t(build_name, config_obj, this_dir)
                 
                 #Build the Builder
                 build_obj.build()
