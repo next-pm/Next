@@ -17,7 +17,7 @@ import src.commands.info_next
 import src.version_next
 import src.commands.create_next
 import src.commands.build_next
-import src.run_next
+import src.commands.run_next
 import src.commands.clean_next
 import src.commands.config_env
 import src.commands.config_get
@@ -90,7 +90,7 @@ def build(build_name):
 
 @main.command('run', short_help='Run a project of Next')
 def run():
-    src.run_next.run()
+    src.commands.run_next.run()
 
 @main.command('clean', short_help='Clean a project of Next')
 def clean():
