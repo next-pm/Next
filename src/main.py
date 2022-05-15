@@ -24,7 +24,7 @@ import src.commands.config_get
 import src.commands.config_set
 import src.commands.config_add
 import src.tools
-import src.exce_next
+import src.commands.exce_next
 import src.use_next
 
 ### Update 29/03/2022
@@ -121,7 +121,7 @@ def add(property, value):
 @main.command('exce', short_help='Add to property of current Next Project')
 @click.argument('command')
 def exce(command):
-    src.exce_next.exce(command)
+    src.commands.exce_next.exce(command)
     
 @main.command('use', short_help='Add new library in current project')
 @click.argument('library')
