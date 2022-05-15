@@ -1,4 +1,4 @@
-import src.read_config
+import src.funcs.read_config
 
 
 def get_dependencies(route: str):
@@ -8,7 +8,7 @@ def get_dependencies(route: str):
     try:
         
         # Read config of proyect
-        config_obj = src.read_config.read_config(route)
+        config_obj = src.funcs.read_config.read_config(route)
         
         dependencies = config_obj.get('dependencies')
         

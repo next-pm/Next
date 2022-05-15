@@ -14,7 +14,7 @@ import os
 import subprocess
 
 #Local Packages
-import src.read_config
+import src.funcs.read_config
 import src.tools
 
 def run():
@@ -27,7 +27,7 @@ def run():
     try:
         
         #Read Config of Project
-        config_obj = src.read_config.read_config(this_dir)
+        config_obj = src.funcs.read_config.read_config(this_dir)
 
         # If this is a project of Next
         if config_obj != False:

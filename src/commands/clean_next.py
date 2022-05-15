@@ -14,7 +14,7 @@ import shutil
 import os
 
 #Local Packages
-import src.read_config
+import src.funcs.read_config
 import src.tools
 
 def clean():
@@ -26,7 +26,7 @@ def clean():
     try:
         
         # Read config of proyect
-        config_obj = src.read_config.read_config(this_dir)
+        config_obj = src.funcs.read_config.read_config(this_dir)
 
         # If the configuration is not empty
         if config_obj != False:

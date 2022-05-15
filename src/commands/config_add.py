@@ -13,7 +13,7 @@
 import os
 
 #Local Packages
-import src.read_config
+import src.funcs.read_config
 import src.write_config
 import src.tools
 
@@ -38,7 +38,7 @@ def add(property, value):
         dir_project = os.getcwd()
 
         #Read config of current project
-        config_obj = src.read_config.read_config(dir_project)
+        config_obj = src.funcs.read_config.read_config(dir_project)
 
         #Wrapper for properties
         value_of_property = config_obj.add(property, value)

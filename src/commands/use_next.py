@@ -16,7 +16,7 @@ import datetime
 import platform
 
 #Local Packages
-import src.read_config
+import src.funcs.read_config
 import src.tools
 
 # String for add in cmake/vendor.cmake
@@ -61,10 +61,10 @@ def use_path(library_dir):
     try:
         
         # Read config of proyect
-        config_obj = src.read_config.read_config(this_dir)
+        config_obj = src.funcs.read_config.read_config(this_dir)
         
         # Read config of library
-        config_lib = src.read_config.read_config(library_dir)
+        config_lib = src.funcs.read_config.read_config(library_dir)
 
         # If the configuration is not empty
         if config_obj != False and config_lib != False:

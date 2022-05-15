@@ -16,7 +16,7 @@ VERSION = "3.3.1"
 import os
 
 #Local Packages
-import src.read_config
+import src.funcs.read_config
 import src.tools
 
 
@@ -46,7 +46,7 @@ def version_all():
     for next_pakage_dir in list_next_packages:
 
         # Read COnfig for DIrectory
-        config_obj = src.read_config.read_config(next_packages_dir+ "/" + next_pakage_dir)
+        config_obj = src.funcs.read_config.read_config(next_packages_dir+ "/" + next_pakage_dir)
 
         # If exists src.config_t
         if config_obj != False:

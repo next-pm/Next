@@ -14,7 +14,7 @@ import os
 import subprocess
 
 #Local Packages
-import src.read_config
+import src.funcs.read_config
 import src.tools
 
 def exce(command):
@@ -26,7 +26,7 @@ def exce(command):
     try:
         
         # Read config of proyect
-        config_obj = src.read_config.read_config(this_dir)
+        config_obj = src.funcs.read_config.read_config(this_dir)
 
         # If the configuration is not empty
         if config_obj != False:
