@@ -22,7 +22,7 @@ import src.commands.clean_next
 import src.config_env
 import src.config_get
 import src.config_set
-import src.config_add
+import src.commands.config_add
 import src.tools
 import src.exce_next
 import src.use_next
@@ -116,7 +116,7 @@ def set(property, value):
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def add(property, value):
-    src.config_add.add(property, value)
+    src.commands.config_add.add(property, value)
     
 @main.command('exce', short_help='Add to property of current Next Project')
 @click.argument('command')
