@@ -18,7 +18,7 @@ import src.version_next
 import src.create_next
 import src.commands.build_next
 import src.run_next
-import src.clean_next
+import src.commands.clean_next
 import src.config_env
 import src.config_get
 import src.config_set
@@ -94,7 +94,7 @@ def run():
 
 @main.command('clean', short_help='Clean a project of Next')
 def clean():
-    src.clean_next.clean()
+    src.commands.clean_next.clean()
 
 @main.command('get', short_help='Get property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
