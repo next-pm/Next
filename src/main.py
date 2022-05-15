@@ -13,7 +13,7 @@
 import click
 
 #Local Packages
-import src.info_next
+import src.commands.info_next
 import src.version_next
 import src.commands.create_next
 import src.commands.build_next
@@ -52,7 +52,7 @@ def main():
 
 @main.command('info', short_help='view info the Next')
 def info():
-    src.info_next.info()
+    src.commands.info_next.info()
 
 @main.command('version', short_help='view version the Next')
 @click.option('--all',default=0, required=False, help='view version of all NextPackages installed <default=0>')
