@@ -15,7 +15,7 @@ import click
 #Local Packages
 import src.info_next
 import src.version_next
-import src.create_next
+import src.commands.create_next
 import src.commands.build_next
 import src.run_next
 import src.commands.clean_next
@@ -81,7 +81,7 @@ def check_env():
 @click.option('--build_system', required=False, type=str, help='Select Build System')
 @click.option('--type_project', required=False, type=str, help='Select Type Project')
 def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
-    src.create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project)
+    src.commands.create_next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project)
 
 @main.command('build', short_help='Build a project of Next')
 @click.argument('build_name', default=None, required=False, type=str, metavar='')
