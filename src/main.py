@@ -20,7 +20,7 @@ import src.commands.build_next
 import src.run_next
 import src.commands.clean_next
 import src.commands.config_env
-import src.config_get
+import src.commands.config_get
 import src.config_set
 import src.commands.config_add
 import src.tools
@@ -100,7 +100,7 @@ def clean():
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--comments',default=True, required=False, type=bool, help='Select name of build')
 def get(property, comments):
-    value_of_property = src.config_get.get(property, comments)
+    value_of_property = src.commands.config_get.get(property, comments)
 
     
     #print(property + ": " + value_in_str)
