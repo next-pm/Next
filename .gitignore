@@ -1,5 +1,5 @@
 bin/
-.vscode/
+.vscode
 obj/
 build/
 doc/
