@@ -56,7 +56,7 @@ def info():
 
 @main.command('version', short_help='view version the Next')
 @click.option('--all',default=0, required=False, help='view version of all NextPackages installed <default=0>')
-def version(all):
+def version(all: int):
     # alone Next version
     if(all == 0):
         Version_Next.version()
@@ -80,12 +80,21 @@ def check_env():
 @click.option('--cxx_compiler', required=False, type=str, help='Select C++ Compiler')
 @click.option('--build_system', required=False, type=str, help='Select Build System')
 @click.option('--type_project', required=False, type=str, help='Select Type Project')
-def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
+def create(
+    name: str, 
+    build_dir: str, 
+    name_build: str, 
+    build_system_exe: str, 
+    c_compiler: str, 
+    cxx_compiler: str, 
+    build_system: str, 
+    type_project: str
+    ):
     Create_Next.create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project)
 
 @main.command('build', short_help='Build a project of Next')
 @click.argument('build_name', default=None, required=False, type=str, metavar='')
-def build(build_name):
+def build(build_name: str):
     Build_Next.build(build_name)
 
 @main.command('run', short_help='Run a project of Next')
@@ -99,7 +108,7 @@ def clean():
 @main.command('get', short_help='Get property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--comments',default=True, required=False, type=bool, help='Select name of build')
-def get(property, comments):
+def get(property: str, comments: bool):
     value_of_property = Config_Get.get(property, comments)
 
     
@@ -108,24 +117,24 @@ def get(property, comments):
 @main.command('set', short_help='Set property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
-def set(property, value):
+def set(property: str, value):
     Config_Set.set(property, value)
 
 
 @main.command('add', short_help='Add to property of current Next Project')
 @click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
-def add(property, value):
+def add(property: str, value):
     Config_Add.add(property, value)
     
 @main.command('exce', short_help='Add to property of current Next Project')
 @click.argument('command')
-def exce(command):
+def exce(command: str):
     Exce_Next.exce(command)
     
 @main.command('use', short_help='Add new library in current project')
 @click.argument('library')
-def use(library):
+def use(library: str):
     Use_Next.use_path(library)
 
 #if __name__ == "__main__":
