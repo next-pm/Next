@@ -14,7 +14,7 @@ import os
 import shutil
 
 #Local Packages
-import src.tools
+import src.tools.file as FILE_tools
 
 def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
 
@@ -57,43 +57,43 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
         # View the dir of new project {name}
         dir_new_project = os.getcwd() + "/" + name
 
-        src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__name_project__", name)
-        src.tools.remplace_in_file(dir_new_project + "/CMakeLists.txt", "__name_project__", name)
+        FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__name_project__", name)
+        FILE_tools.remplace_in_file(dir_new_project + "/CMakeLists.txt", "__name_project__", name)
 
         if build_dir:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_dir__", build_dir)
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_dir__", build_dir)
         else:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_dir__", "build")
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_dir__", "build")
 
         if name_build:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__name_build__", name_build)
-            src.tools.remplace_in_file(dir_new_project + "/CMakeLists.txt", "__name_build__", name_build)
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__name_build__", name_build)
+            FILE_tools.remplace_in_file(dir_new_project + "/CMakeLists.txt", "__name_build__", name_build)
         else:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__name_build__", "app")
-            src.tools.remplace_in_file(dir_new_project + "/CMakeLists.txt", "__name_build__", "app")
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__name_build__", "app")
+            FILE_tools.remplace_in_file(dir_new_project + "/CMakeLists.txt", "__name_build__", "app")
 
         if build_system_exe and build_system:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system_exe__", build_system_exe)
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system__", build_system)
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system_exe__", build_system_exe)
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system__", build_system)
         else:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system_exe__", "ninja")
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system__", "Ninja")
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system_exe__", "ninja")
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__build_system__", "Ninja")
 
         if c_compiler:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__c_compiler__", c_compiler)
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__c_compiler__", c_compiler)
         else:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__c_compiler__", "gcc")
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__c_compiler__", "gcc")
 
         if cxx_compiler:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__cxx_compiler__", cxx_compiler)
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__cxx_compiler__", cxx_compiler)
         else:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__cxx_compiler__", "g++")
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__cxx_compiler__", "g++")
 
         if type_project:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", type_project)
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", type_project)
                 
         else:
-            src.tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "executable")
+            FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "executable")
             
         # Message(Successful): Create a proyect of next in
         src.tools.message_successful('Create a proyect of next in: ' + this_dir + '/' + name)

@@ -13,7 +13,7 @@
 import os
 
 #Local Packages
-import src.tools    
+import src.tools.file as FILE_tools 
 
 def _this_is_a_dir(dir):
     """Identify if this is Dir
@@ -63,8 +63,8 @@ def write_property(config_obj, dir):
             documents = config_obj.yaml.dump(config_map, file)
         
         # Remplace chars '[' and ']'
-        src.tools.remplace_in_file("config.yaml", "'[", "[")
-        src.tools.remplace_in_file("config.yaml", "]'", "]")
+        FILE_tools.remplace_in_file("config.yaml", "'[", "[")
+        FILE_tools.remplace_in_file("config.yaml", "]'", "]")
         
         return True
 

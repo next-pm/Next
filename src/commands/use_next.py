@@ -17,7 +17,7 @@ import platform
 
 #Local Packages
 import src.funcs.read_config
-import src.tools
+import src.tools.file as FILE_tools
 
 # String for add in cmake/vendor.cmake
 vendor_basic = """
@@ -160,16 +160,16 @@ def use_path(library_dir):
                         name_build_lib_abs = ''
                         
                 # Configuration of file_import_lib
-                src.tools.remplace_in_file(file_import_lib, '__NAME_PROJECT_UPPER_CASE__', name_project_lib.upper())
+                FILE_tools.remplace_in_file(file_import_lib, '__NAME_PROJECT_UPPER_CASE__', name_project_lib.upper())
                 
-                src.tools.remplace_in_file(file_import_lib, '__DIR_LIB__', library_dir)
+                FILE_tools.remplace_in_file(file_import_lib, '__DIR_LIB__', library_dir)
                 
-                src.tools.remplace_in_file(file_import_lib, '__FILE_BUILD_ABS__', name_build_lib_abs)
+                FILE_tools.remplace_in_file(file_import_lib, '__FILE_BUILD_ABS__', name_build_lib_abs)
 
                 # Remplace \ route for /
                 system = platform.system()
                 if system != 'Linux':
-                    src.tools.remplace_in_file(file_import_lib, '\\', '/')
+                    FILE_tools.remplace_in_file(file_import_lib, '\\', '/')
                 
                 
                 # Write in cmake/vendor.cmake
@@ -180,13 +180,13 @@ def use_path(library_dir):
                 file_vendor.close()
                 
                 # Configuration of cmake/vendor.cmake
-                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_UPPER__', name_project_lib.upper())
+                FILE_tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_UPPER__', name_project_lib.upper())
                 
-                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_LOWER__', name_project_lib.lower())
+                FILE_tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__NAME_LIB_LOWER__', name_project_lib.lower())
 
-                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__FILE_IMPORT_LIB__', file_import_lib)
+                FILE_tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__FILE_IMPORT_LIB__', file_import_lib)
                 
-                src.tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__DATE__', str(datetime.datetime.now()))     
+                FILE_tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__DATE__', str(datetime.datetime.now()))     
                 
                 # Message(Successful): Library added
                 src.tools.message_successful(library_dir + 'added in: ' + this_dir)
