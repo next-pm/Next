@@ -106,7 +106,7 @@ def clean():
     Clean_Next.clean()
 
 @main.command('get', short_help='Get property of current Next Project')
-@click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
+@click.argument('property', required=True, type=str, metavar='property')
 @click.option('--comments',default=True, required=False, type=bool, help='Select name of build')
 def get(property: str, comments: bool):
     value_of_property = Config_Get.get(property, comments)
@@ -115,14 +115,14 @@ def get(property: str, comments: bool):
     #print(property + ": " + value_in_str)
 
 @main.command('set', short_help='Set property of current Next Project')
-@click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
+@click.argument('property', required=True, type=str, metavar='property')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def set(property: str, value):
     Config_Set.set(property, value)
 
 
 @main.command('add', short_help='Add to property of current Next Project')
-@click.option('--property',default="name", required=True, help='Select property of current Next Project <default=name>')
+@click.argument('property', required=True, type=str, metavar='property')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def add(property: str, value):
     Config_Add.add(property, value)
