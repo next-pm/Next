@@ -23,9 +23,10 @@ import src.commands.config_env as Config_Env
 import src.commands.config_get as Config_Get
 import src.commands.config_set as Config_Set
 import src.commands.config_add as Config_Add
-import src.tools as Tools
+import src.tools.env as ENV_tools
 import src.commands.exce_next as Exce_Next
 import src.commands.use_next as Use_Next
+import src.commands.tree as Tree
 
 ### Update 29/03/2022
 ### ✓ create                   Create a new Next project.
@@ -47,7 +48,7 @@ import src.commands.use_next as Use_Next
 
 @click.group()
 def main():
-    Tools.load_env()
+    ENV_tools.load_env()
     pass
 
 @main.command('info', short_help='view info the Next')
@@ -136,6 +137,10 @@ def exce(command: str):
 @click.argument('library')
 def use(library: str):
     Use_Next.use_path(library)
+    
+@main.command('tree', short_help='Show the tree dependencies of current Next Project')
+def tree():
+    Tree.show_tree()
 
 #if __name__ == "__main__":
 #main()
