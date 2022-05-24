@@ -14,6 +14,7 @@ import ruamel.yaml
 
 # Packges Local
 import src.tools.messages as MESSAGES_tools
+import src.tools.yaml as YAML_tools
 
 def listToString(l):
     """Convert a list to a string
@@ -52,7 +53,7 @@ class config_t:
 
         #Write Data
         #self._data = self.yaml.load(self.file)
-        self._data = src.tools.yaml_file_to_object(self.file)
+        self._data = YAML_tools.yaml_file_to_object(self.file)
 
     def print(self):
         """Print the src.models.config_t
