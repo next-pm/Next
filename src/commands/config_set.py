@@ -15,7 +15,7 @@ import os
 #Local Packages
 import src.funcs.read_config
 import src.funcs.write_config
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def set(property, value):
     """Set a property to the current project
@@ -50,11 +50,11 @@ def set(property, value):
             src.funcs.write_config.write_property(config_obj, dir_project)
             
             # Message(Successful): Set property
-            src.tools.message_successful('Set property ' + property + ': ' + value)
+            MESSAGES_tools.message_successful('Set property ' + property + ': ' + value)
         
         else:
             # Message(Error): Could not set
-            src.tools.message_error('Could not set ' + property + ': ' + value)
+            MESSAGES_tools.message_error('Could not set ' + property + ': ' + value)
 
     #Value of new property ([str, null])
     return value_of_property

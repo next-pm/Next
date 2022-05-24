@@ -15,6 +15,7 @@ import shutil
 
 #Local Packages
 import src.tools.file as FILE_tools
+import src.tools.messages as MESSAGES_tools
 
 def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
 
@@ -27,15 +28,15 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
         next_dir = os.environ['NEXT_DIR']
         
         # Message(Info): NEXT_DIR find in 
-        src.tools.message_info('NEXT_DIR in: ' + next_dir)
+        MESSAGES_tools.message_info('NEXT_DIR in: ' + next_dir)
 
     except:
         # Message(Error): Not Find NEXT_DIR
-        src.tools.message_error('It was not found ENV NEXT_DIR')  
+        MESSAGES_tools.message_error('It was not found ENV NEXT_DIR')  
         exit()
 
     # Message(Waiting): Create a proyect of next in
-    src.tools.message_waiting('Create a proyect of next in: ' + this_dir + '/' + name)
+    MESSAGES_tools.message_waiting('Create a proyect of next in: ' + this_dir + '/' + name)
     try:
         # Default Type Proyect
         base_project = "empty_executable/"
@@ -96,9 +97,9 @@ def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compil
             FILE_tools.remplace_in_file(dir_new_project + "/config.yaml", "__type_project__", "executable")
             
         # Message(Successful): Create a proyect of next in
-        src.tools.message_successful('Create a proyect of next in: ' + this_dir + '/' + name)
+        MESSAGES_tools.message_successful('Create a proyect of next in: ' + this_dir + '/' + name)
 
     except OSError as exc:
         
         # Message(Error): OSError generate
-        src.tools.message_error(str(exc))
+        MESSAGES_tools.message_error(str(exc))

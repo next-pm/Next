@@ -1,6 +1,7 @@
 from distutils.command import config
 import src.models.config_t
 import src.builders.cmake_t
+import src.tools.messages as MESSAGES_tools
 
 class Build_t:
     
@@ -55,7 +56,7 @@ class Build_t:
         except KeyError as exc:
             
             # Message(Error): OSError generate
-            src.tools.message_error('The name of the requested build does not exist: ' + str(exc))
+            MESSAGES_tools.message_error('The name of the requested build does not exist: ' + str(exc))
                 
     def _none_name(self):
         """Initialize a src.models.Build_t without build_name explicit
@@ -72,7 +73,7 @@ class Build_t:
                 break
         else:
             # Message(Error): OSError generate
-            src.tools.message_error('There are no builds to be able to build the project')
+            MESSAGES_tools.message_error('There are no builds to be able to build the project')
                 
     def build(self):
         

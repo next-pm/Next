@@ -14,7 +14,7 @@ import os
 
 #Local Packages
 import src.funcs.read_config
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def get(property, comments = True):
     """Get a property to the current project
@@ -49,11 +49,11 @@ def get(property, comments = True):
             if comments == False:
                 value_of_property_str = src.tools.stripComments(value_of_property_str)
             # Message(Successful): Getting property
-            src.tools.message_successful('Getting property \n' + property + ': ' +  value_of_property_str)
+            MESSAGES_tools.message_successful('Getting property \n' + property + ': ' +  value_of_property_str)
             
         else:
             # Message(Error): Could not add
-            src.tools.message_error('Could not get ' + property)
+            MESSAGES_tools.message_error('Could not get ' + property)
 
     #Value of new property ([str, null])
     return value_of_property

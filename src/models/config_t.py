@@ -13,7 +13,7 @@
 import ruamel.yaml
 
 # Packges Local
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def listToString(l):
     """Convert a list to a string
@@ -99,7 +99,7 @@ class config_t:
             self._data[property] = value
             new_value = self._data[property]
         except:
-            src.tools.message_error("Property does not exist")
+            MESSAGES_tools.message_error("Property does not exist")
             new_value = "null"
         return new_value
 
@@ -117,7 +117,7 @@ class config_t:
             self._data[property] = value
             new_value = self._data[property]
         except:
-            src.tools.message_error("Property does not exist")
+            MESSAGES_tools.message_error("Property does not exist")
             new_value = "null"
         return new_value
 

@@ -13,7 +13,8 @@
 import os
 
 #Local Packages
-import src.tools.file as FILE_tools 
+import src.tools.file as FILE_tools
+import src.tools.messages as MESSAGES_tools
 
 def _this_is_a_dir(dir):
     """Identify if this is Dir
@@ -33,11 +34,11 @@ def _this_is_a_dir(dir):
         done = True
         
         # Message(Successful): Is a directory
-        src.tools.message_successful(dir + " Is a directory")
+        MESSAGES_tools.message_successful(dir + " Is a directory")
     else:
         
         # Message(Error): Not ss a directory
-        src.tools.message_error(dir + " Not is a directory")
+        MESSAGES_tools.message_error(dir + " Not is a directory")
     
     return done
 

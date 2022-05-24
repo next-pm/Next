@@ -14,7 +14,7 @@ import os
 
 #Local Packages
 import src.models.config_t
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def _this_is_a_dir(dir):
     """Identify if this is Dir
@@ -34,11 +34,11 @@ def _this_is_a_dir(dir):
         done = True
         
         # Message(Successful): Is a directory
-        src.tools.message_successful(dir + " Is a directory")
+        MESSAGES_tools.message_successful(dir + " Is a directory")
     else:
         
         # Message(Error): Not ss a directory
-        src.tools.message_error(dir + " Not is a directory")
+        MESSAGES_tools.message_error(dir + " Not is a directory")
     
     return done
 
@@ -61,12 +61,12 @@ def _exists_config_file(dir):
         config_file.close()
         
         # Message(Successful): Is a directory
-        src.tools.message_successful("Exists config.yaml in :" + dir)
+        MESSAGES_tools.message_successful("Exists config.yaml in :" + dir)
         
         done = True
     except:
         # Message(Error): Not is a directory
-        src.tools.message_error("Not exists config.yaml in :" + dir)
+        MESSAGES_tools.message_error("Not exists config.yaml in :" + dir)
     
     return done
 
@@ -87,11 +87,11 @@ def read_config(dir):
         config_obj = src.models.config_t.config_t(dir)
         
         # Message(Successful): Is a directory
-        src.tools.message_successful(dir + " Is a project of Next")
+        MESSAGES_tools.message_successful(dir + " Is a project of Next")
                 
         # Return src.models.config_t object
         return config_obj
     
     # Message(Error): Not is a project Next
-    src.tools.message_error(dir + " Not is a project of Next")
+    MESSAGES_tools.message_error(dir + " Not is a project of Next")
     return False

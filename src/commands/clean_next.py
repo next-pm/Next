@@ -15,7 +15,7 @@ import os
 
 #Local Packages
 import src.funcs.read_config
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def clean():
     """Clean Build of current Project
@@ -36,14 +36,14 @@ def clean():
                 shutil.rmtree(config_obj.get("build_dir"))
                 
                 # Message(Successful): The build_dir delete
-                src.tools.message_successful('Clean ' + this_dir + '/' + config_obj.get("build_dir"))
+                MESSAGES_tools.message_successful('Clean ' + this_dir + '/' + config_obj.get("build_dir"))
             except OSError as err:
                 # Message(Error): OSError generate
-                src.tools.message_error(str(err))
+                MESSAGES_tools.message_error(str(err))
     except OSError as exc:
         
         # Message(Error): OSError generate
-        src.tools.message_error(str(exc))
+        MESSAGES_tools.message_error(str(exc))
         
         # Exit to program
         exit()

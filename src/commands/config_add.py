@@ -15,7 +15,7 @@ import os
 #Local Packages
 import src.funcs.read_config
 import src.funcs.write_config
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def add(property, value):
     """Adds a new property to the current project
@@ -50,11 +50,11 @@ def add(property, value):
             src.funcs.write_config.write_property(config_obj, dir_project)
             
             # Message(Successful): Added property
-            src.tools.message_successful('Added property ' + property + ': ' + value)
+            MESSAGES_tools.message_successful('Added property ' + property + ': ' + value)
             
         else:
             # Message(Error): Could not add
-            src.tools.message_error('Could not add ' + property + ': ' + value)
+            MESSAGES_tools.message_error('Could not add ' + property + ': ' + value)
 
     #Value of new property ([str, null])
     return value_of_property

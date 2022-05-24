@@ -15,7 +15,7 @@ import subprocess
 
 #Local Packages
 import src.funcs.read_config
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def exce(command):
     """Execute a command
@@ -63,19 +63,19 @@ def exce(command):
                 if( find ):
                     
                     # Message(Waiting): Executing the command
-                    src.tools.message_waiting('Executing the command: ' + command)
+                    MESSAGES_tools.message_waiting('Executing the command: ' + command)
                     subprocess.run(list(value_command.split(" ")))
                 else: 
                     # Message(Error): Executing the command
-                    src.tools.message_error('Command not found: ' + command)
+                    MESSAGES_tools.message_error('Command not found: ' + command)
                 
             except OSError as err:
                 # Message(Error): OSError generate
-                src.tools.message_error(str(err))
+                MESSAGES_tools.message_error(str(err))
     except OSError as exc:
         
         # Message(Error): OSError generate
-        src.tools.message_error(str(exc))
+        MESSAGES_tools.message_error(str(exc))
         
         # Exit to program
         exit()

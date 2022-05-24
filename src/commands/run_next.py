@@ -15,7 +15,7 @@ import subprocess
 
 #Local Packages
 import src.funcs.read_config
-import src.tools
+import src.tools.messages as MESSAGES_tools
 
 def run():
     """Run executable of project
@@ -36,14 +36,14 @@ def run():
             os.chdir(config_obj.get("build_dir"))
             
             # Message(Waiting): Run executable
-            src.tools.message_waiting('Run executable')
+            MESSAGES_tools.message_waiting('Run executable')
             
             # Run executable
             subprocess.run(["./" + config_obj.get("name_build")])
     except OSError as exc:
         
         # Message(Error): OSError generate
-        src.tools.message_error(str(exc))
+        MESSAGES_tools.message_error(str(exc))
         
         # Exit to program
         exit()

@@ -15,7 +15,7 @@ import subprocess
 
 #Local Packages
 import src.funcs.read_config
-import src.tools
+import src.tools.messages as MESSAGES_tools
 import src.models.build_t
 
 def build(build_name=None):
@@ -40,17 +40,17 @@ def build(build_name=None):
                     os.mkdir(config_obj.get("build_dir"))
                     
                     # Message(Successful): The build_dir directory was created
-                    src.tools.message_successful(this_dir + '/' + config_obj.get("build_dir"))
+                    MESSAGES_tools.message_successful(this_dir + '/' + config_obj.get("build_dir"))
                     
                 except:
                     # Message(Waiting): The build_dir folder already exists
-                    src.tools.message_warning("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
+                    MESSAGES_tools.message_warning("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
                 
                 # Entering the directory build_dir
                 os.chdir(config_obj.get("build_dir"))
                 
                 # Message(Waiting): Build Proyect
-                src.tools.message_waiting("Build Proyect")
+                MESSAGES_tools.message_waiting("Build Proyect")
                 
                 # Create a buider
                 build_obj = src.models.build_t.Build_t(build_name, config_obj, this_dir)
@@ -61,16 +61,16 @@ def build(build_name=None):
             # The configuration is empty
             else:
                 # Message(Warning): The configuration is empty
-                src.tools.message_warning("The configuration is empty")
+                MESSAGES_tools.message_warning("The configuration is empty")
 
         except OSError as exc:
             
             # Message(Error): OSError generate
-            src.tools.message_error(str(exc))
+            MESSAGES_tools.message_error(str(exc))
     except OSError as err:
         
         # Message(Error): OSError generate
-        src.tools.message_error(str(err))
+        MESSAGES_tools.message_error(str(err))
         
         # Exit to program
         exit()

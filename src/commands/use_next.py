@@ -18,6 +18,7 @@ import platform
 #Local Packages
 import src.funcs.read_config
 import src.tools.file as FILE_tools
+import src.tools.messages as MESSAGES_tools
 
 # String for add in cmake/vendor.cmake
 vendor_basic = """
@@ -51,11 +52,11 @@ def use_path(library_dir):
         next_dir = os.environ['NEXT_DIR']
         
         # Message(Info): NEXT_DIR find in 
-        src.tools.message_info('NEXT_DIR in: ' + next_dir)
+        MESSAGES_tools.message_info('NEXT_DIR in: ' + next_dir)
 
     except:
         # Message(Error): Not Find NEXT_DIR
-        src.tools.message_error('It was not found ENV NEXT_DIR')  
+        MESSAGES_tools.message_error('It was not found ENV NEXT_DIR')  
         exit()
 
     try:
@@ -95,21 +96,21 @@ def use_path(library_dir):
                 if os.path.isfile(name_build_lib_abs):
                     
                     # Message(Info): Library binary file found
-                    src.tools.message_info('Library binary file found: ' + name_build_lib_abs)
+                    MESSAGES_tools.message_info('Library binary file found: ' + name_build_lib_abs)
                 else:
                     
                     # Message(Warning): Library binary file not found
-                    src.tools.message_warning('Library binary not found')
+                    MESSAGES_tools.message_warning('Library binary not found')
                     
                     # Message(Info): Search file
-                    src.tools.message_info('Want to search yes/no')
+                    MESSAGES_tools.message_info('Want to search yes/no')
                     
                     res = input()
                     
                 #### Search likely binaries
                     if res == 'yes':
                         # Message(Waiting): Search file
-                        src.tools.message_waiting('Search')
+                        MESSAGES_tools.message_waiting('Search')
                         # Verify that it exists name_build_lib
                         
                         likely_binaries_local = []
@@ -132,20 +133,20 @@ def use_path(library_dir):
                                     likely_binaries_abs.append(file_abs)
                         
                         # Message(Info): Mathches Found
-                        src.tools.message_info('Matches found')
+                        MESSAGES_tools.message_info('Matches found')
                         i = 1
                         for f in likely_binaries_abs:
                             print( str(i) + ') ' + f)
                             i = i + 1
                         
                         # Message(Info): Select the binary
-                        src.tools.message_info('Select a Binary \'n\' to cancelr')
+                        MESSAGES_tools.message_info('Select a Binary \'n\' to cancelr')
                         res = input()
                         
                         # Binary not selected
                         if res == 'n':
                             # Message(Warning): Select the binary
-                            src.tools.message_warning('You will need to add the library binary manually.')
+                            MESSAGES_tools.message_warning('You will need to add the library binary manually.')
                             
                             name_build_lib_abs = ''
                         else:
@@ -154,7 +155,7 @@ def use_path(library_dir):
                         
                     else:
                         # Message(Warning): Select the binary
-                        src.tools.message_warning('You will need to add the library binary manually.')
+                        MESSAGES_tools.message_warning('You will need to add the library binary manually.')
                         
                         # Clean the name_build_lib_abs
                         name_build_lib_abs = ''
@@ -189,15 +190,15 @@ def use_path(library_dir):
                 FILE_tools.remplace_in_file(this_dir + '/cmake/vendor.cmake', '__DATE__', str(datetime.datetime.now()))     
                 
                 # Message(Successful): Library added
-                src.tools.message_successful(library_dir + 'added in: ' + this_dir)
+                MESSAGES_tools.message_successful(library_dir + 'added in: ' + this_dir)
                 
             except OSError as err:
                 # Message(Error): OSError generate
-                src.tools.message_error(str(err))
+                MESSAGES_tools.message_error(str(err))
     except OSError as exc:
         
         # Message(Error): OSError generate
-        src.tools.message_error(str(exc))
+        MESSAGES_tools.message_error(str(exc))
         
         # Exit to program
         exit()

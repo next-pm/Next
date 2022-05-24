@@ -1,5 +1,6 @@
 
 import src.funcs.read_config
+import src.tools.messages as MESSAGES_tools
 
 
 def get_dependencies(route: str): 
@@ -21,6 +22,6 @@ def get_dependencies(route: str):
 
     except OSError as exc:
         # Message(Error): OSError generate
-        src.tools.message_error(str(exc))
+        MESSAGES_tools.message_error(str(exc))
         
     return list_dependencies
