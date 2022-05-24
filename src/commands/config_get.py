@@ -16,6 +16,7 @@ import os
 import src.funcs.read_config
 import src.tools.messages as MESSAGES_tools
 import src.tools.yaml as YAML_tools
+import src.tools.string as STR_tools
 
 def get(property, comments = True):
     """Get a property to the current project
@@ -48,7 +49,7 @@ def get(property, comments = True):
             value_of_property_str = YAML_tools.object_to_yaml_str(value_of_property).replace("...", "")
             
             if comments == False:
-                value_of_property_str = src.tools.stripComments(value_of_property_str)
+                value_of_property_str = STR_tools.stripComments(value_of_property_str)
             # Message(Successful): Getting property
             MESSAGES_tools.message_successful('Getting property \n' + property + ': ' +  value_of_property_str)
             
