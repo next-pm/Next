@@ -13,7 +13,7 @@
 import os
 
 #Local Packages
-import src.tools.messages as MESSAGES_tools
+import src.tool.messages as MESSAGES_tools
 
 def check_env():
     """Check if it exists NEXT_PACKAGES_DIR

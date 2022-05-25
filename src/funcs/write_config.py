@@ -13,8 +13,8 @@
 import os
 
 #Local Packages
-import src.tools.file as FILE_tools
-import src.tools.messages as MESSAGES_tools
+import src.tool.file as FILE_tools
+import src.tool.messages as MESSAGES_tools
 
 def _this_is_a_dir(dir):
     """Identify if this is Dir

@@ -1,6 +1,6 @@
 
 import src.funcs.read_config
-import src.tools.messages as MESSAGES_tools
+import src.tool.messages as MESSAGES_tools
 
 
 def get_dependencies(route: str): 

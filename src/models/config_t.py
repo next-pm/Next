@@ -13,8 +13,8 @@
 import ruamel.yaml
 
 # Packges Local
-import src.tools.messages as MESSAGES_tools
-import src.tools.yaml as YAML_tools
+import src.tool.messages as MESSAGES_tools
+import src.tool.yaml as YAML_tools
 
 def listToString(l):
     """Convert a list to a string

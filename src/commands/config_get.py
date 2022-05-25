@@ -14,9 +14,9 @@ import os
 
 #Local Packages
 import src.funcs.read_config
-import src.tools.messages as MESSAGES_tools
-import src.tools.yaml as YAML_tools
-import src.tools.string as STR_tools
+import src.tool.messages as MESSAGES_tools
+import src.tool.yaml as YAML_tools
+import src.tool.string as STR_tools
 
 def get(property, comments = True):
     """Get a property to the current project

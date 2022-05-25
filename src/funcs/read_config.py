@@ -14,7 +14,7 @@ import os
 
 #Local Packages
 import src.models.config_t
-import src.tools.messages as MESSAGES_tools
+import src.tool.messages as MESSAGES_tools
 
 def _this_is_a_dir(dir):
     """Identify if this is Dir

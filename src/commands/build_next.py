@@ -15,7 +15,7 @@ import subprocess
 
 #Local Packages
 import src.funcs.read_config
-import src.tools.messages as MESSAGES_tools
+import src.tool.messages as MESSAGES_tools
 import src.models.build_t
 
 def build(build_name=None):

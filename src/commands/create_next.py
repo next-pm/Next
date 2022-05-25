@@ -14,8 +14,8 @@ import os
 import shutil
 
 #Local Packages
-import src.tools.file as FILE_tools
-import src.tools.messages as MESSAGES_tools
+import src.tool.file as FILE_tools
+import src.tool.messages as MESSAGES_tools
 
 def create(name, build_dir, name_build, build_system_exe, c_compiler, cxx_compiler, build_system, type_project):
 

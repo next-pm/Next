@@ -15,7 +15,7 @@ import os
 
 #Local Packages
 import src.funcs.read_config
-import src.tools.messages as MESSAGES_tools
+import src.tool.messages as MESSAGES_tools
 
 def clean():
     """Clean Build of current Project

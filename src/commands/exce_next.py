@@ -15,7 +15,7 @@ import subprocess
 
 #Local Packages
 import src.funcs.read_config
-import src.tools.messages as MESSAGES_tools
+import src.tool.messages as MESSAGES_tools
 
 def exce(command):
     """Execute a command

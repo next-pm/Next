@@ -1,7 +1,7 @@
 from distutils.command import config
 import src.models.config_t
 import src.builders.cmake_t
-import src.tools.messages as MESSAGES_tools
+import src.tool.messages as MESSAGES_tools
 
 class Build_t:
     

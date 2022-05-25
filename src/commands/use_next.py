@@ -17,8 +17,8 @@ import platform
 
 #Local Packages
 import src.funcs.read_config
-import src.tools.file as FILE_tools
-import src.tools.messages as MESSAGES_tools
+import src.tool.file as FILE_tools
+import src.tool.messages as MESSAGES_tools
 
 # String for add in cmake/vendor.cmake
 vendor_basic = """
@@ -117,7 +117,7 @@ def use_path(library_dir):
                         
                         likely_binaries_abs = []
                         
-                        files_build_abs = src.tools.absoluteFilePaths(library_dir + '/' + build_dir_lib)
+                        files_build_abs = src.tool.absoluteFilePaths(library_dir + '/' + build_dir_lib)
                         
                         files_build_local = os.listdir(library_dir + '/' + build_dir_lib)
                         
