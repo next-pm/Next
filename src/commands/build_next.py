@@ -47,7 +47,7 @@ def build(build_name=None):
                     MESSAGES_tools.message_warning("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
                 
                 # Entering the directory build_dir
-                os.chdir(config_obj.get("build_dir"))
+                #os.chdir(config_obj.get("build_dir"))
                 
                 # Message(Waiting): Build Proyect
                 MESSAGES_tools.message_waiting("Build Proyect")
