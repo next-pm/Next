@@ -17,6 +17,7 @@ import subprocess
 import src.funcs.read_config
 import src.tool.messages as MESSAGES_tools
 import src.models.build_t
+import src.tool.os as OS_tools
 
 def build(build_name=None):
     """Build project from current directory
@@ -35,19 +36,8 @@ def build(build_name=None):
             # If the configuration is not empty
             if config_obj != False:
 
-                try:
-                    # Try create build_dir
-                    os.mkdir(config_obj.get("build_dir"))
-                    
-                    # Message(Successful): The build_dir directory was created
-                    MESSAGES_tools.message_successful(this_dir + '/' + config_obj.get("build_dir"))
-                    
-                except:
-                    # Message(Waiting): The build_dir folder already exists
-                    MESSAGES_tools.message_warning("Warning " + this_dir + "/" + config_obj.get("build_dir") +  " folder already exists")
-                
-                # Entering the directory build_dir
-                #os.chdir(config_obj.get("build_dir"))
+                # Mkdir build_dir
+                OS_tools.mkdirDir(config_obj.get('build_dir'))
                 
                 # Message(Waiting): Build Proyect
                 MESSAGES_tools.message_waiting("Build Proyect")
