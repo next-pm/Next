@@ -9,6 +9,7 @@ class Build_t:
     config_build = {}
     config_obj = None
     this_dir = ""
+    build_name = ""
 
     def __init__(self, build_name, config_obj: src.models.config_t.config_t, this_dir):
         """Initialize a src.models.Build_t
@@ -23,6 +24,9 @@ class Build_t:
         
         # The directory
         self.this_dir = this_dir
+
+        # The Name of Build
+        self.build_name = build_name
         
         # Get Builds
         builds = config_obj.get('builds')
@@ -52,7 +56,7 @@ class Build_t:
         
             # Selctor of base of Build
             if self.config_build['base'] == 'cmake':
-                self.builder = src.builders.cmake_t.Cmake_t(self.config_build, self.this_dir)
+                self.builder = src.builders.cmake_t.Cmake_t(self.config_build, self.this_dir, self.build_name)
         except KeyError as exc:
             
             # Message(Error): OSError generate
@@ -69,6 +73,7 @@ class Build_t:
             
             # Get a first builder
             for builder in builds:
+                self.build_name = builder
                 self._select_builder(builder, builds)
                 break
         else:
