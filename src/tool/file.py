@@ -1,3 +1,14 @@
+######################################################################
+### author = Rafael Zamora 
+### copyright = Copyright 2020-2022, Next Project 
+### date = 02/06/2022
+### license = PSF
+### version = 3.3.1 
+### maintainer = Rafael Zamora 
+### email = rafa.zamora.ram@gmail.com 
+### status = Production
+######################################################################
+
 def remplace_in_file(file_location, old_text, new_text):
     try:
         #input file
