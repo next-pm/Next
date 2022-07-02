@@ -26,9 +26,8 @@ import src.commands.config_add as Config_Add
 import src.tool.env as ENV_tools
 import src.commands.exce_next as Exce_Next
 import src.commands.use_next as Use_Next
-import src.commands.tree as Tree
 
-### Update 29/03/2022
+### Update 02/06/2022
 ### ✓ create                   Create a new Next project.
 ### ✓ build                    Build this project
 ### ✓ run                      Run your app
@@ -112,15 +111,11 @@ def clean():
 def get(property: str, comments: bool):
     value_of_property = Config_Get.get(property, comments)
 
-    
-    #print(property + ": " + value_in_str)
-
 @main.command('set', short_help='Set property of current Next Project')
 @click.argument('property', required=True, type=str, metavar='property')
 @click.option('--value',default="name", required=True, help='Select value of current Next Project <default=null>')
 def set(property: str, value):
     Config_Set.set(property, value)
-
 
 @main.command('add', short_help='Add to property of current Next Project')
 @click.argument('property', required=True, type=str, metavar='property')
@@ -128,7 +123,7 @@ def set(property: str, value):
 def add(property: str, value):
     Config_Add.add(property, value)
     
-@main.command('exce', short_help='Add to property of current Next Project')
+@main.command('exce', short_help='Excecute a coomand of Project of property <commands>')
 @click.argument('command')
 def exce(command: str):
     Exce_Next.exce(command)
@@ -138,9 +133,5 @@ def exce(command: str):
 def use(library: str):
     Use_Next.use_path(library)
     
-@main.command('tree', short_help='Show the tree dependencies of current Next Project')
-def tree():
-    Tree.show_tree()
-
 #if __name__ == "__main__":
 #main()
