@@ -8,7 +8,7 @@ def mkdirDir(dir:str):
         os.mkdir(dir)
         
         # Message(Successful): The dir directory was created
-        MESSAGES_tools.message_successful('Create : ' + dir)
+        MESSAGES_tools.message_successful('MKDIR : ' + dir)
         
     except:
         # Message(Waiting): The dir folder already exists
