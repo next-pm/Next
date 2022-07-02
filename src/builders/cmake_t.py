@@ -121,3 +121,6 @@ class Cmake_t:
 
         # Run the command of build system
         subprocess.run(buildSystemCommand)
+
+
+        MESSAGES_tools.OUTPUT_ACTIVATED = True
